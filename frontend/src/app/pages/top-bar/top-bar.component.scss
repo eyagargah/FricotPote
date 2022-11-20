@@ -1,0 +1,15 @@
+
+ul li {
+    list-style: none;
+}
+ul {
+    display: flex;
+    justify-content: space-between;
+}
+li img {
+    width: 10rem;
+}
+.login {
+    border-radius: 30%;
+    background-color: white;
+}
