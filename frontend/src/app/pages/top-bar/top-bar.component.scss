@@ -1,15 +1,20 @@
 
-ul li {
-    list-style: none;
-}
 ul {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    li {
+        list-style: none;
+        img {
+            width: 7rem;
+        }
+    }
+    .login {
+        border-radius: 1rem;
+        background-color: white;
+        width: 8rem;
+        height: 3rem;
+        margin-right: 1rem;
+    }
 }
-li img {
-    width: 10rem;
-}
-.login {
-    border-radius: 30%;
-    background-color: white;
-}
+ 
