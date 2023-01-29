@@ -1,2 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&display=swap');
+
+html , body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: 'Readex Pro', sans-serif;
+}
+
+.primary-button {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding: 0.7rem 2rem;
+    border-radius: 2rem;
+    border: none;
+    background: linear-gradient(45deg , rgb(254, 48, 114), rgb(255, 89, 64));
+}
+.primary-button:hover {
+    background: linear-gradient(260deg , rgb(254, 48, 114), rgb(255, 89, 64));
+
+}
+
+body {
+    text-align: center;
+}
