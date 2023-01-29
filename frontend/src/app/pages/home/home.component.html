@@ -1,0 +1,9 @@
+<div class="overlay">
+  <app-top-bar [authToken]="authToken"></app-top-bar>
+  <div class="home">
+    <h1>Swipe Right™</h1>
+    <button class="primary-button" (click)="handleClick()">
+      {{ authToken ? "Sign out" : "Create Account" }}
+    </button>
+  </div>
+</div>
