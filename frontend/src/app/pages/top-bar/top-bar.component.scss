@@ -1,20 +1,24 @@
-
-ul {
+nav {
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    li {
-        list-style: none;
-        img {
-            width: 7rem;
+
+    .logo-container {
+        width: 10rem;
+        margin: 1rem;
+
+        .logo {
+            width: 100%;
         }
+        
     }
-    .login {
-        border-radius: 1rem;
-        background-color: white;
-        width: 8rem;
-        height: 3rem;
-        margin-right: 1rem;
+    .nav-button {
+        color: rgb(254, 48, 114);
+        background-color: rgb(255, 255, 255);
+        font-size: 20px;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: none;
+        margin: 10px;
     }
 }
- 
