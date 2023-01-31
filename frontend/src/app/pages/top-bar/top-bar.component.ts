@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { AuthModalComponent } from '../auth-modal/auth-modal.component';
 
 @Component({
   selector: 'app-top-bar',
@@ -10,7 +12,13 @@ export class TopBarComponent implements OnInit {
 
   minimal = true;
   src = '';
-  constructor() {}
+  fileNameDialogRef:MatDialogRef<AuthModalComponent>| undefined;
+
+  constructor(private dialog:MatDialog) {}
+
+  openModal(){
+    this.fileNameDialogRef = this.dialog.open(AuthModalComponent)
+  }
   ngOnInit(): void {
     let navBtn = document.querySelector('.nav-button')as HTMLButtonElement
 
