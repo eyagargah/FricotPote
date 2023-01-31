@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatIconModule} from '@angular/material/icon'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
@@ -10,6 +10,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 import { AuthModalComponent } from './pages/auth-modal/auth-modal.component';
 
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,13 +19,11 @@ import { AuthModalComponent } from './pages/auth-modal/auth-modal.component';
     HomeComponent,
     DashboardComponent,
     OnboardingComponent,
-    AuthModalComponent
+    AuthModalComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, MatIconModule, MatDialogModule],
+  entryComponents: [AuthModalComponent],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
