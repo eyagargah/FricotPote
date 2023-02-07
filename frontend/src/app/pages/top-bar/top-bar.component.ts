@@ -10,23 +10,28 @@ import { AuthModalComponent } from '../auth-modal/auth-modal.component';
 export class TopBarComponent implements OnInit {
   @Input() authToken: any;
 
+  //make logIn button disabled
+  disabled = false
+  title = 'Get Started';
   minimal = true;
   src = '';
-  fileNameDialogRef:MatDialogRef<AuthModalComponent>| undefined;
+  fileNameDialogRef: MatDialogRef<AuthModalComponent> | undefined;
 
-  constructor(private dialog:MatDialog) {}
+  constructor(private dialog: MatDialog) {}
 
-  openModal(){
-    this.fileNameDialogRef = this.dialog.open(AuthModalComponent)
+  openModal() {
+    this.disabled = true
+    this.fileNameDialogRef = this.dialog.open(AuthModalComponent  , {
+      data: { title: 'Get Started!' },
+    })
   }
   ngOnInit(): void {
-    let navBtn = document.querySelector('.nav-button')as HTMLButtonElement
-
-    if (this.authToken && this.minimal){
-      navBtn.style.visibility='hidden'
-    }
-    else {
-      navBtn.style.visibility="visible"
+    let navBtn = document.querySelector('.nav-button') as HTMLButtonElement;
+  
+    if (this.authToken && this.minimal) {
+      navBtn.style.visibility = 'hidden';
+    } else {
+      navBtn.style.visibility = 'visible';
     }
     if (!this.minimal) {
       this.src = '../../../assets/tinder_logo_white.png';
