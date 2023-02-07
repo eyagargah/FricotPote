@@ -10,7 +10,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 import { AuthModalComponent } from './pages/auth-modal/auth-modal.component';
 
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
   ],
   imports: [BrowserModule, AppRoutingModule, MatIconModule, MatDialogModule],
   entryComponents: [AuthModalComponent],
-  providers: [],
+  providers: [ {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
