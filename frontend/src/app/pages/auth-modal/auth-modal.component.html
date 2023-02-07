@@ -5,11 +5,15 @@
   <div class="content mat-dialog-content">
     <div class="logo"></div>
     <div class="text-content">
-      <h3 mat-dialog-title></h3>
+      {{ data.title }}
+
       <p>
         By clicking Log in, you agree to our Terms. Learn how we process your
         data in our privacy Policy. and cookie Policy.
       </p>
+      <form (ngSubmit)="onSubmit">
+        <input type="email" id="email" name="email" placeholder="email" required onchange="setEmail" >
+      </form>
       <div class="logInBtns mat-dialog-actions">
         <button class="google">Continuer avec google</button>
         <button class="facebook">Log in with facebook</button>
@@ -18,11 +22,11 @@
       <h4>Trouble logging in?</h4>
     </div>
     <div class="footer">
-        <h1>GET THE APP!</h1>
-        <div class="download mat-dialog-actions">
-            <button class="appStore">Download on the App store</button>
-            <button class="playStore">Get in on Google Play</button>
-        </div>
+      <h1>GET THE APP!</h1>
+      <div class="download mat-dialog-actions">
+        <button class="appStore">Download on the App store</button>
+        <button class="playStore">Get in on Google Play</button>
+      </div>
     </div>
   </div>
 </div>
