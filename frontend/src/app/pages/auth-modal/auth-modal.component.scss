@@ -1,0 +1,29 @@
+.authModal{
+    margin: 1rem;
+    .header {
+        float: right;
+
+    }
+    .content {
+    margin: 1rem;
+
+       .logo img{
+        width: 4rem;
+       }
+       form{
+        display: flex;
+        flex-direction: column;
+        input {
+            border-radius: 3rem;
+            padding: 8px;
+            margin: 8px;
+            font-size: 1rem;
+        }
+       }
+    }
+   .footer {
+    h2 {
+        font-style: italic;
+    }
+   } 
+}
