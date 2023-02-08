@@ -3,17 +3,24 @@
     <mat-icon mat-dialog-close>highlight_off</mat-icon>
   </div>
   <div class="content mat-dialog-content">
-    <div class="logo"></div>
+    <div class="logo">
+      <img src="../../../assets/tinder.png" alt="">
+    </div>
     <div class="text-content">
-      {{ data.title }}
+      <h2>{{ data.title }}</h2>
 
       <p>
         By clicking Log in, you agree to our Terms. Learn how we process your
         data in our privacy Policy. and cookie Policy.
       </p>
       <form (ngSubmit)="onSubmit">
-        <input type="email" id="email" name="email" placeholder="email" required onchange="setEmail" >
+        <input type="email" id="email" name="email" placeholder="email" required (change)="setEmail($any($event))" >
+        <input type="password" id="password-current" name="password-current" placeholder="password" required (change)="setPwd($any($event))" >
+        <input type="password" id="password-check" name="password-check" placeholder="confirm password" required (change)="setConfirmPwd($any($event))" >
+        <input type="submit" class="secondary-button" value="submit" (click)="submitForm()">
+        <p>{{error}}</p>
       </form>
+      <hr>
       <div class="logInBtns mat-dialog-actions">
         <button class="google">Continuer avec google</button>
         <button class="facebook">Log in with facebook</button>
@@ -22,7 +29,7 @@
       <h4>Trouble logging in?</h4>
     </div>
     <div class="footer">
-      <h1>GET THE APP!</h1>
+      <h2>GET THE APP!</h2>
       <div class="download mat-dialog-actions">
         <button class="appStore">Download on the App store</button>
         <button class="playStore">Get in on Google Play</button>
