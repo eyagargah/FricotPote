@@ -4,7 +4,7 @@
   </div>
   <div class="content mat-dialog-content">
     <div class="logo">
-      <img src="../../../assets/tinder.png" alt="">
+      <img src="../../../assets/tinder.png" alt="" />
     </div>
     <div class="text-content">
       <h2>{{ data.title }}</h2>
@@ -13,14 +13,46 @@
         By clicking Log in, you agree to our Terms. Learn how we process your
         data in our privacy Policy. and cookie Policy.
       </p>
-      <form (ngSubmit)="onSubmit">
-        <input type="email" id="email" name="email" placeholder="email" required (change)="setEmail($any($event))" >
-        <input type="password" id="password-current" name="password-current" placeholder="password" required (change)="setPwd($any($event))" >
-        <input type="password" id="password-check" name="password-check" placeholder="confirm password" required (change)="setConfirmPwd($any($event))" >
-        <input type="submit" class="secondary-button" value="submit" (click)="submitForm()">
-        <p>{{error}}</p>
+      <form>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="email"
+          required
+          (change)="setEmail($any($event))"
+        />
+        <input
+          type="password"
+          id="password-current"
+          name="password-current"
+          placeholder="password"
+          autocomplete="on"
+          required
+          (change)="setPwd($any($event))"
+        />
+        <input
+          type="password"
+          autocomplete="on"
+          id="password-check"
+          name="password-check"
+          placeholder="confirm password"
+          required
+          [hidden]="isSignUp"
+
+          (change)="setConfirmPwd($any($event))"
+        />
+        
+          <input
+            type="submit"
+            class="secondary-button"
+            autocomplete="on"
+            value="submit"
+            (click)="submitForm($event)"
+          />
+        <p>{{ error }}</p>
       </form>
-      <hr>
+      <hr />
       <div class="logInBtns mat-dialog-actions">
         <button class="google">Continuer avec google</button>
         <button class="facebook">Log in with facebook</button>
