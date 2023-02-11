@@ -12,7 +12,6 @@ export class TopBarComponent implements OnInit {
 
   //make logIn button disabled
   disabled = false
-  title = 'Get Started';
   minimal = true;
   src = '';
   fileNameDialogRef: MatDialogRef<AuthModalComponent> | undefined;
@@ -22,7 +21,7 @@ export class TopBarComponent implements OnInit {
   openModal() {
     this.disabled = true
     this.fileNameDialogRef = this.dialog.open(AuthModalComponent  , {
-      data: { title: 'Get Started!' },
+      data: { title: 'Log in!' },
     })
   }
   ngOnInit(): void {
