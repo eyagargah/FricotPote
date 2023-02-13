@@ -21,7 +21,7 @@ export class TopBarComponent implements OnInit {
   openModal() {
     this.disabled = true
     this.fileNameDialogRef = this.dialog.open(AuthModalComponent  , {
-      data: { title: 'Log in!' },
+      data: { title: 'Log in!'},
     })
   }
   ngOnInit(): void {
@@ -32,6 +32,7 @@ export class TopBarComponent implements OnInit {
     } else {
       navBtn.style.visibility = 'visible';
     }
+    
     if (!this.minimal) {
       this.src = '../../../assets/tinder_logo_white.png';
     } else {
