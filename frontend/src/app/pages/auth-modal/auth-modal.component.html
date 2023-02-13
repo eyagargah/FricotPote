@@ -7,7 +7,7 @@
       <img src="../../../assets/tinder.png" alt="" />
     </div>
     <div class="text-content">
-      <h2>{{ data.title }}</h2>
+      <h2 class="title">{{ data.title }}</h2>
 
       <p>
         By clicking Log in, you agree to our Terms. Learn how we process your
@@ -39,17 +39,16 @@
           placeholder="confirm password"
           required
           [hidden]="isSignUp"
-
           (change)="setConfirmPwd($any($event))"
         />
-        
-          <input
-            type="submit"
-            class="secondary-button"
-            autocomplete="on"
-            value="submit"
-            (click)="submitForm($event)"
-          />
+
+        <input
+          type="submit"
+          class="secondary-button"
+          autocomplete="on"
+          value="submit"
+          (click)="submitForm($event)"
+        />
         <p>{{ error }}</p>
       </form>
       <hr />
