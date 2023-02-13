@@ -7,15 +7,14 @@ import { AuthModalComponent } from '../auth-modal/auth-modal.component';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  
   authToken = false;
   fileNameDialogRef: MatDialogRef<AuthModalComponent> | undefined;
 
   constructor(private dialog: MatDialog) {}
 
   openDialog() {
-    this.fileNameDialogRef = this.dialog.open(AuthModalComponent  , {
+    this.fileNameDialogRef = this.dialog.open(AuthModalComponent, {
       data: { title: 'Create Account' },
-    })
+    });
   }
 }
