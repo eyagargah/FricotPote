@@ -8,7 +8,7 @@
   </div>
 </div>
 <h2>Create Account</h2>
-<form onsubmit="handleSubmit">
+<form>
   <section>
     <label for="firstName">First Name</label>
     <input
@@ -17,40 +17,113 @@
       name="firstName"
       placeholder="First Name"
       required
-      onchange="handleChange"
     />
 
     <label for="birthday">Birthday</label>
-    <div class="multiple-container">
+    <div class="multiple-input">
       <input
         type="number"
-        id="birthday"
-        name="birthday"
-        placeholder="birthday"
+        id="dob_day"
+        name="dob_day"
+        placeholder="DD"
         required
-        onchange="handleChange"
       />
       <input
         type="number"
-        id="birthmonth"
-        name="birthmonth"
-        placeholder="birthmonth"
+        id="dob_month"
+        name="dob_month"
+        placeholder="MM"
         required
-        onchange="handleChange"
       />
       <input
         type="number"
-        id="birthyear"
-        name="birthyear"
-        placeholder="birthyear"
+        id="dob_year"
+        name="dob_year"
+        placeholder="YYYY"
         required
-        onchange="handleChange"
       />
     </div>
 
     <label for="gender">Gender</label>
     <div class="multiple-input">
-        <input type="radio" id="gender">
+      <input
+        type="radio"
+        id="gender_identity"
+        name="gender_identity"
+        required
+        value="man"
+        checked="checked"
+      />
+      <label for="gender">Man</label>
+
+      <input
+        type="radio"
+        id="gender_identity"
+        name="gender_identity"
+        required
+        value="woman"
+      />
+      <label for="gender">Woman</label>
+
+      <input
+        type="radio"
+        id="gender_identity"
+        name="gender_identity"
+        required
+        value="more"
+      />
+      <label for="gender">More</label>
     </div>
+
+    <label for="show-gender">Show gender on my profile</label>
+    <input type="radio" id="show-gender" name="show_gender" required />
+
+    <label>Show Me</label>
+    <div class="multiple-input">
+      <input
+        type="radio"
+        id="man_gender_interest"
+        name="man_gender_interest"
+        required
+        value="man"
+        checked="checked"
+      />
+      <label for="man_gender_interest">Man</label>
+
+      <input
+        type="radio"
+        id="woman_gender_interest"
+        name="gender_interest"
+        required
+        value="woman"
+      />
+      <label for="woman_gender_interest">Woman</label>
+
+      <input
+        type="radio"
+        id="everyone_gender_interest"
+        name="gender_interest"
+        required
+        value="everyone"
+      />
+      <label for="woman_gender_interest">More</label>
+
+    </div>
+
+    <label for="about">About me</label>
+    <input
+      type="text"
+      id="about"
+      name="about"
+      required
+      placeholder="I like chinese food..."
+    />
+    <input type="submit" value="submit">
+  </section>
+
+  <section>
+    <label for="url">Profile</label>
+    <input type="url" name="url" id="url" required>
+    <div class="photo-conatiner"></div>
   </section>
 </form>
