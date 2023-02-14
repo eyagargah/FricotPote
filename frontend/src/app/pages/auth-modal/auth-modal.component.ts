@@ -42,7 +42,7 @@ export class AuthModalComponent {
   submitForm(e: any) {
     e.preventDefault();
     try {
-      if (this.pwdToCheck != this.currentPwd) {
+      if (!this.isSignUp && (this.pwdToCheck != this.currentPwd)) {
         this.error = 'Passwords need to match!';
       }else {
         this.dialogRef.close()
