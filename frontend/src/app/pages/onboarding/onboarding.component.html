@@ -16,7 +16,8 @@
       id="firstName"
       name="firstName"
       placeholder="First Name"
-      required
+      required="true"
+      (change)="handleChange($event)"
     />
 
     <label for="birthday">Birthday</label>
@@ -27,6 +28,8 @@
         name="dob_day"
         placeholder="DD"
         required
+        (keyup)="handleChange($event)"
+
       />
       <input
         type="number"
@@ -34,6 +37,8 @@
         name="dob_month"
         placeholder="MM"
         required
+        (keyup)="handleChange($event)"
+
       />
       <input
         type="number"
@@ -41,6 +46,8 @@
         name="dob_year"
         placeholder="YYYY"
         required
+      (keyup)="handleChange($event)"
+
       />
     </div>
 
@@ -53,6 +60,8 @@
         required
         value="man"
         checked="checked"
+      (click)="handleChange($event)"
+
       />
       <label for="gender">Man</label>
 
@@ -62,6 +71,7 @@
         name="gender_identity"
         required
         value="woman"
+        (click)="handleChange($event)"
       />
       <label for="gender">Woman</label>
 
@@ -71,12 +81,13 @@
         name="gender_identity"
         required
         value="more"
+        (click)="handleChange($event)"
       />
       <label for="gender">More</label>
     </div>
 
     <label for="show-gender">Show gender on my profile</label>
-    <input type="radio" id="show-gender" name="show_gender" required />
+    <input type="checkbox" id="show-gender" name="show_gender" required (click)="handleChange($event)" />
 
     <label>Show Me</label>
     <div class="multiple-input">
@@ -87,6 +98,7 @@
         required
         value="man"
         checked="checked"
+        (click)="handleChange($event)"
       />
       <label for="man_gender_interest">Man</label>
 
@@ -96,6 +108,7 @@
         name="gender_interest"
         required
         value="woman"
+        (click)="handleChange($event)"
       />
       <label for="woman_gender_interest">Woman</label>
 
@@ -105,6 +118,7 @@
         name="gender_interest"
         required
         value="everyone"
+        (click)="handleChange($event)"
       />
       <label for="woman_gender_interest">More</label>
 
@@ -117,8 +131,9 @@
       name="about"
       required
       placeholder="I like chinese food..."
+      (keyup)="handleChange($event)"
     />
-    <input type="submit" value="submit">
+    <input type="submit" value="submit" (click)="handleSubmit()">
   </section>
 
   <section>
