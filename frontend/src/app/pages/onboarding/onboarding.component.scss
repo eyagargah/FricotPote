@@ -12,56 +12,62 @@ form {
   display: flex;
   justify-content: center;
 
-  input[type="number"] {
-    width: 10%;
-  }
-  input[type="radio"] {
-    display: none;
-  }
-  input[type="submit"]:hover {
-    background-color: rgb(235, 235, 235);
-  }
-  input[type="submit"]:active {
-    background-color: rgb(235, 115, 115);
-  }
-  input[type="radio"]:checked + label {
-    border: solid 2px rgb(221, 39, 22);
-  }
-  label {
-    margin: 10px 0;
-  }
   section {
     display: flex;
     flex-direction: column;
     padding: 1rem;
     width: 35%;
     text-align: start;
-  }
-  input {
-    padding: 1rem 2rem;
-    margin: 10px 0;
-    font-size: 1rem;
-    border: solid 2px rgb(219, 219, 219);
-    border-radius: 10px;
-  }
-
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  .multiple-input {
-    display: flex;
-    input {
-      margin-right: 10px;
+    input[type="number"] {
+      width: 10%;
     }
-   
+    input[type="radio"] {
+      display: none;
+    }
+    input[type="checkbox"] {
+     display: flex;
+     align-self: flex-start;
+    }
+    input[type="submit"]:hover {
+      background-color: rgb(235, 235, 235);
+    }
+    input[type="submit"]:active {
+      background-color: rgb(235, 115, 115);
+    }
+    input[type="radio"]:checked + label {
+      border: solid 2px rgb(221, 39, 22);
+    }
     label {
-      padding: 10px;
-      border: solid 2px rgb(144, 144, 144);
+      margin: 10px 0;
+    }
+
+    input {
+      padding: 1rem 2rem;
+      margin: 10px 0;
+      font-size: 1rem;
+      border: solid 2px rgb(219, 219, 219);
       border-radius: 10px;
-      transition: all 0.3s;
-      margin-right: 10px;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .multiple-input {
+      display: flex;
+
+      input {
+        margin-right: 10px;
+      }
+
+      label {
+        padding: 10px;
+        border: solid 2px rgb(144, 144, 144);
+        border-radius: 10px;
+        transition: all 0.3s;
+        margin-right: 10px;
+      }
     }
   }
 }
