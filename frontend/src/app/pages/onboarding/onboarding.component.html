@@ -1,12 +1,56 @@
 <div class="header">
-    <div class="logo-container">
-        <img  class="logo" src="../../../assets/color-logo-tinder.png" alt="logo image">
-     </div>
+  <div class="logo-container">
+    <img
+      class="logo"
+      src="../../../assets/color-logo-tinder.png"
+      alt="logo image"
+    />
+  </div>
 </div>
 <h2>Create Account</h2>
 <form onsubmit="handleSubmit">
-    <section>
-        <label for="firstName">First Name</label>
-        <input type="text" id="firstName" name="firstName" placeholder="First Name" required onchange="handleChange">
-    </section>
+  <section>
+    <label for="firstName">First Name</label>
+    <input
+      type="text"
+      id="firstName"
+      name="firstName"
+      placeholder="First Name"
+      required
+      onchange="handleChange"
+    />
+
+    <label for="birthday">Birthday</label>
+    <div class="multiple-container">
+      <input
+        type="number"
+        id="birthday"
+        name="birthday"
+        placeholder="birthday"
+        required
+        onchange="handleChange"
+      />
+      <input
+        type="number"
+        id="birthmonth"
+        name="birthmonth"
+        placeholder="birthmonth"
+        required
+        onchange="handleChange"
+      />
+      <input
+        type="number"
+        id="birthyear"
+        name="birthyear"
+        placeholder="birthyear"
+        required
+        onchange="handleChange"
+      />
+    </div>
+
+    <label for="gender">Gender</label>
+    <div class="multiple-input">
+        <input type="radio" id="gender">
+    </div>
+  </section>
 </form>
