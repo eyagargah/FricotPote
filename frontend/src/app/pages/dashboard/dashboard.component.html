@@ -1,6 +1,20 @@
 <div class="dashboard">
-    <div class="chat-container"></div>
-    <div class="swipe-container">
-        <div class="card-container"></div>
+  <div class="chat-container"></div>
+  <div class="swipe-container">
+    <div class="card-container">
+      <app-card [dataDb]="dataDb"></app-card>
     </div>
+    <div class="card-control">
+      <div class="reload">
+        <mat-icon>replay</mat-icon>
+      </div>
+      <div class="reject">X</div>
+      <div class="accept">
+        <mat-icon>favorite_border</mat-icon>
+      </div>
+      <div class="location">
+        <mat-icon> location_on</mat-icon>
+      </div>
+    </div>
+  </div>
 </div>
