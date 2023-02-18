@@ -9,7 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 import { AuthModalComponent } from './pages/auth-modal/auth-modal.component';
-
+import { CardComponent } from './pages/card/card.component';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/d
     DashboardComponent,
     OnboardingComponent,
     AuthModalComponent,
+    CardComponent
   ],
   imports: [BrowserModule, AppRoutingModule, MatIconModule, MatDialogModule],
   entryComponents: [AuthModalComponent],
