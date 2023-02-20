@@ -2,19 +2,25 @@
   <div class="chat-container"></div>
   <div class="swipe-container">
     <div class="card-container">
-      <app-card [dataDb]="dataDb"></app-card>
+      <div
+      class="swipe"
+      [@cardAnimator]="animationState"
+      (@cardAnimator.done)="resetAnimationState($event)"
+      (swipeleft)="startAnimation('swipeleft')"
+      (swiperight)="startAnimation('swiperight')"
+    >
+      <div class="card"  style="background-image: url({{users[index].url}});"></div>
+        <h3> {{ users[index].name }}</h3> 
+      </div>
+    
     </div>
+
     <div class="card-control">
-      <div class="reload">
-        <mat-icon>replay</mat-icon>
-      </div>
-      <div class="reject">X</div>
-      <div class="accept">
-        <mat-icon>favorite_border</mat-icon>
-      </div>
-      <div class="location">
-        <mat-icon> location_on</mat-icon>
-      </div>
+      <div  class="tno"><mat-icon>replay</mat-icon></div>
+      <div (click)='cardAnimation("swipeleft")'  class="tno">X</div>
+      <div (click)='cardAnimation("swiperight")' class="tyes"><mat-icon>favorite_border</mat-icon></div>
+      <div (click)='sendMsg()' class="tyes"><mat-icon> message</mat-icon></div>
     </div>
   </div>
+ 
 </div>
