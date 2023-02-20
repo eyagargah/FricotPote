@@ -1,23 +1,9 @@
-.container {
-    height: 70vh;
-    aspect-ratio: 2 / 3;
-    perspective: 1000px;
-    perspective-origin: center 50%;
-    transform-style: preserve-3d;
-    position: relative;
-
-    .card {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        border-radius: 20px;
-        
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: 50% 50%;
-        }
+.card {
+    .photo {
+        width: 400px;
+        height: 650px;
+        border-radius: 30px;
+        background-size: cover;
+        background-position: center;
     }
 }
