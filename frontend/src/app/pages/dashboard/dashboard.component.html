@@ -1,29 +1,33 @@
 <div class="dashboard">
-  <div class="chat-container"></div>
+  <div class="chat-container">
+    chat container
+  </div>
   <div class="swipe-container">
-    <h3 *ngIf="direction">You swiped {{direction}}</h3>
+    <h3 *ngIf="direction">You swiped {{ direction }}</h3>
     <div class="card-container">
       <div
-      class="swipe"
-      [@cardAnimator]="animationState"
-      (@cardAnimator.done)="resetAnimationState($event)"
-      (swipeleft)="startAnimation('swipeleft')"
-      (swiperight)="startAnimation('swiperight')"
-    >
-      <div class="card"  style="background-image: url({{users[index].url}});">
-        <h3 class="name"> {{ users[index].name }} {{ users[index].age }}</h3> 
-
+        class="swipe"
+        [@cardAnimator]="animationState"
+        (@cardAnimator.done)="resetAnimationState($event)"
+        (swipeleft)="startAnimation('swipeleft')"
+        (swiperight)="startAnimation('swiperight')"
+      >
+        <div
+          class="card"
+          style="background-image: url({{users[index].url}} ); "
+        >
+          <h3 class="name">{{ users[index].name }} , {{ users[index].age }}</h3>
+        </div>
       </div>
-      </div>
-    
     </div>
 
     <div class="card-control">
-      <div  class="replay"><mat-icon>replay</mat-icon></div>
-      <div (click)='cardAnimation("swipeleft")'  class="reject">X</div>
-      <div (click)='cardAnimation("swiperight")' class="accept"><mat-icon>favorite_border</mat-icon></div>
-      <div (click)='sendMsg()' class="msg"><mat-icon> message</mat-icon></div>
+      <div class="replay" (click)="reload()"><mat-icon>replay</mat-icon></div>
+      <div (click)="cardAnimation('swipeleft')" class="reject">X</div>
+      <div (click)="cardAnimation('swiperight')" class="accept">
+        <mat-icon>favorite_border</mat-icon>
+      </div>
+      <div (click)="sendMsg()" class="msg"><mat-icon> message</mat-icon></div>
     </div>
   </div>
- 
 </div>
