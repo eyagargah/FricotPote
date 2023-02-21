@@ -1,22 +1,30 @@
 [
   {
     "name": "Elon Musk",
-    "url": "../assets/users/elon.jpg"
+    "url": "../assets/users/elon.jpg", 
+    "age":45
   },
   {
     "name": "Oprah Winfrey",
-    "url": "../assets/users/oprah.jpg"
+    "url": "../assets/users/oprah.jpg",
+    "age":65
   },
   {
     "name": "Adam Sandler",
-    "url": "../assets/users/adam.jpg"
+    "url": "../assets/users/adam.jpg",
+    "age":34
+
   },
   {
     "name": "Kevin James",
-    "url": "../assets/users/kevin.jpg"
+    "url": "../assets/users/kevin.jpg",
+    "age":56
+
   },
   {
     "name": "Drew Barrymore",
-    "url": "../assets/users/drew.jpg"
+    "url": "../assets/users/drew.jpg",
+    "age":35
+
   }
 ]
