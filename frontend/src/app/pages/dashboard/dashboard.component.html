@@ -3,7 +3,7 @@
     chat container
   </div>
   <div class="swipe-container">
-    <h3 *ngIf="direction">You swiped {{ direction }}</h3>
+    <h3 *ngIf="direction && !undo">You swiped {{ direction }}</h3>
     <div class="card-container">
       <div
         class="swipe"
