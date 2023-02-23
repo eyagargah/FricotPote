@@ -17,11 +17,10 @@ import data from './users.json';
 export class DashboardComponent {
   animationState: string | undefined;
   parentSubject: Subject<string> = new Subject();
-  public users = data;
-  public index = 0;
-  constructor() {}
+  users = data;
+  index = 0;
   direction: string = '';
-
+  undo = false
   ngOnInit() {
     this.parentSubject?.subscribe((event) => {
       this.startAnimation(event);
@@ -53,9 +52,12 @@ export class DashboardComponent {
 
   rejectUser() {
     console.log('rejected');
+    this.undo= false
+
   }
   acceptUser() {
     console.log('accepted');
+    this.undo= false
   }
   resetAnimationState(state: any) {
     this.animationState = '';
@@ -65,6 +67,7 @@ export class DashboardComponent {
   }
   reload() {
     this.index--
+    this.undo = true
   }
 
   ngOnDestroy() {
