@@ -14,6 +14,7 @@ import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/d
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ChatContainerComponent } from './pages/chat-container/chat-container.component';
 import { ChatHeaderComponent } from './pages/chat-header/chat-header.component';
+import { MatchesComponent } from './pages/matches/matches.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { ChatHeaderComponent } from './pages/chat-header/chat-header.component';
     AuthModalComponent,
     CardComponent,
     ChatContainerComponent,
-    ChatHeaderComponent
+    ChatHeaderComponent,
+    MatchesComponent
   ],
   imports: [BrowserModule, AppRoutingModule, MatIconModule, MatDialogModule,BrowserAnimationsModule,HammerModule],
   entryComponents: [AuthModalComponent],
