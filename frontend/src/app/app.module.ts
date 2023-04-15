@@ -13,6 +13,7 @@ import { CardComponent } from './pages/card/card.component';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ChatContainerComponent } from './pages/chat-container/chat-container.component';
+import { ChatHeaderComponent } from './pages/chat-header/chat-header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { ChatContainerComponent } from './pages/chat-container/chat-container.co
     OnboardingComponent,
     AuthModalComponent,
     CardComponent,
-    ChatContainerComponent
+    ChatContainerComponent,
+    ChatHeaderComponent
   ],
   imports: [BrowserModule, AppRoutingModule, MatIconModule, MatDialogModule,BrowserAnimationsModule,HammerModule],
   entryComponents: [AuthModalComponent],
