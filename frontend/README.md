@@ -1,3 +1,6 @@
+# Project
+This project is a like a tinder but for food 
+
 # Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
