@@ -12,6 +12,7 @@ import { AuthModalComponent } from './pages/auth-modal/auth-modal.component';
 import { CardComponent } from './pages/card/card.component';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ChatContainerComponent } from './pages/chat-container/chat-container.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     DashboardComponent,
     OnboardingComponent,
     AuthModalComponent,
-    CardComponent
+    CardComponent,
+    ChatContainerComponent
   ],
   imports: [BrowserModule, AppRoutingModule, MatIconModule, MatDialogModule,BrowserAnimationsModule,HammerModule],
   entryComponents: [AuthModalComponent],
