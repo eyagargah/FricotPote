@@ -15,6 +15,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ChatContainerComponent } from './pages/chat-container/chat-container.component';
 import { ChatHeaderComponent } from './pages/chat-header/chat-header.component';
 import { MatchesComponent } from './pages/matches/matches.component';
+import { ChatDisplayComponent } from './pages/chat-display/chat-display.component';
+import { ChatInputComponent } from './pages/chat-input/chat-input.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { MatchesComponent } from './pages/matches/matches.component';
     CardComponent,
     ChatContainerComponent,
     ChatHeaderComponent,
-    MatchesComponent
+    MatchesComponent,
+    ChatDisplayComponent,
+    ChatInputComponent
   ],
   imports: [BrowserModule, AppRoutingModule, MatIconModule, MatDialogModule,BrowserAnimationsModule,HammerModule],
   entryComponents: [AuthModalComponent],
