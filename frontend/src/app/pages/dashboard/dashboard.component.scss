@@ -2,9 +2,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  border: solid 2px black;
 
   .swipe-container {
+    border: solid 2px black;
     width: 70%;
     display: flex;
     flex-direction: column;
