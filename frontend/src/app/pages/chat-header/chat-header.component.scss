@@ -10,10 +10,9 @@
     align-items: center;
     padding: 20px;
     color: white;
+    cursor: pointer;
 
-    .logout:hover {
-      color: gray;
-    }
+    
     .img-container {
         height: 30px;
         width: 30px;
@@ -26,6 +25,9 @@
         }
     }
 
+  }
+  mat-icon:hover {
+    color: gray;
   }
 
 }
