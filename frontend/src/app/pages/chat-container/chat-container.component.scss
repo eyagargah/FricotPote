@@ -1,7 +1,20 @@
 .chat-container {
-    border: solid 2px black;
     background-color: white;
     box-shadow: rgba(0,0,0, 0.05) 0px 6px 24px 0px, rgba(0,0,0,0.08) 0px 0px 0px 1px;
     text-align: left;
     z-index: 1;
+    height: 100vh;
+
+    .option {
+        border: none;
+        background-color: white;
+        font-size: 1.4rem;
+        margin: 2px;
+        padding: 0.5rem;
+        border-bottom: solid 2px rgb(243, 33, 33);
+    }
+    .option:disabled {
+        border-bottom: solid 2px rgb(187, 187, 187);
+    }
+    
 }
