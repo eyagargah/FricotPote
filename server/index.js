@@ -35,7 +35,7 @@ app.post("/signup", async (req, res) => {
     const db = client.db("app-data");
     const users = db.collection("users");
 
-    const existingUser = users.findOne({ email });
+    const existingUser = await users.findOne({ email });
 
     if (existingUser) {
       return res.status(409).send("User already exists.please sign in");
