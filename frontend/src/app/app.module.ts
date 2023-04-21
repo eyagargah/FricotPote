@@ -17,6 +17,7 @@ import { ChatHeaderComponent } from './pages/chat-header/chat-header.component';
 import { MatchesComponent } from './pages/matches/matches.component';
 import { ChatDisplayComponent } from './pages/chat-display/chat-display.component';
 import { ChatInputComponent } from './pages/chat-input/chat-input.component';
+import axios from 'axios';
 @NgModule({
   declarations: [
     AppComponent,
