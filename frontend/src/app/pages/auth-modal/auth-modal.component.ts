@@ -50,7 +50,7 @@ export class AuthModalComponent {
       console.log('posting', this.email, this.currentPwd);
       const response = await axios.post('http://localhost:8000/signup', {
         email: this.email,
-        currentPwd: this.currentPwd,
+        password: this.currentPwd,
       });
 
       console.log(response);
