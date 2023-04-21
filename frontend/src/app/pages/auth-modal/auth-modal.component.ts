@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-
+import  axios  from 'axios';
 @Component({
   selector: 'app-auth-modal',
   templateUrl: './auth-modal.component.html',
@@ -17,16 +17,15 @@ export class AuthModalComponent {
 
   constructor(
     public dialogRef: MatDialogRef<any>,
-    private router:Router,
+    private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: { title: string }
-  ) {
-    
-  }
+  ) {}
+
   ngOnInit() {
     this.dialogRef.updateSize('30%', '80%');
-    
-    if(this.data.title == 'Log in!'){
-      this.isSignUp= true
+
+    if (this.data.title == 'Log in!') {
+      this.isSignUp = true;
     }
   }
 
@@ -39,18 +38,23 @@ export class AuthModalComponent {
     this.pwdToCheck = e.target.value;
   }
 
-  submitForm(e: any) {
+  submitForm = async (e: any) => {
     e.preventDefault();
     try {
-      if (!this.isSignUp && (this.pwdToCheck != this.currentPwd)) {
+      if (!this.isSignUp && this.pwdToCheck != this.currentPwd) {
         this.error = 'Passwords need to match!';
-      }else {
-        this.dialogRef.close()
-        this.router.navigateByUrl('onboarding')
+        return;
       }
-      console.log('make a post request to our database');
-    } catch (error) {
-      console.log(error);
+      const response = await axios.post('http://localhost:8000/signup', { email: this.email, currentPwd: this.currentPwd})
+
+      console.log(response)
+      const success = response.status === 201;
+
+      if (success) {
+        this.router.navigateByUrl('onboarding');
+      }
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
 }
