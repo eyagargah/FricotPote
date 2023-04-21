@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import  axios  from 'axios';
+import axios from 'axios';
 @Component({
   selector: 'app-auth-modal',
   templateUrl: './auth-modal.component.html',
@@ -29,7 +29,9 @@ export class AuthModalComponent {
     }
   }
 
-  setEmail(e: any) {}
+  setEmail(e: any) {
+    this.email = e.target.value;
+  }
   setPwd(e: any) {
     this.currentPwd = e.target.value;
   }
@@ -45,9 +47,13 @@ export class AuthModalComponent {
         this.error = 'Passwords need to match!';
         return;
       }
-      const response = await axios.post('http://localhost:8000/signup', { email: this.email, currentPwd: this.currentPwd})
+      console.log('posting', this.email, this.currentPwd);
+      const response = await axios.post('http://localhost:8000/signup', {
+        email: this.email,
+        currentPwd: this.currentPwd,
+      });
 
-      console.log(response)
+      console.log(response);
       const success = response.status === 201;
 
       if (success) {
