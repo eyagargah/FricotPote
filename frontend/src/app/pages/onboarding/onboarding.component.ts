@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-onboarding',
@@ -8,10 +9,10 @@ import { Router } from '@angular/router';
 })
 export class OnboardingComponent {
 
-  constructor(private router:Router){}
+  constructor(private router:Router, private cookiesservice: CookieService){}
   src=''
   formData = {
-    user_id: '',
+    user_id: this.cookiesservice.get('UserId'),
     first_name: '',
     dob_day: '',
     dob_month: '',
@@ -19,7 +20,7 @@ export class OnboardingComponent {
     show_gender: false,
     gender_identity: '',
     gender_interest: '',
-    email: '',
+    email: this.cookiesservice.get('Email'),
     url: '',
     about: '',
     matches: [],
@@ -67,7 +68,8 @@ export class OnboardingComponent {
     console.log(this.formData);
   }
 
-  handleSubmit() {
+  handleSubmit(e:any) {
+    e.preventDefault()
     this.router.navigateByUrl('dashboard')
   }
 }
