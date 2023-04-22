@@ -1,8 +1,13 @@
 const express = require("express");
 const app = express();
 const { v4: uuidv4 } = require("uuid");
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const { MongoClient } = require("mongodb");
+
+const uri =
+  "mongodb+srv://eyagargah:mypassword@cluster0.s98m2ta.mongodb.net/test";
+
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:4200");
   res.header(
@@ -12,19 +17,16 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use(express.json())
-
-const { MongoClient } = require("mongodb");
-const uri =
-  "mongodb+srv://eyagargah:mypassword@cluster0.s98m2ta.mongodb.net/test";
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.json("hello to my app");
 });
 
+//sign up
+
 app.post("/signup", async (req, res) => {
   const client = new MongoClient(uri);
-  console.log(req.body)
   const { email, password } = req.body;
 
   const generatedUserId = uuidv4();
@@ -46,20 +48,51 @@ app.post("/signup", async (req, res) => {
     const data = {
       user_id: generatedUserId,
       email: sanitizedEmail,
-
       hashed_password: hashed_password,
     };
 
-   const insertedUser =  await users.insertOne(data)
+    const insertedUser = await users.insertOne(data);
 
-   const token = jwt.sign(insertedUser, sanitizedEmail, {
-    //expires in 24 hrs
-    expiresIn: 60 * 24,
-   })
+    const token = jwt.sign(insertedUser, sanitizedEmail, {
+      //expires in 24 hrs
+      expiresIn: 60 * 24,
+    });
 
-   res.status(201).json( { token , userId: generatedUserId ,email: sanitizedEmail})
-  } catch(err){
-    console.log(err)
+    res
+      .status(201)
+      .json({ token, userId: generatedUserId, email: sanitizedEmail });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+//Log in
+app.post("/login", async (req, res) => {
+  const client = new MongoClient(uri);
+  const { email, password } = req.body;
+
+  try {
+    await client.connect();
+    const db = client.db("app-data");
+    const users = db.collection("users");
+
+    const existingUser = await users.findOne({ email });
+
+    const correctPassword = await bcrypt.compare(
+      password,
+      existingUser.hashed_password
+    );
+    if (existingUser && correctPassword) {
+      const token = jwt.sign(existingUser, email, {
+        expiresIn: 60 * 24,
+      });
+      return res
+        .status(201)
+        .json({ token, userId: existingUser.user_id, email });
+    }
+    return res.status(400).send("Invalid credentials");
+  } catch (err) {
+    console.log(err);
   }
 });
 
