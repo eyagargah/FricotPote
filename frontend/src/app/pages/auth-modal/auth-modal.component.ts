@@ -10,7 +10,7 @@ import axios from 'axios';
 export class AuthModalComponent {
   error = ' ';
 
-  isSignUp = false;
+  isSignIn = false;
   email: string | undefined;
   currentPwd: string | undefined;
   pwdToCheck: string | undefined;
@@ -25,7 +25,7 @@ export class AuthModalComponent {
     this.dialogRef.updateSize('30%', '80%');
 
     if (this.data.title == 'Log in!') {
-      this.isSignUp = true;
+      this.isSignIn = true;
     }
   }
 
@@ -43,7 +43,7 @@ export class AuthModalComponent {
   submitForm = async (e: any) => {
     e.preventDefault();
     try {
-      if (!this.isSignUp && this.pwdToCheck != this.currentPwd) {
+      if (!this.isSignIn && this.pwdToCheck != this.currentPwd) {
         this.error = 'Passwords need to match!';
         return;
       }
