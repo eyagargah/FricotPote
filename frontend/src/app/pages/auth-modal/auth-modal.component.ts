@@ -53,10 +53,10 @@ export class AuthModalComponent {
         password: this.currentPwd,
       });
 
-      console.log(response);
       const success = response.status === 201;
 
       if (success) {
+        this.dialogRef.close()
         this.router.navigateByUrl('onboarding');
       }
     } catch (err) {
