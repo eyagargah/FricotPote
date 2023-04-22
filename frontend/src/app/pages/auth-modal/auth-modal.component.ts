@@ -52,19 +52,22 @@ export class AuthModalComponent {
       }
       console.log('posting', this.email, this.currentPwd);
    
-      const response = await axios.post('http://localhost:8000/signup', {
-        email: this.email,
-        password: this.currentPwd,
-      });
-      console.table(response.data)
-      this.cookieService.set('Email', JSON.stringify(this.email))
-      this.cookieService.set('UserId', response.data.userId)
-      this.cookieService.set('AuthToken', response.data.token)
-      const success = response.status === 201;
+      const response = await axios.post(`http://localhost:8000/${this.isSignIn ? 'login' : 'signup'}`, { email: this.email, password: this.currentPwd })
 
-      if (success) {
+      this.cookieService.set('Email', JSON.stringify(this.email))
+      this.cookieService.set('UserId', response.data.userId)                                      
+      this.cookieService.set('AuthToken', response.data.token)
+
+      const success = response.status === 201;
+      console.log("🚀 ~ file: auth-modal.component.ts:65 ~ AuthModalComponent ~ submitForm= ~ success:", success)
+      if (success && !this.isSignIn) {
         this.dialogRef.close()
         this.router.navigateByUrl('onboarding');
+      }
+
+      if (success && this.isSignIn) {
+        this.dialogRef.close()
+        this.router.navigateByUrl('dashboard');
       }
     } catch (err) {
       console.log(err);
