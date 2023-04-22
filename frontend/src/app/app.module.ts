@@ -18,6 +18,7 @@ import { MatchesComponent } from './pages/matches/matches.component';
 import { ChatDisplayComponent } from './pages/chat-display/chat-display.component';
 import { ChatInputComponent } from './pages/chat-input/chat-input.component';
 import axios from 'axios';
+import {CookieService} from 'ngx-cookie-service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,7 @@ import axios from 'axios';
   ],
   imports: [BrowserModule, AppRoutingModule, MatIconModule, MatDialogModule,BrowserAnimationsModule,HammerModule],
   entryComponents: [AuthModalComponent],
-  providers: [ {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
+  providers: [ {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}} , CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
