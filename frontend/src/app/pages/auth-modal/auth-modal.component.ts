@@ -53,7 +53,7 @@ export class AuthModalComponent {
    
       const response = await axios.post(`http://localhost:8000/${this.isSignIn ? 'login' : 'signup'}`, { email: this.email, password: this.currentPwd })
 
-      this.cookieService.set('Email', JSON.stringify(this.email))
+      this.cookieService.set('Email', response.data.email)
       this.cookieService.set('UserId', response.data.userId)                                      
       this.cookieService.set('AuthToken', response.data.token)
 
