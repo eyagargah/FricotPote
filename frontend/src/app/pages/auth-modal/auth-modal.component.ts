@@ -50,7 +50,6 @@ export class AuthModalComponent {
         this.error = 'Passwords need to match!';
         return;
       }
-      console.log('posting', this.email, this.currentPwd);
    
       const response = await axios.post(`http://localhost:8000/${this.isSignIn ? 'login' : 'signup'}`, { email: this.email, password: this.currentPwd })
 
