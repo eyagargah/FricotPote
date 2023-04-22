@@ -2,6 +2,8 @@ import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import axios from 'axios';
+import {CookieService} from 'ngx-cookie-service';
+
 @Component({
   selector: 'app-auth-modal',
   templateUrl: './auth-modal.component.html',
@@ -18,7 +20,8 @@ export class AuthModalComponent {
   constructor(
     public dialogRef: MatDialogRef<any>,
     private router: Router,
-    @Inject(MAT_DIALOG_DATA) public data: { title: string }
+    @Inject(MAT_DIALOG_DATA) public data: { title: string },
+    private cookieService:CookieService
   ) {}
 
   ngOnInit() {
@@ -48,11 +51,15 @@ export class AuthModalComponent {
         return;
       }
       console.log('posting', this.email, this.currentPwd);
+   
       const response = await axios.post('http://localhost:8000/signup', {
         email: this.email,
         password: this.currentPwd,
       });
-
+      console.table(response.data)
+      this.cookieService.set('Email', JSON.stringify(this.email))
+      this.cookieService.set('UserId', response.data.userId)
+      this.cookieService.set('AuthToken', response.data.token)
       const success = response.status === 201;
 
       if (success) {
