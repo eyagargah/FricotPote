@@ -8,9 +8,8 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./onboarding.component.scss'],
 })
 export class OnboardingComponent {
-
-  constructor(private router:Router, private cookiesservice: CookieService){}
-  src=''
+  constructor(private router: Router, private cookiesservice: CookieService) {}
+  src = ''
   formData = {
     user_id: this.cookiesservice.get('UserId'),
     first_name: '',
@@ -20,17 +19,17 @@ export class OnboardingComponent {
     show_gender: false,
     gender_identity: '',
     gender_interest: '',
-    email: this.cookiesservice.get('Email'),
     url: '',
     about: '',
     matches: [],
   };
+  
 
   handleChange(event: any) {
     const value = event.target.value;
     const name = event.target.name;
-    console.log(event.target.checked)
-    console.log(name)
+    console.log(event.target.checked);
+    console.log(name);
     switch (name) {
       case 'first_name':
         this.formData.first_name = value;
@@ -51,14 +50,11 @@ export class OnboardingComponent {
         this.formData.gender_identity = value;
         break;
       case 'gender_interest':
-        this.formData.gender_interest =  value;
+        this.formData.gender_interest = value;
         break;
-      case 'email':
-        this.formData.email = value;
-        break;
+
       case 'url':
-        this.src = value
-        console.log(this.formData.url)
+        this.src = value;
         this.formData.url = value;
         break;
       case 'about':
@@ -68,8 +64,8 @@ export class OnboardingComponent {
     console.log(this.formData);
   }
 
-  handleSubmit(e:any) {
-    e.preventDefault()
-    this.router.navigateByUrl('dashboard')
+  handleSubmit(e: any) {
+    e.preventDefault();
+    this.router.navigateByUrl('dashboard');
   }
 }
