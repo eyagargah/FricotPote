@@ -14,6 +14,7 @@ app.use(function (req, res, next) {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
+  res.header('Access-Control-Allow-Methods', 'GET, HEAD, POST, PUT, DELETE, OPTIONS')
   next();
 });
 
@@ -96,7 +97,7 @@ app.post("/login", async (req, res) => {
 });
 //update user profile
 
-app.post("/user", async (req, res) => {
+app.put("/user", async (req, res) => {
   const client = new MongoClient(uri);
   const formData = req.body.formData;
   try {
@@ -117,7 +118,7 @@ app.post("/user", async (req, res) => {
         gender_interest: formData.gender_interest,
         url: formData.url,
         about: formData.about,
-        matches: formData.matches,
+        matches: formData.matches
       },
     };
 
