@@ -24,6 +24,11 @@ app.get("/", (req, res) => {
   res.json("hello to my app");
 });
 
+//get user
+app.get('/user', (req , res)=> {
+  const client = new MongoClient(uri)
+  const userId = req.params.userId
+})
 //sign up
 
 app.post("/signup", async (req, res) => {
@@ -95,6 +100,7 @@ app.post("/login", async (req, res) => {
     console.log(err);
   }
 });
+
 //update user profile
 
 app.put("/user", async (req, res) => {
