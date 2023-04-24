@@ -88,15 +88,47 @@ app.post("/login", async (req, res) => {
       });
       return res
         .status(201)
-        .json({ token, userId: existingUser.user_id, email });
+        .json({ token, userId: existingUser.user_id });
     }
     return res.status(400).send("Invalid credentials");
-  } catch (err) {
+  } catch (err) {f
     console.log(err);
   }
 });
+//update user profile
 
-//get users
+app.post('/user', async (req, res)=> {
+  const client = new MongoClient(uri)
+  const formData = req.body.formData
+  try {
+    await client.connect()
+    const db = client.db('app-data')
+    const users = db.collection("users")
+
+    const query = { user_id : formData.user_id}
+
+    const updateDocument = {
+      $set: {
+        first_name: formData.first_name,
+        dob_day: formData.dob_day,
+        dob_month: formData.dob_month,
+        dob_year: formData.dob_year,
+        show_gender: formData.show_gender,
+        gender_identity: formData.gender_identity,
+        gender_interest: formData.gender_interest,
+        url:formData.url,
+        about: formData.about,
+        matches: formData.matches
+      }
+    }
+
+  }
+
+  catch(err){
+    console.log(err)
+  }
+})
+//get all users
 app.get("/users", async (req, res) => {
   const client = new MongoClient(uri);
 
