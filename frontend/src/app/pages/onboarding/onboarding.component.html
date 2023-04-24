@@ -146,7 +146,7 @@
           (keyup)="handleChange($event)"
         />
         <div class="photo-container">
-          <img [src]="src" alt="profile picture preview" />
+          <img *ngIf="src" [src]="src" alt="profile picture preview" />
         </div>
       </section>
     </form>
