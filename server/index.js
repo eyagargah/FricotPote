@@ -86,26 +86,25 @@ app.post("/login", async (req, res) => {
       const token = jwt.sign(existingUser, email, {
         expiresIn: 60 * 24,
       });
-      return res
-        .status(201)
-        .json({ token, userId: existingUser.user_id });
+      return res.status(201).json({ token, userId: existingUser.user_id });
     }
     return res.status(400).send("Invalid credentials");
-  } catch (err) {f
+  } catch (err) {
+    f;
     console.log(err);
   }
 });
 //update user profile
 
-app.post('/user', async (req, res)=> {
-  const client = new MongoClient(uri)
-  const formData = req.body.formData
+app.post("/user", async (req, res) => {
+  const client = new MongoClient(uri);
+  const formData = req.body.formData;
   try {
-    await client.connect()
-    const db = client.db('app-data')
-    const users = db.collection("users")
+    await client.connect();
+    const db = client.db("app-data");
+    const users = db.collection("users");
 
-    const query = { user_id : formData.user_id}
+    const query = { user_id: formData.user_id };
 
     const updateDocument = {
       $set: {
@@ -116,18 +115,18 @@ app.post('/user', async (req, res)=> {
         show_gender: formData.show_gender,
         gender_identity: formData.gender_identity,
         gender_interest: formData.gender_interest,
-        url:formData.url,
+        url: formData.url,
         about: formData.about,
-        matches: formData.matches
-      }
-    }
+        matches: formData.matches,
+      },
+    };
 
+    const insertedUser = await users.updateOne(query, updateDocument);
+    res.send(insertedUser);
+  } finally {
+    await client.close()
   }
-
-  catch(err){
-    console.log(err)
-  }
-})
+});
 //get all users
 app.get("/users", async (req, res) => {
   const client = new MongoClient(uri);
