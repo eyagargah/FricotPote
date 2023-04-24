@@ -8,13 +8,17 @@ const { MongoClient } = require("mongodb");
 const uri =
   "mongodb+srv://eyagargah:mypassword@cluster0.s98m2ta.mongodb.net/test";
 
+/*******Cors********/
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:4200");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
-  res.header('Access-Control-Allow-Methods', 'GET, HEAD, POST, PUT, DELETE, OPTIONS')
+  res.header(
+    "Access-Control-Allow-Methods",
+    "GET, HEAD, POST, PUT, DELETE, OPTIONS"
+  );
   next();
 });
 
@@ -24,11 +28,13 @@ app.get("/", (req, res) => {
   res.json("hello to my app");
 });
 
+/*********User Methods*******/
+
 //get user
-app.get('/user', (req , res)=> {
-  const client = new MongoClient(uri)
-  const userId = req.params.userId
-})
+app.get("/user", (req, res) => {
+  const client = new MongoClient(uri);
+  const userId = req.params.userId;
+});
 //sign up
 
 app.post("/signup", async (req, res) => {
@@ -124,14 +130,14 @@ app.put("/user", async (req, res) => {
         gender_interest: formData.gender_interest,
         url: formData.url,
         about: formData.about,
-        matches: formData.matches
+        matches: formData.matches,
       },
     };
 
     const insertedUser = await users.updateOne(query, updateDocument);
     res.send(insertedUser);
   } finally {
-    await client.close()
+    await client.close();
   }
 });
 //get all users
