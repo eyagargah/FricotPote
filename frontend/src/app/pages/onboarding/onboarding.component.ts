@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -9,7 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class OnboardingComponent {
   constructor(private router: Router, private cookiesservice: CookieService) {}
-  src = ''
+  src = '';
   formData = {
     user_id: this.cookiesservice.get('UserId'),
     first_name: '',
@@ -23,7 +24,6 @@ export class OnboardingComponent {
     about: '',
     matches: [],
   };
-  
 
   handleChange(event: any) {
     const value = event.target.value;
@@ -64,8 +64,17 @@ export class OnboardingComponent {
     console.log(this.formData);
   }
 
-  handleSubmit(e: any) {
+  handleSubmit = async (e: any) => {
     e.preventDefault();
-    this.router.navigateByUrl('dashboard');
-  }
+    try {
+      const response = await axios.put(`http://localhost:8000/user`, {
+        formData: this.formData,
+      });
+      const succes = response.status === 200;
+
+      if (succes) this.router.navigateByUrl('dashboard');
+    } catch (err) {
+      console.log(err);
+    }
+  };
 }
