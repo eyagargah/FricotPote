@@ -31,9 +31,23 @@ app.get("/", (req, res) => {
 /*********User Methods*******/
 
 //get user
-app.get("/user", (req, res) => {
+app.get("/user",async (req, res) => {
   const client = new MongoClient(uri);
   const userId = req.params.userId;
+
+  try {
+    await client.connect()
+    const db = client.db('app-data')
+
+    const users = db.collection('users')
+    const query = { userId: userId}
+
+    const user = await users.findOne(query)
+    res.send(user)
+
+  }finally {
+    client.close()
+  }
 });
 
 //update user profile
