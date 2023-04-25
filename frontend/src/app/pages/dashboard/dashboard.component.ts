@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { Subject } from 'rxjs';
 import * as kf from './keyframes';
 import data from './users.json';
+import axios from 'axios';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -15,16 +17,23 @@ import data from './users.json';
   ],
 })
 export class DashboardComponent {
+
+  constructor(private cookiesService:CookieService){}
+  userId = this.cookiesService.get('UserId')
   animationState: string | undefined;
   parentSubject: Subject<string> = new Subject();
   users = data;
   index = 0;
   direction: string = '';
   undo = false
+  user : any
+ 
+ 
   ngOnInit() {
     this.parentSubject?.subscribe((event) => {
       this.startAnimation(event);
     });
+    
   }
 
   cardAnimation(value: string) {
