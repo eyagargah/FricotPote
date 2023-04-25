@@ -50,7 +50,7 @@ export class AuthModalComponent {
         this.error = 'Passwords need to match!';
         return;
       }
-   
+      
       const response = await axios.post(`http://localhost:8000/${this.isSignIn ? 'login' : 'signup'}`, { email: this.email, password: this.currentPwd })
 
       this.cookieService.set('Email', response.data.email)
@@ -59,6 +59,7 @@ export class AuthModalComponent {
 
       const success = response.status === 201;
       console.log("🚀 ~ file: auth-modal.component.ts:65 ~ AuthModalComponent ~ submitForm= ~ success:", success)
+    
       if (success && !this.isSignIn) {
         this.dialogRef.close()
         this.router.navigateByUrl('onboarding');
