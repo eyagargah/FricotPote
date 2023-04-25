@@ -28,11 +28,24 @@ export class DashboardComponent {
   undo = false
   user : any
  
+  getUser= async() =>{
+    try {
+    const response = await axios.get(`http://localhost:8000/user`, {
+        params: {userId: this.userId}
+      })
+     this.user = response.data
+      console.log(this.user)
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
  
   ngOnInit() {
     this.parentSubject?.subscribe((event) => {
       this.startAnimation(event);
     });
+    this.getUser()
     
   }
 
