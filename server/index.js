@@ -31,22 +31,23 @@ app.get("/", (req, res) => {
 /*********User Methods*******/
 
 //get user
-app.get("/user",async (req, res) => {
+app.get("/user", async (req, res) => {
   const client = new MongoClient(uri);
-  const userId = req.params.userId;
+  const userId = req.query.userId;
+
+  console.log("🚀 ~ file: index.js:37 ~ app.get ~ userId:", userId);
 
   try {
-    await client.connect()
-    const db = client.db('app-data')
+    await client.connect();
+    const db = client.db("app-data");
 
-    const users = db.collection('users')
-    const query = { userId: userId}
+    const users = db.collection("users");
+    const query = { user_id: userId };
 
-    const user = await users.findOne(query)
-    res.send(user)
-
-  }finally {
-    client.close()
+    const user = await users.findOne(query);
+    res.send(user);
+  } finally {
+    await client.close();
   }
 });
 
@@ -152,11 +153,9 @@ app.post("/login", async (req, res) => {
     }
     return res.status(400).send("Invalid credentials");
   } catch (err) {
-
     console.log(err);
   }
 });
-
 
 //get all users
 app.get("/users", async (req, res) => {
