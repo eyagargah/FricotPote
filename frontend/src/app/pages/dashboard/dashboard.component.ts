@@ -20,6 +20,7 @@ export class DashboardComponent {
 
   constructor(private cookiesService:CookieService){}
   userId = this.cookiesService.get('UserId')
+  
   animationState: string | undefined;
   parentSubject: Subject<string> = new Subject();
   users = data;
@@ -30,11 +31,12 @@ export class DashboardComponent {
  
   getUser= async() =>{
     try {
-    const response = await axios.get(`http://localhost:8000/user`, {
+    const response = await axios.get('http://localhost:8000/user', {
         params: {userId: this.userId}
       })
      this.user = response.data
-      console.log(this.user)
+      console.log("🚀 ~ file: dashboard.component.ts:38 ~ DashboardComponent ~ getUser=async ~ user:", this.user)
+      
     }
     catch(err){
       console.log(err)
@@ -46,6 +48,7 @@ export class DashboardComponent {
       this.startAnimation(event);
     });
     this.getUser()
+    console.log("🚀 ~ file: dashboard.component.ts:23 ~ DashboardComponent ~ userId:", this.userId)
     
   }
 
