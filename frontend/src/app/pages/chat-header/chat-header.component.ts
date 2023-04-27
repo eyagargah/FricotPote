@@ -12,13 +12,12 @@ export class ChatHeaderComponent {
   constructor(private router:Router, private cookiesservice: CookieService){}
 
   @Input() user: any
- ngOnInit(){
 
- }
   logout(){
     this.cookiesservice.delete('UserId')
     this.cookiesservice.delete('AuthToken')
     this.cookiesservice.delete('Email')
     this.router.navigateByUrl('home')
+    
   }
 }
