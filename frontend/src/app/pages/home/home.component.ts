@@ -1,16 +1,20 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AuthModalComponent } from '../auth-modal/auth-modal.component';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  authToken = false;
-  fileNameDialogRef: MatDialogRef<AuthModalComponent> | undefined;
+  constructor(
+    private dialog: MatDialog,
+    private cookiesServices: CookieService
+  ) {}
 
-  constructor(private dialog: MatDialog) {}
+  authToken = this.cookiesServices.get('AuthToken');
+  fileNameDialogRef: MatDialogRef<AuthModalComponent> | undefined;
 
   openDialog() {
     this.fileNameDialogRef = this.dialog.open(AuthModalComponent, {
