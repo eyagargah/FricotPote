@@ -1,9 +1,9 @@
 <div class="container">
   <div class="profile">
-    <div class="img-container">
+    <div class="img-container" *ngIf="user">
       <img src={{user.url}} alt="user profile picture" />
     </div>
-    <h3>{{user.first_name}}</h3>
+    <h3 *ngIf="user">{{user.first_name}}</h3>
   </div>
   <mat-icon class="logout" (click)="logout()">keyboard_backspace</mat-icon>
 </div>
