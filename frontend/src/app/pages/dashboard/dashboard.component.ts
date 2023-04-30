@@ -17,39 +17,37 @@ import { CookieService } from 'ngx-cookie-service';
   ],
 })
 export class DashboardComponent {
+  constructor(private cookiesService: CookieService) {}
+  userId = this.cookiesService.get('UserId');
 
-  constructor(private cookiesService:CookieService){}
-  userId = this.cookiesService.get('UserId')
-  
   animationState: string | undefined;
   parentSubject: Subject<string> = new Subject();
-  users = data;
+  users=  data;
   index = 0;
   direction: string = '';
-  undo = false
-  user : any
- 
-  getUser= async() =>{
+  undo = false;
+  user: any;
+
+  getUser = async () => {
     try {
-    const response = await axios.get('http://localhost:8000/user', {
-        params: {userId: this.userId}
-      })
-     this.user = response.data
-      console.log("🚀 ~ file: dashboard.component.ts:38 ~ DashboardComponent ~ getUser=async ~ user:", this.user)
-      
+      const response = await axios.get('http://localhost:8000/user', {
+        params: { userId: this.userId },
+      });
+      this.user = response.data;
+      console.log(
+        '🚀 ~ file: dashboard.component.ts:38 ~ DashboardComponent ~ getUser=async ~ user:',
+        this.user
+      );
+    } catch (err) {
+      console.log(err);
     }
-    catch(err){
-      console.log(err)
-    }
-  }
- 
+  };
+
   ngOnInit() {
     this.parentSubject?.subscribe((event) => {
       this.startAnimation(event);
     });
-    this.getUser()
-    console.log("🚀 ~ file: dashboard.component.ts:23 ~ DashboardComponent ~ userId:", this.userId)
-    
+    this.getUser();
   }
 
   cardAnimation(value: string) {
@@ -77,12 +75,11 @@ export class DashboardComponent {
 
   rejectUser() {
     console.log('rejected');
-    this.undo= false
-
+    this.undo = false;
   }
   acceptUser() {
     console.log('accepted');
-    this.undo= false
+    this.undo = false;
   }
   resetAnimationState(state: any) {
     this.animationState = '';
@@ -91,8 +88,8 @@ export class DashboardComponent {
     console.log('send msg is working');
   }
   reload() {
-    this.index--
-    this.undo = true
+    this.index--;
+    this.undo = true;
   }
 
   ngOnDestroy() {
