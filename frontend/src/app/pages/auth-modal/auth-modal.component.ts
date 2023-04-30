@@ -68,7 +68,10 @@ export class AuthModalComponent {
       if (success && this.isSignIn) {
         this.dialogRef.close()
         this.router.navigateByUrl('dashboard');
+
+       
       }
+      
     } catch (err) {
       console.log(err);
     }
