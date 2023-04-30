@@ -22,7 +22,7 @@ export class DashboardComponent {
 
   animationState: string | undefined;
   parentSubject: Subject<string> = new Subject();
-  users=  data;
+  users: any
   index = 0;
   direction: string = '';
   undo = false;
@@ -42,6 +42,19 @@ export class DashboardComponent {
       console.log(err);
     }
   };
+
+  getGenderedUsers = async() =>{
+
+    try {
+      const response = await axios.get('http://localhost:8000:gendered-users' , {
+        params : { gender: this.user.gender_interest}
+      })
+      this.users = response.data
+    }
+    catch(err) {
+      console.log(err)
+    }
+  }
 
   ngOnInit() {
     this.parentSubject?.subscribe((event) => {
