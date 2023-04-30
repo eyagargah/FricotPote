@@ -172,4 +172,20 @@ app.get("/users", async (req, res) => {
   }
 });
 
+//get all users
+app.get("/gendered-users", async (req, res) => {
+  const client = new MongoClient(uri);
+  const gender = req.query.gender
+  const { query } = { gender_identity : gender}
+  try {
+    await client.connect();
+    const db = client.db("app-data");
+    const users = db.collection("users");
+    const returnedUsers = await users.find().toArray();
+    res.send(returnedUsers);
+  } finally {
+    await client.close();
+  }
+});
+
 app.listen(8000, () => console.log(`Server Started at ${8000}`));
