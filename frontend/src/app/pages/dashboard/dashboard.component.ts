@@ -22,7 +22,7 @@ export class DashboardComponent {
 
   animationState: string | undefined;
   parentSubject: Subject<string> = new Subject();
-  users: any
+  users= data
   index = 0;
   direction: string = '';
   undo = false;
@@ -44,12 +44,12 @@ export class DashboardComponent {
   };
 
   getGenderedUsers = async() =>{
-
     try {
-      const response = await axios.get('http://localhost:8000:gendered-users' , {
-        params : { gender: this.user.gender_interest}
+      const response = await axios.get('http://localhost:8000/gendered-users' , {
+        params : { gender_identity: this.user.gender_identity}
       })
       this.users = response.data
+      console.log("🚀 ~ file: dashboard.component.ts:53 ~ DashboardComponent ~ getGenderedUsers=async ~ users:", this.users)
     }
     catch(err) {
       console.log(err)
@@ -61,6 +61,8 @@ export class DashboardComponent {
       this.startAnimation(event);
     });
     this.getUser();
+    this.getGenderedUsers()
+    
   }
 
   cardAnimation(value: string) {
