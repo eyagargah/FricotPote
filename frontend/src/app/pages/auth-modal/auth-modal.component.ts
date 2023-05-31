@@ -56,6 +56,7 @@ export class AuthModalComponent {
       this.cookieService.set('Email', JSON.stringify(this.email))
       this.cookieService.set('UserId', response.data.userId)                                      
       this.cookieService.set('AuthToken', response.data.token)
+      
 
       const success = response.status === 201;
       console.log("🚀 ~ file: auth-modal.component.ts:65 ~ AuthModalComponent ~ submitForm= ~ success:", success)
