@@ -2,7 +2,6 @@ import { animate, keyframes, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
 import { Subject } from 'rxjs';
 import * as kf from './keyframes';
-import data from './users.json';
 import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
 @Component({
@@ -17,52 +16,72 @@ import { CookieService } from 'ngx-cookie-service';
   ],
 })
 export class DashboardComponent {
+ 
   constructor(private cookiesService: CookieService) {}
   userId = this.cookiesService.get('UserId');
-
   animationState: string | undefined;
   parentSubject: Subject<string> = new Subject();
-  users= data
+  users: any;
   index = 0;
   direction: string = '';
   undo = false;
   user: any;
+  gender: any;
+  matches: any;
+  matchedUserId: any
 
+  getSelectedUser(selectedUser: any){
+    if(this.direction=='right'){
+      console.log(selectedUser.user_id)
+      this.matchedUserId= selectedUser.user_id
+      
+    }
+  }
+
+  updateMatches = async()=>{
+    try{
+      const response = await axios.put('http://localhost:8000/addmatch', {
+        userId: this.userId,
+        matchedUserId: this.matchedUserId
+      })
+
+    }catch(err){
+      console.log(err)
+    }
+  }
   getUser = async () => {
     try {
       const response = await axios.get('http://localhost:8000/user', {
         params: { userId: this.userId },
       });
       this.user = response.data;
-      console.log(
-        '🚀 ~ file: dashboard.component.ts:38 ~ DashboardComponent ~ getUser=async ~ user:',
-        this.user
-      );
+      this.gender = this.user.gender_interest;
     } catch (err) {
       console.log(err);
     }
   };
 
-  getGenderedUsers = async() =>{
+  getGenderedUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/gendered-users' , {
-        params : { gender_identity: this.user.gender_identity}
-      })
-      this.users = response.data
-      console.log("🚀 ~ file: dashboard.component.ts:53 ~ DashboardComponent ~ getGenderedUsers=async ~ users:", this.users)
+      const response = await axios.get(
+        'http://localhost:8000/gendered-users/',
+        {
+          params: { gender: this.gender },
+        }
+      );
+      this.users = response.data;
+    } catch (err) {
+      console.log(err);
     }
-    catch(err) {
-      console.log(err)
-    }
-  }
+  };
 
   ngOnInit() {
     this.parentSubject?.subscribe((event) => {
       this.startAnimation(event);
     });
     this.getUser();
-    this.getGenderedUsers()
-    
+    setTimeout(this.getGenderedUsers, 1000);
+    this.getGenderedUsers();
   }
 
   cardAnimation(value: string) {
@@ -73,6 +92,9 @@ export class DashboardComponent {
     return new Promise((res) => setTimeout(res, ms));
   }
 
+  getUserCard(event: any) {
+    console.log(event.target);
+  }
   async startAnimation(state: any) {
     if (!this.animationState) {
       if (state == 'swiperight') {
