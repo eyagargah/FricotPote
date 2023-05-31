@@ -1,20 +1,21 @@
 <div class="dashboard">
   <app-chat-container [user]="user"></app-chat-container>
-  <div class="swipe-container">
+  <div class="swipe-container" *ngIf="users.length>0">
     <h3 *ngIf="direction && !undo">You swiped {{ direction }}</h3>
-    <div class="card-container">
+    <div class="card-container" (click)="getUserCard($event)">
       <div
         class="swipe"
         [@cardAnimator]="animationState"
         (@cardAnimator.done)="resetAnimationState($event)"
         (swipeleft)="startAnimation('swipeleft')"
         (swiperight)="startAnimation('swiperight')"
+        (swipe)="getSelectedUser(users[index])"
       >
         <div
           class="card"
           style="background-image: url({{users[index].url}} ); "
         >
-          <h3 class="name">{{ users[index].name }} , {{ users[index].age }}</h3>
+          <h3 class="name">{{ users[index].first_name }} , {{users[index].about}}</h3>
         </div>
       </div>
     </div>
