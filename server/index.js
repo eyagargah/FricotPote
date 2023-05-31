@@ -35,8 +35,6 @@ app.get("/user", async (req, res) => {
   const client = new MongoClient(uri);
   const userId = req.query.userId;
 
-  console.log("🚀 ~ file: index.js:37 ~ app.get ~ userId:", userId);
-
   try {
     await client.connect();
     const db = client.db("app-data");
@@ -172,20 +170,21 @@ app.get("/users", async (req, res) => {
   }
 });
 
-//get  users by gender
+//get users by gender
 app.get("/gendered-users", async (req, res) => {
   const client = new MongoClient(uri);
-  const gender = req.query.gender_identity
-  
+  const gender = req.query.gender
   try {
     await client.connect();
     const db = client.db("app-data");
     const users = db.collection("users");
-    const query = {gender_identity: {$eq: 'woman'}}
 
-
+    const query = {gender_identity: {$eq: gender}}
+    console.log(query)
+    
     const returnedUsers = await users.find(query).toArray();
     res.send(returnedUsers);
+    console.log(returnedUsers)
   } finally {
     await client.close();
   }
