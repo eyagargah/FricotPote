@@ -34,7 +34,6 @@ export class DashboardComponent {
     if(this.direction=='right'){
       console.log(selectedUser.user_id)
       this.matchedUserId= selectedUser.user_id
-      
     }
   }
 
@@ -44,6 +43,7 @@ export class DashboardComponent {
         userId: this.userId,
         matchedUserId: this.matchedUserId
       })
+      console.log(response.data)
 
     }catch(err){
       console.log(err)
