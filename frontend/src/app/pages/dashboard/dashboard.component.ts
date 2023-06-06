@@ -28,22 +28,23 @@ export class DashboardComponent {
   user: any;
   gender: any;
   matches: any;
-  matchedUserId: any
+  swipedUserId: any
 
   getSelectedUser(selectedUser: any){
     if(this.direction=='right'){
       console.log(selectedUser.user_id)
-      this.matchedUserId= selectedUser.user_id
+      this.swipedUserId= selectedUser.user_id
+      this.updateMatches(this.swipedUserId)
     }
   }
 
-  updateMatches = async()=>{
+  updateMatches = async(swipedUserId: any)=>{
     try{
       const response = await axios.put('http://localhost:8000/addmatch', {
         userId: this.userId,
-        matchedUserId: this.matchedUserId
+        matchedUserId: swipedUserId
       })
-      console.log(response.data)
+      this.getUser()
 
     }catch(err){
       console.log(err)
