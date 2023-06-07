@@ -11,6 +11,7 @@ export class ChatContainerComponent {
   constructor(private cookiesservice: CookieService) {}
   userId = this.cookiesservice.get('UserId');
   @Input() user: any;
+  @Input() matches: any
 
   getUser = async () => {
     try {
