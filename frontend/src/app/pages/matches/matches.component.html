@@ -1,1 +1,5 @@
-<p>matches works!</p>
+<div class="matches" *ngFor="let user of matchedUsers">
+    <div class="user">
+        <img src={{user.url}} alt="user profile picture" />
+    </div>
+</div>
