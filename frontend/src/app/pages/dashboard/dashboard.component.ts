@@ -16,7 +16,6 @@ import { CookieService } from 'ngx-cookie-service';
   ],
 })
 export class DashboardComponent {
- 
   constructor(private cookiesService: CookieService) {}
   userId = this.cookiesService.get('UserId');
   animationState: string | undefined;
@@ -28,28 +27,37 @@ export class DashboardComponent {
   user: any;
   gender: any;
   matches: any;
-  swipedUserId: any
+  swipedUserId: any;
 
-  getSelectedUser(selectedUser: any){
-    if(this.direction=='right'){
-      console.log(selectedUser.user_id)
-      this.swipedUserId= selectedUser.user_id
-      this.updateMatches(this.swipedUserId)
+  filteredGenderedUsers: any
+  getSelectedUser(selectedUser: any) {
+    if (this.direction == 'right') {
+      console.log(selectedUser.user_id);
+      this.swipedUserId = selectedUser.user_id;
+      if(this.matches.filter((m: { user_id: any; })=> {
+        m.user_id == this.swipedUserId
+      }).length === 0)
+        {
+          this.updateMatches(this.swipedUserId)
+          console.log('this user is added to matches!!!!')
+        }
     }
   }
 
-  updateMatches = async(swipedUserId: any)=>{
-    try{
+
+  updateMatches = async (swipedUserId: any) => {
+    try {
       const response = await axios.put('http://localhost:8000/addmatch', {
         userId: this.userId,
-        matchedUserId: swipedUserId
-      })
-      this.getUser()
-
-    }catch(err){
-      console.log(err)
+        matchedUserId: swipedUserId,
+      });
+      this.getUser();
+      
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
+
   getUser = async () => {
     try {
       const response = await axios.get('http://localhost:8000/user', {
@@ -57,6 +65,7 @@ export class DashboardComponent {
       });
       this.user = response.data;
       this.gender = this.user.gender_interest;
+      console.log(this.matches);
     } catch (err) {
       console.log(err);
     }
@@ -82,7 +91,6 @@ export class DashboardComponent {
     });
     this.getUser();
     setTimeout(this.getGenderedUsers, 1000);
-    this.getGenderedUsers();
   }
 
   cardAnimation(value: string) {
