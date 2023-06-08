@@ -27,33 +27,35 @@ export class DashboardComponent {
   user: any;
   gender: any;
   matches: any;
+  matchedUsers: any;
   swipedUserId: any;
 
-  filteredGenderedUsers: any
+  filteredGenderedUsers: any;
   getSelectedUser(selectedUser: any) {
     if (this.direction == 'right') {
-      console.log(selectedUser.user_id);
       this.swipedUserId = selectedUser.user_id;
-      if(this.matches.filter((m: { user_id: any; })=> m.user_id == selectedUser.user_id).length == 0){
-        this.updateMatches(this.swipedUserId)
-        console.log('added user to matches!!!!')
+      if (
+        this.matches.filter(
+          (m: any) => m == selectedUser
+        ).length == 0
+      ) {
+        this.updateMatches(selectedUser);
       }
     }
   }
 
-
-  updateMatches = async (swipedUserId: any) => {
+  updateMatches = async (selectedUser: any) => {
     try {
       const response = await axios.put('http://localhost:8000/addmatch', {
         userId: this.userId,
-        matchedUserId: swipedUserId,
+        matchedUser: selectedUser,
       });
       this.getUser();
-
     } catch (err) {
       console.log(err);
     }
   };
+
 
   getUser = async () => {
     try {
@@ -62,7 +64,7 @@ export class DashboardComponent {
       });
       this.user = response.data;
       this.gender = this.user.gender_interest;
-      this.matches = this.user.matches
+      this.matches = this.user.matches;
     } catch (err) {
       console.log(err);
     }
