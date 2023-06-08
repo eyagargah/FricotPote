@@ -9,7 +9,17 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class MatchesComponent {
   constructor(){}
-  matchedUsers: any
-  @Input() matches: any
+  matches: any
+  
+  getMatches = async(userId: any)=> {
+    try {
+      const response = await axios.get('http://localhost:8000/users', {
+        params: { user_id: userId}
+      })
+      this.matches = response.data
+    }catch(err){
+      console.log(err)
+    }
+  }
  
 }
