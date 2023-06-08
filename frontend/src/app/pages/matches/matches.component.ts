@@ -14,7 +14,7 @@ export class MatchesComponent {
   getMatches = async(userId: any)=> {
     try {
       const response = await axios.get('http://localhost:8000/users', {
-        params: { user_id: userId}
+        params: { userIds: userId}
       })
       this.matches = response.data
     }catch(err){
