@@ -1,5 +1,5 @@
 <div class="dashboard">
-  <app-chat-container [matches]="matches" [user]="user"></app-chat-container>
+  <app-chat-container [user]="user"></app-chat-container>
   <div class="swipe-container" *ngIf="users.length>0">
     <h3 *ngIf="direction && !undo">You swiped {{ direction }}</h3>
     <div class="card-container" >
