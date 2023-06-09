@@ -27,7 +27,6 @@ export class DashboardComponent {
   user: any;
   gender: any;
   matches: any;
-  matchedUsers: any;
   swipedUserId: any;
 
   filteredGenderedUsers: any;
