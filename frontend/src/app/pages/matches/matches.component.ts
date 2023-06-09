@@ -9,7 +9,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class MatchesComponent {
   constructor(){}
-  matches: any
+  @Input() matches: any
   
   getMatches = async(userId: any)=> {
     try {
