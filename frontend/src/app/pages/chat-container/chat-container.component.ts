@@ -11,7 +11,7 @@ export class ChatContainerComponent {
   constructor(private cookiesservice: CookieService) {}
   userId = this.cookiesservice.get('UserId');
   @Input() user: any;
-  @Input() matchedUsers: any
+  @Input() matches: any
 
   getUser = async () => {
     try {
@@ -19,10 +19,7 @@ export class ChatContainerComponent {
         params: { userId: this.userId },
       });
       this.user = response.data;
-      console.log(
-        '🚀 ~ file: dashboard.component.ts:38 ~ DashboardComponent ~ getUser=async ~ user:',
-        this.user
-      );
+    
     } catch (err) {
       console.log(err);
     }
