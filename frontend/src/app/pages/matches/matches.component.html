@@ -1,5 +1,5 @@
-<div class="matches">
+<div class="matches" *ngFor="let match of matches">
     <div class="user">
-        
+        <img src={{match.user.url}} alt="user profile picture" />
     </div>
 </div>
