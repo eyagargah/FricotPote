@@ -170,6 +170,7 @@ app.get("/users", async (req, res) => {
   }
 });
 
+
 //get users by gender
 app.get("/gendered-users", async (req, res) => {
   const client = new MongoClient(uri);
