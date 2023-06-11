@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import axios from 'axios';
-import { CookieService } from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-matches',
@@ -23,8 +23,4 @@ export class MatchesComponent {
     }
   }
  
-  ngOnInit(){
-   this.matchedUserIds = this.matches.map( (user_id: any) => user_id)
-
-  }
 }
