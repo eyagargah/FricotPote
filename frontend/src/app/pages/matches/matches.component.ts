@@ -22,5 +22,10 @@ export class MatchesComponent {
       console.log(err)
     }
   }
+  ngOnInit(){
+    console.log(this.matches)
+    this.matchedUserIds = this.matches.map( (m: { user: { user_id: any; }; }) => m.user.user_id)
+    console.log(this.matchedUserIds)
+  }
  
 }
