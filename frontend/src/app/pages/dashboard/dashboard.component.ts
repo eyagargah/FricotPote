@@ -33,13 +33,8 @@ export class DashboardComponent {
   getSelectedUser(selectedUser: any) {
     if (this.direction == 'right') {
       this.swipedUserId = selectedUser.user_id;
-      if (
-        this.matches.filter(
-          (m: any) => m == selectedUser
-        ).length == 0
-      ) {
-        this.updateMatches(selectedUser);
-      }
+      console.log(selectedUser)
+      console.log(this.matches)
     }
   }
 
