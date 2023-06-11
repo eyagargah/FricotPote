@@ -170,6 +170,22 @@ app.get("/users", async (req, res) => {
   }
 });
 
+//get users
+app.get("/users", async (req, res) => {
+  const client = new MongoClient(uri);
+
+  try {
+    await client.connect();
+    const db = client.db("app-data");
+    const users = db.collection("users");
+    const returnedUsers = await users.find().toArray();
+    res.send(returnedUsers);
+  } finally {
+    await client.close();
+  }
+});
+
+
 
 //get users by gender
 app.get("/gendered-users", async (req, res) => {
