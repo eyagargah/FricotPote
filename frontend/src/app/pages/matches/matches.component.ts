@@ -11,6 +11,7 @@ export class MatchesComponent {
   constructor(){}
   @Input() matches: any
   matchedUserIds : any
+  
   getMatches = async(userId: any)=> {
     try {
       const response = await axios.get('http://localhost:8000/users', {
