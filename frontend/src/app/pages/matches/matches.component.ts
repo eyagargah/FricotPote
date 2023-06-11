@@ -10,11 +10,11 @@ import { CookieService } from 'ngx-cookie-service';
 export class MatchesComponent {
   constructor(){}
   @Input() matches: any
-  
+  matchedUserIds : any
   getMatches = async(userId: any)=> {
     try {
       const response = await axios.get('http://localhost:8000/users', {
-        params: { userIds: userId}
+        params: { userIds: this.matchedUserIds}
       })
       this.matches = response.data
     }catch(err){
@@ -22,4 +22,8 @@ export class MatchesComponent {
     }
   }
  
+  ngOnInit(){
+   this.matchedUserIds = this.matches.map( (user_id: any) => user_id)
+
+  }
 }
