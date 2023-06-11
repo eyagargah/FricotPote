@@ -29,12 +29,12 @@ export class DashboardComponent {
   matches: any;
   swipedUserId: any;
 
+  found: boolean = false;
   filteredGenderedUsers: any;
   getSelectedUser(selectedUser: any) {
     if (this.direction == 'right') {
       this.swipedUserId = selectedUser.user_id;
-      console.log(selectedUser)
-      console.log(this.matches)
+      this.updateMatches(selectedUser);
     }
   }
 
@@ -49,7 +49,6 @@ export class DashboardComponent {
       console.log(err);
     }
   };
-
 
   getUser = async () => {
     try {
