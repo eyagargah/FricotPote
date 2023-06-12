@@ -85,7 +85,6 @@ app.put("/user", async (req, res) => {
 
 /**********Account Management**************/
 //sign up
-
 app.post("/signup", async (req, res) => {
   const client = new MongoClient(uri);
   const { email, password } = req.body;
@@ -160,14 +159,22 @@ app.post("/login", async (req, res) => {
 app.get("/users", async (req, res) => {
   const client = new MongoClient(uri);
 
-  const userIds = JSON.parse(req.body.userIds)
+  //const userIds = JSON.parse(req.body.userIds)
   console.log(userIds)
   try {
     await client.connect();
     const db = client.db("app-data");
     const users = db.collection("users");
     
-    
+   /*  const pipeline = [{
+      '$match': {
+        'user_id': {
+          '$in': userIds
+        }
+      }}] */
+   // const foundUsers = await users.aggregate(pipeline).toArray()
+    //console.log(foundUsers)
+    //res.send(foundUsers)
   } finally {
     await client.close();
   }
