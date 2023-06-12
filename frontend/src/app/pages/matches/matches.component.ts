@@ -25,8 +25,8 @@ export class MatchesComponent {
     }
   }
   ngOnInit(){
-    this.matchedUserIds = this.matches.map( (m: { user: { user_id: any; }; }) => m.user.user_id)
-    this.getMatches(this.userId)
+    //this.matchedUserIds = this.matches.map( (m: { user: { user_id: any; }; }) => m.user.user_id)
+    //this.getMatches(this.userId)
   }
  
 }
