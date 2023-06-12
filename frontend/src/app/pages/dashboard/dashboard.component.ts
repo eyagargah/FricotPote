@@ -36,12 +36,12 @@ export class DashboardComponent {
       this.swipedUserId = selectedUser.user_id;
       for (let i = 0; i < this.matches.length; i++) {
         if (this.matches[i].user == selectedUser) {
-          console.log(this.matches[i].user == selectedUser)
+          console.log(this.matches[i].user == selectedUser);
           this.found = true;
         }
       }
-      if (!this.found){
-        this.updateMatches(selectedUser)
+      if (!this.found) {
+        this.updateMatches(selectedUser);
       }
     }
   }
