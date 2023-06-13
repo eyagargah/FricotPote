@@ -20,6 +20,7 @@ export class HomeComponent {
     console.log(e.target.innerHTML)
     if(e.target.innerHTML == 'Sign out'){
       this.cookiesServices.deleteAll()
+      console.log('true')
     }
     else {
       this.fileNameDialogRef = this.dialog.open(AuthModalComponent, {
