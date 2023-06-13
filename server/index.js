@@ -196,12 +196,12 @@ app.get("/gendered-users", async (req, res) => {
     const db = client.db("app-data");
     const users = db.collection("users");
 
-    const query = {gender_identity: {$eq: gender }}
+    const query = {gender_identity: {$eq: gender}}
     console.log(query)
     
     const returnedUsers = await users.find(query).toArray();
-    res.send(returnedUsers);
-    console.log(returnedUsers)
+    res.json(returnedUsers)
+
   } finally {
     await client.close();
   }
