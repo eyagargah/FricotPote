@@ -2,7 +2,7 @@
   <app-top-bar [authToken]="authToken"></app-top-bar>
   <div class="home">
     <h1 class="primary-title">Swipe Right™</h1>
-    <button class="primary-button" (click)="openDialog()">
+    <button class="primary-button" (click)="openDialog($event)">
       {{ authToken ? "Sign out" : "Create Account" }}
     </button>
   </div>
