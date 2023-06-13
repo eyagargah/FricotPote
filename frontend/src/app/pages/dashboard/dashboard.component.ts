@@ -66,6 +66,7 @@ export class DashboardComponent {
       this.user = response.data;
       this.gender = this.user.gender_interest;
       this.matches = this.user.matches;
+      console.log(this.gender)
     } catch (err) {
       console.log(err);
     }
