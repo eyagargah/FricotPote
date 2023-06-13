@@ -154,31 +154,36 @@ app.post("/login", async (req, res) => {
   }
 });
 
+// Get all Users by userIds in the Database
+app.get('/users', async (req, res) => {
+  const client = new MongoClient(uri)
+  const userIds = JSON.parse(req.query.userIds)
 
-//get users
-app.get("/users", async (req, res) => {
-  const client = new MongoClient(uri);
-
-  //const userIds = JSON.parse(req.body.userIds)
-  console.log(userIds)
   try {
-    await client.connect();
-    const db = client.db("app-data");
-    const users = db.collection("users");
-    
-   /*  const pipeline = [{
-      '$match': {
-        'user_id': {
-          '$in': userIds
-        }
-      }}] */
-   // const foundUsers = await users.aggregate(pipeline).toArray()
-    //console.log(foundUsers)
-    //res.send(foundUsers)
+      await client.connect()
+      const database = client.db('app-data')
+      const users = database.collection('users')
+
+      const pipeline =
+          [
+              {
+                  '$match': {
+                      'user_id': {
+                          '$in': userIds
+                      }
+                  }
+              }
+          ]
+
+      const foundUsers = await users.aggregate(pipeline).toArray()
+
+      res.json(foundUsers)
+
   } finally {
-    await client.close();
+      await client.close()
   }
-});
+})
+
 
 
 
@@ -191,7 +196,7 @@ app.get("/gendered-users", async (req, res) => {
     const db = client.db("app-data");
     const users = db.collection("users");
 
-    const query = {gender_identity: {$eq: gender}}
+    const query = {gender_identity: {$eq: gender }}
     console.log(query)
     
     const returnedUsers = await users.find(query).toArray();
