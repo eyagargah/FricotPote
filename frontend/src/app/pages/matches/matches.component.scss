@@ -1,18 +1,20 @@
 .matches {
-    .user
-    {
-        
-            height: 30px;
-            width: 30px;
-            border-radius: 15px;
-            overflow: hidden;
-            margin: 10px;
-    
-            img {
-                width: 100%;
-            }
-            .userName {
-                color: black;
-            }
+  .user {
+    height: 60px;
+    width: 30px;
+    overflow: hidden;
+    margin: 10px;
+
+    img {
+      width: 100%;
+      height: 30px;
+      border-radius: 15px;
     }
+    .userName {
+      color: black;
+      z-index: 1000;
+      height: 30px;
+      width: 30px;
+    }
+  }
 }
