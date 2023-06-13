@@ -15,10 +15,17 @@ export class HomeComponent {
 
   authToken = this.cookiesServices.get('AuthToken');
   fileNameDialogRef: MatDialogRef<AuthModalComponent> | undefined;
-
-  openDialog() {
-    this.fileNameDialogRef = this.dialog.open(AuthModalComponent, {
-      data: { title: 'Create Account' },
-    });
+  btn = document.querySelector('.primary-button')
+  openDialog(e:any) {
+    console.log(e.target.innerHTML)
+    if(e.target.innerHTML == 'Sign out'){
+      this.cookiesServices.deleteAll()
+    }
+    else {
+      this.fileNameDialogRef = this.dialog.open(AuthModalComponent, {
+        data: { title: 'Create Account' },
+      });
+    }
+   
   }
 }
