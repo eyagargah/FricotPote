@@ -34,19 +34,18 @@ export class DashboardComponent {
 
   getSelectedUser(selectedUser: any) {
     if (this.direction == 'right') {
-       this.swipedUserId = selectedUser.user_id;
-        for (let i = 0; i < this.matches.length; i++) {
+      this.swipedUserId = selectedUser.user_id;
+      for (let i = 0; i < this.matches.length; i++) {
         if (this.matches[i].user.user_id == this.swipedUserId) {
           this.found = true;
         }
       }
-      console.log(this.found)
-     if(!this.found){
-      this.updateMatches(selectedUser)
-     }
-     this.found = false
+      console.log(this.found);
+      if (!this.found) {
+        this.updateMatches(selectedUser);
+        this.found = false;
+      }
     }
-
   }
 
   updateMatches = async (selectedUser: any) => {
@@ -69,18 +68,18 @@ export class DashboardComponent {
       this.user = response.data;
       this.gender = this.user.gender_interest;
       this.matches = this.user.matches;
-      console.log(this.gender)
     } catch (err) {
       console.log(err);
     }
   };
+
 
   getGenderedUsers = async () => {
     try {
       const response = await axios.get(
         'http://localhost:8000/gendered-users/',
         {
-          params: { gender: this.gender },
+          params: { gender: this.user.gender_interest },
         }
       );
       this.users = response.data;
@@ -95,6 +94,7 @@ export class DashboardComponent {
     });
     this.getUser();
     setTimeout(this.getGenderedUsers, 1000);
+
   }
 
   cardAnimation(value: string) {
