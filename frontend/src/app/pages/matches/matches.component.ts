@@ -24,6 +24,10 @@ export class MatchesComponent {
       console.log(err)
     }
   }
+
+  getChat(match: any){
+    console.log(match)
+  }
   ngOnInit(){
     //this.matchedUserIds = this.matches.map( (m: { user: { user_id: any; }; }) => m.user.user_id)
     //this.getMatches(this.userId)
