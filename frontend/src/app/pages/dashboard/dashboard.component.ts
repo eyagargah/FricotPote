@@ -40,10 +40,13 @@ export class DashboardComponent {
           this.found = true;
         }
       }
+      console.log(this.found)
      if(!this.found){
       this.updateMatches(selectedUser)
      }
+     this.found = false
     }
+
   }
 
   updateMatches = async (selectedUser: any) => {
