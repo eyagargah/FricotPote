@@ -31,18 +31,18 @@ export class DashboardComponent {
 
   found: boolean = false;
   filteredGenderedUsers: any;
+
   getSelectedUser(selectedUser: any) {
     if (this.direction == 'right') {
-      this.swipedUserId = selectedUser.user_id;
-      for (let i = 0; i < this.matches.length; i++) {
-        if (this.matches[i].user == selectedUser) {
-          console.log(this.matches[i].user == selectedUser);
+       this.swipedUserId = selectedUser.user_id;
+        for (let i = 0; i < this.matches.length; i++) {
+        if (this.matches[i].user.user_id == this.swipedUserId) {
           this.found = true;
         }
       }
-      if (!this.found) {
-        this.updateMatches(selectedUser);
-      }
+     if(!this.found){
+      this.updateMatches(selectedUser)
+     }
     }
   }
 
