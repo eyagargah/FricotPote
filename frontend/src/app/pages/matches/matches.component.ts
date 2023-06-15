@@ -14,6 +14,7 @@ export class MatchesComponent {
   @Input() matches: any
   matchedUserIds : any
   matchesData: any
+  selectedUser: any
   getMatches = async(userId: any)=> {
     try {
       const response = await axios.get('http://localhost:8000/users', {
@@ -25,12 +26,13 @@ export class MatchesComponent {
     }
   }
 
-  getChat(match: any){
-    console.log(match)
-  }
+
   ngOnInit(){
     //this.matchedUserIds = this.matches.map( (m: { user: { user_id: any; }; }) => m.user.user_id)
     //this.getMatches(this.userId)
   }
  
+  getUser(e:any){
+    this.selectedUser= e
+  }
 }
