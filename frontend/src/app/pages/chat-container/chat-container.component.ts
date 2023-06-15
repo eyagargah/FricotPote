@@ -29,10 +29,22 @@ export class ChatContainerComponent {
   
   showMatchSection(){
     console.log(this.showMatches)
-    this.showMatches = !this.showMatches
+    if(this.showMatches == true){
+      this.showMatches = false
+      this.showChat = true
+    }else {
+      this.showChat= false
+      this.showMatches =true
+    }
   }
   showChatSection(){
     console.log(this.showChat)
-    this.showChat = !this.showChat
+    if(this.showChat == true){
+      this.showMatches = true
+      this.showChat = false
+    }else {
+      this.showChat= true
+      this.showMatches =false
+    }
   }
 }
