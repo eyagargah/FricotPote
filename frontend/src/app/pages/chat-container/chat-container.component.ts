@@ -9,6 +9,8 @@ import { CookieOptions, CookieService } from 'ngx-cookie-service';
 })
 export class ChatContainerComponent {
   constructor(private cookiesservice: CookieService) {}
+  showMatches = true
+  showChat= false
   userId = this.cookiesservice.get('UserId');
   @Input() user: any;
   @Input() matches: any
@@ -24,4 +26,13 @@ export class ChatContainerComponent {
       console.log(err);
     }
   };
+  
+  showMatchSection(){
+    console.log(this.showMatches)
+    this.showMatches = !this.showMatches
+  }
+  showChatSection(){
+    console.log(this.showChat)
+    this.showChat = !this.showChat
+  }
 }
