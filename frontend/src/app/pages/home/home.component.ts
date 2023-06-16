@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AuthModalComponent } from '../auth-modal/auth-modal.component';
 import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,7 +11,8 @@ import { CookieService } from 'ngx-cookie-service';
 export class HomeComponent {
   constructor(
     private dialog: MatDialog,
-    private cookiesServices: CookieService
+    private cookiesServices: CookieService, 
+    private router:Router
   ) {}
 
   authToken = this.cookiesServices.get('AuthToken');
@@ -18,8 +20,9 @@ export class HomeComponent {
   btn = document.querySelector('.primary-button')
   openDialog(e:any) {
     console.log(e.target.innerHTML)
-    if(e.target.innerHTML == 'Sign out'){
+    if(this.authToken){
       this.cookiesServices.deleteAll()
+      this.router.navigateByUrl('home')
       console.log('true')
     }
     else {
