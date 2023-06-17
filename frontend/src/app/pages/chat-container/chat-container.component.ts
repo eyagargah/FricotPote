@@ -38,7 +38,6 @@ export class ChatContainerComponent {
     }
   }
   showChatSection(){
-    console.log(this.showChat)
     if(this.showChat == true){
       this.showMatches = true
       this.showChat = false
