@@ -23,7 +23,7 @@
     <div class="card-control">
       <div class="replay" (click)="reload()"><mat-icon>replay</mat-icon></div>
       <div (click)="cardAnimation('swipeleft')" class="reject">X</div>
-      <div (click)="cardAnimation('swiperight')" class="accept">
+      <div (click)="cardAnimation('swiperight')"  (click)="getSelectedUser(users[index])" class="accept">
         <mat-icon>favorite_border</mat-icon>
       </div>
       <div (click)="sendMsg()" class="msg"><mat-icon> message</mat-icon></div>
