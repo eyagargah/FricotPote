@@ -35,16 +35,7 @@ export class DashboardComponent {
   getSelectedUser(selectedUser: any) {
     if (this.direction == 'right') {
       this.swipedUserId = selectedUser.user_id;
-      for (let i = 0; i < this.matches.length; i++) {
-        if (this.matches[i].user.user_id == this.swipedUserId) {
-          this.found = true;
-        }
-      }
-      console.log(this.found);
-      if (!this.found) {
-        this.updateMatches(selectedUser);
-        this.found = false;
-      }
+      this.updateMatches(selectedUser);
     }
   }
 
@@ -55,6 +46,7 @@ export class DashboardComponent {
         matchedUser: selectedUser,
       });
       this.getUser();
+      this.found = false;
     } catch (err) {
       console.log(err);
     }
@@ -72,7 +64,6 @@ export class DashboardComponent {
       console.log(err);
     }
   };
-
 
   getGenderedUsers = async () => {
     try {
@@ -94,7 +85,6 @@ export class DashboardComponent {
     });
     this.getUser();
     setTimeout(this.getGenderedUsers, 1000);
-
   }
 
   cardAnimation(value: string) {
