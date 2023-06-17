@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./matches.component.scss']
 })
 export class MatchesComponent {
-  constructor(private cookiesService: CookieService){}
+  constructor(private cookiesService: CookieService, private userService:UserService){}
   userId= this.cookiesService.get('userId')
   @Input() matches: any
   matchedUserIds : any
@@ -35,5 +36,6 @@ export class MatchesComponent {
   getUser(e:any){
     this.selectedUser= e
     console.log(this.selectedUser)
+    this.userService.setSelectedUser(this.selectedUser)
   }
 }
