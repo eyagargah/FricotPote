@@ -2,4 +2,14 @@
     padding: 20px;
     height: 60vh;
     overflow-y: auto;
+    .messages {
+        display: flex;
+        align-items: baseline;
+        img {
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+          }
+          
+    }
 }
