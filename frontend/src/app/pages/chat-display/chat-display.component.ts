@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
 import { UserService } from 'src/app/services/user.service';
@@ -10,6 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ChatDisplayComponent {
   constructor(private cookiesServices: CookieService, private userService: UserService){}
+  @Input() user:any
   userMessages: any;
   senderId : any
   recepientId: any
@@ -17,12 +18,10 @@ export class ChatDisplayComponent {
   clickedUserMessages: any
   ngOnInit(){
     this.senderId =  this.cookiesServices.get('UserId')
-    console.log(this.senderId)
     this.selectedUser = this.userService.getSelectedUser()
-    console.log(this.selectedUser)
     this.recepientId = this.selectedUser.user_id
     this.userMessages = this.getMessages(this.senderId, this.recepientId)
-    this.clickedUserMessages= this.getMessages(this.selectedUser, this.senderId)
+    this.clickedUserMessages= this.getMessages(this.recepientId, this.senderId)
     
   }
  
