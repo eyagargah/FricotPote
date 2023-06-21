@@ -3,8 +3,8 @@
         <img src={{selectedUser.url}} alt="profile picture">
         <h5>{{message.message}}</h5>
     </div>
-    <div class="sent message" *ngFor="let message of clickedUserMessages | async">
-        <img src={{selectedUser.url}} alt="profile picture">
+    <div class="sent messages" *ngFor="let message of clickedUserMessages | async">
+        <img src={{user.url}} alt="profile picture">
         <h5>{{message.message}}</h5>
     </div>
 </div>
