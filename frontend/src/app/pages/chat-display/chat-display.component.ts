@@ -10,25 +10,26 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ChatDisplayComponent {
   constructor(private cookiesServices: CookieService, private userService: UserService){}
-  messages: any;
-  userId : any
-  selectedUserId: any
+  userMessages: any;
+  senderId : any
+  recepientId: any
   selectedUser: any
-
+  clickedUserMessages: any
   ngOnInit(){
-    this.userId =  this.cookiesServices.get('UserId')
+    this.senderId =  this.cookiesServices.get('UserId')
+    console.log(this.senderId)
     this.selectedUser = this.userService.getSelectedUser()
-    this.selectedUserId = this.selectedUser.user_id
-    console.log(this.userId)
-    console.log(this.selectedUserId)
-    this.getMessages()
+    console.log(this.selectedUser)
+    this.recepientId = this.selectedUser.user_id
+    this.userMessages = this.getMessages(this.senderId, this.recepientId)
+    this.clickedUserMessages= this.getMessages(this.selectedUser, this.senderId)
+    
   }
  
-  getMessages = async () => {
+  getMessages = async (senderId: any, recepientId: any) => {
     try {
-      const response = await axios.get('http://localhost:8000/messages' , {params :{ userId : this.userId , correspondingUserId: this.selectedUserId}});
-      this.messages = response.data;
-      console.log(this.messages)
+      const response = await axios.get('http://localhost:8000/messages' , {params :{ userId : senderId , correspondingUserId: recepientId}});
+      return response.data;
     } catch (err) {
       console.log(err);
     }
