@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class ChatInputComponent {
 
   sendMsg(e:any){
-    const textArea = document.querySelector('.msg')?.innerHTML
-    console.log(textArea)
+    const chatInput= document.querySelector('.msg') as HTMLTextAreaElement
+    console.log(chatInput.value)
   }
 }
