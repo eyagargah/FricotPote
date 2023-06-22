@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import axios from 'axios';
-import { CookieOptions, CookieService } from 'ngx-cookie-service';
+import { CookieService } from 'ngx-cookie-service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-chat-container',
@@ -8,13 +9,13 @@ import { CookieOptions, CookieService } from 'ngx-cookie-service';
   styleUrls: ['./chat-container.component.scss'],
 })
 export class ChatContainerComponent {
-  constructor(private cookiesservice: CookieService) {}
+  constructor(private cookiesservice: CookieService, private userService: UserService) {}
   showMatches = true
   showChat= false
   userId = this.cookiesservice.get('UserId');
   @Input() user: any;
   @Input() matches: any
-
+  selectedUser: any
   getUser = async () => {
     try {
       const response = await axios.get('http://localhost:8000/user', {
@@ -26,24 +27,15 @@ export class ChatContainerComponent {
       console.log(err);
     }
   };
-  
+  ngOnChange(){
+    this.selectedUser = this.userService.getSelectedUser()
+    console.log(this.selectedUser)
+  }
   showMatchSection(){
-    console.log(this.showMatches)
-    if(this.showMatches == true){
-      this.showMatches = false
-      this.showChat = true
-    }else {
-      this.showChat= false
-      this.showMatches =true
-    }
+    this.showMatches= true
+   
   }
   showChatSection(){
-    if(this.showChat == true){
-      this.showMatches = true
-      this.showChat = false
-    }else {
-      this.showChat= true
-      this.showMatches =false
-    }
+   
   }
 }
