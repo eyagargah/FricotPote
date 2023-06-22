@@ -3,7 +3,7 @@ import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
 import { UserService } from 'src/app/services/user.service';
 
-
+import { ChatDisplayComponent } from '../chat-display/chat-display.component';
 @Component({
   selector: 'app-matches',
   templateUrl: './matches.component.html',
@@ -13,9 +13,12 @@ export class MatchesComponent {
   constructor(private cookiesService: CookieService, private userService:UserService){}
   userId= this.cookiesService.get('userId')
   @Input() matches: any
+  @Input() showMatches: any
+
   matchedUserIds : any
   matchesData: any
   selectedUser: any
+  displayChat: any
   getMatches = async(userId: any)=> {
     try {
       const response = await axios.get('http://localhost:8000/users', {
@@ -37,5 +40,6 @@ export class MatchesComponent {
     this.selectedUser= e
     console.log(this.selectedUser)
     this.userService.setSelectedUser(this.selectedUser)
+    
   }
 }
