@@ -6,6 +6,6 @@
     <button class="option" (click)="showChatSection()">Chat</button>
   </div>
 
-  <app-matches [matches]="matches" [showMatches]="showMatches" *ngIf="showMatches"></app-matches>
+  <app-matches [matches]="matches" [showMatches]="showMatches" [user]="user" *ngIf="showMatches"></app-matches>
   <app-chat-input ></app-chat-input>
 </div>
