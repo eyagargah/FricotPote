@@ -22,7 +22,6 @@ export class ChatDisplayComponent {
     this.recepientId = this.selectedUser.user_id
     this.userMessages = this.getMessages(this.senderId, this.recepientId)
     this.clickedUserMessages= this.getMessages(this.recepientId, this.senderId)
-    
   }
  
   getMessages = async (senderId: any, recepientId: any) => {
