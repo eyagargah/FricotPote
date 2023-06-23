@@ -24,6 +24,9 @@ export class TopBarComponent implements OnInit {
       data: { title: 'Log in!'},
     })
   }
+  goHome(){
+    window.location.href='/home'
+  }
   ngOnInit(): void {
     let navBtn = document.querySelector('.nav-button') as HTMLButtonElement;
   
