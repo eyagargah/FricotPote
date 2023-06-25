@@ -11,7 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class ChatHeaderComponent {
   constructor(private router:Router, private cookiesservice: CookieService){}
 
-  @Input() user: any
+  @Input() currentUser: any
 
   logout(){
     this.cookiesservice.delete('UserId')
