@@ -1,11 +1,11 @@
 <div class="chat-container">
-  <app-chat-header [user]="user"></app-chat-header>
+  <app-chat-header [currentUser]="currentUser"></app-chat-header>
 
   <div>
     <button class="option" (click)="showMatchSection()">Matches</button>
     <button class="option" (click)="showChatSection()">Chat</button>
   </div>
 
-  <app-matches [matches]="matches" [showMatches]="showMatches" [user]="user" *ngIf="showMatches"></app-matches>
+  <app-matches [matches]="matches" [showMatches]="showMatches" [currentUser]="currentUser" *ngIf="showMatches"></app-matches>
   <app-chat-input ></app-chat-input>
 </div>
