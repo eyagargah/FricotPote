@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ChatDisplayComponent {
   constructor(private cookiesServices: CookieService, private userService: UserService){}
-  @Input() user:any
+  @Input() currentUser:any
   userMessages: any;
   senderId : any
   recepientId: any
