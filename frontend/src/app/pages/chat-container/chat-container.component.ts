@@ -13,7 +13,7 @@ export class ChatContainerComponent {
   showMatches = true
   showChat= false
   userId = this.cookiesservice.get('UserId');
-  @Input() user: any;
+  @Input() currentUser: any;
   @Input() matches: any
   selectedUser: any
   getUser = async () => {
@@ -21,7 +21,7 @@ export class ChatContainerComponent {
       const response = await axios.get('http://localhost:8000/user', {
         params: { userId: this.userId },
       });
-      this.user = response.data;
+      this.currentUser = response.data;
     
     } catch (err) {
       console.log(err);
