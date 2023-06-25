@@ -17,7 +17,7 @@ export class MatchesComponent {
   userId = this.cookiesService.get('userId');
   @Input() matches: any;
   @Input() showMatches: any;
-  @Input() user: any;
+  @Input() currentUser: any;
   matchedUserIds: any;
   matchesData: any;
   selectedUser: any;
