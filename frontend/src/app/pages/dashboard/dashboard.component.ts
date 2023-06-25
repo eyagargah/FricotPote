@@ -24,7 +24,7 @@ export class DashboardComponent {
   index = 0;
   direction: string = '';
   undo = false;
-  user: any;
+  currentUser: any;
   gender: any;
   matches: any;
   swipedUserId: any;
@@ -57,9 +57,9 @@ export class DashboardComponent {
       const response = await axios.get('http://localhost:8000/user', {
         params: { userId: this.userId },
       });
-      this.user = response.data;
-      this.gender = this.user.gender_interest;
-      this.matches = this.user.matches;
+      this.currentUser = response.data;
+      this.gender = this.currentUser.gender_interest;
+      this.matches = this.currentUser.matches;
     } catch (err) {
       console.log(err);
     }
@@ -70,7 +70,7 @@ export class DashboardComponent {
       const response = await axios.get(
         'http://localhost:8000/gendered-users/',
         {
-          params: { gender: this.user.gender_interest },
+          params: { gender: this.currentUser.gender_interest },
         }
       );
       this.users = response.data;
