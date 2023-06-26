@@ -32,7 +32,7 @@ export class ChatContainerComponent {
     console.log(this.selectedUser)
   }
   showMatchSection(){
-    this.selectedUser= null
+    this.showMatches = true
    
   }
   showChatSection(){
