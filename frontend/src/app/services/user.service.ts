@@ -19,4 +19,8 @@ export class UserService {
   getSelectedUser(){
     return this.selectedUser
   }
+
+  getSelectedUserId(){
+    return this.selectedUser.user_id
+  }
 }
