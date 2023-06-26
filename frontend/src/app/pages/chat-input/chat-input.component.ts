@@ -14,7 +14,7 @@ export class ChatInputComponent {
       timestamp: new Date().toISOString(),
       from_userId: this.currentUser,
       to_userId: clickedUserId,
-      message: textArea
+      message: chatInput.value
   }
     console.log(chatInput.value);
     if (chatInput && e.keyCode === 13) {
