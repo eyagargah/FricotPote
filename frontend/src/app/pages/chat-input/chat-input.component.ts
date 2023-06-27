@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component} from '@angular/core';
 import axios from 'axios';
 import { UserService } from 'src/app/services/user.service';
 
@@ -8,14 +8,12 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./chat-input.component.scss'],
 })
 export class ChatInputComponent {
-  @Input() currentUser: any;
   constructor(private userService: UserService) {}
 
   sendMsg = async (e: any) => {
     const chatInput = document.querySelector('.msg') as HTMLTextAreaElement;
     const selectedUserId = this.userService.getSelectedUserId();
-
-    const currentUserId = this.currentUser.user_id;
+    const currentUserId = this.userService.getCurrentUser()
     if (selectedUserId && chatInput.value !=="") {
       const message = {
         timestamp: new Date().toISOString(),
