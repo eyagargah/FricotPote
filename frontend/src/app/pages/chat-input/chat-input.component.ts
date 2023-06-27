@@ -16,7 +16,7 @@ export class ChatInputComponent {
     const selectedUserId = this.userService.getSelectedUserId();
 
     const currentUserId = this.currentUser.user_id;
-    if (selectedUserId) {
+    if (selectedUserId && chatInput.value !=="") {
       const message = {
         timestamp: new Date().toISOString(),
         from_userId: currentUserId,
