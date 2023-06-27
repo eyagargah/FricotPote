@@ -15,12 +15,12 @@ export class ChatInputComponent {
     const chatInput = document.querySelector('.msg') as HTMLTextAreaElement;
     const selectedUserId = this.userService.getSelectedUserId();
 
-    let currentUserId = this.currentUser.user_id;
+    const currentUserId = this.currentUser.user_id;
     if (selectedUserId) {
       const message = {
         timestamp: new Date().toISOString(),
-        to_userId: selectedUserId,
         from_userId: currentUserId,
+        to_userId: selectedUserId,
         message: chatInput.value,
       };
 
