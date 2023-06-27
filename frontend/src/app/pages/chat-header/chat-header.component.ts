@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
