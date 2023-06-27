@@ -15,7 +15,8 @@ export class ChatContainerComponent {
   userId = this.cookiesservice.get('UserId');
   @Input() currentUser: any;
   @Input() matches: any
-  selectedUser: any
+
+  selectedUser= this.userService.getSelectedUser()
   getUser = async () => {
     try {
       const response = await axios.get('http://localhost:8000/user', {
@@ -27,10 +28,7 @@ export class ChatContainerComponent {
       console.log(err);
     }
   };
-  ngOnChange(){
-    this.selectedUser = this.userService.getSelectedUser()
-    console.log(this.selectedUser)
-  }
+ 
   showMatchSection(){
     this.showMatches = true
    
