@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import axios from 'axios';
+import { CookieService } from 'ngx-cookie-service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,13 +9,13 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./chat-input.component.scss'],
 })
 export class ChatInputComponent {
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService , private cookiesServices:CookieService) {}
 
   sendMsg = async (e: any) => {
     const chatInput = document.querySelector('.msg') as HTMLTextAreaElement;
     const selectedUserId = this.userService.getSelectedUserId();
-    const currentUserId = this.userService.getCurrentUser()
-    if (selectedUserId && chatInput.value !=="") {
+    const currentUserId = this.cookiesServices.get('UserId')
+    if (selectedUserId) {
       const message = {
         timestamp: new Date().toISOString(),
         from_userId: currentUserId,
