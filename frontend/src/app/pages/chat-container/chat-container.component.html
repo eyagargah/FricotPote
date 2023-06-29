@@ -14,7 +14,7 @@
   ></app-matches>
   <app-chat-display
     [currentUser]="currentUser"
-    *ngIf="showChat"
+    *ngIf="!showMatches"
   ></app-chat-display>
   <app-chat-input [currentUser]="currentUser"></app-chat-input>
 </div>
