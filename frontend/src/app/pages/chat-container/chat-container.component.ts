@@ -32,21 +32,12 @@ export class ChatContainerComponent {
   showMatchSection(){
     if(this.showMatches){
       this.showMatches = false
-      this.showChat = true
     }else {
       this.showMatches = true
-      this.showChat = false
     }
    
   }
 
   showChatSection(){
-    if(this.showChat){
-      this.showChat = false
-      this.showMatches == true
-    }else {
-      this.showChat = true
-      this.showMatches == false
-    }
   }
 }
