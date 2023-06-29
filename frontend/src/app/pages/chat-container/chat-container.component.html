@@ -7,5 +7,5 @@
   </div>
 
   <app-matches [matches]="matches" [showMatches]="showMatches" [currentUser]="currentUser" *ngIf="showMatches"></app-matches>
-  <app-chat-input></app-chat-input>
+  <app-chat-input [currentUser]="currentUser"></app-chat-input>
 </div>
