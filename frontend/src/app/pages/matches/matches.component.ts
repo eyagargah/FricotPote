@@ -3,7 +3,6 @@ import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
 import { UserService } from 'src/app/services/user.service';
 
-import { ChatDisplayComponent } from '../chat-display/chat-display.component';
 @Component({
   selector: 'app-matches',
   templateUrl: './matches.component.html',
@@ -40,6 +39,7 @@ export class MatchesComponent {
 
   getUser(e: any) {
     this.selectedUser = e;
+    console.log(this.selectedUser)
     this.userService.setSelectedUser(this.selectedUser);
     this.showMatches = false
   }
