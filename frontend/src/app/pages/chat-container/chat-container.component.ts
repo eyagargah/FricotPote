@@ -10,8 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ChatContainerComponent {
   constructor(private cookiesservice: CookieService, private userService: UserService) {}
-  showMatches = false
-  showChat= false
+  showMatches = true
   userId = this.cookiesservice.get('UserId');
   @Input() currentUser: any;
   @Input() matches: any
@@ -30,14 +29,13 @@ export class ChatContainerComponent {
   };
  
   showMatchSection(){
-    if(this.showMatches){
+    if(this.showMatches == true){
       this.showMatches = false
-    }else {
-      this.showMatches = true
     }
-   
+    else {
+      this.showMatches =true
+    }
+
   }
 
-  showChatSection(){
-  }
 }
