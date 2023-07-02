@@ -16,14 +16,17 @@ export class ChatDisplayComponent {
   recepientId: any
   selectedUser: any
   clickedUserMessages: any
-  messages: any
+  messages : string[] = [];
+
   ngOnInit(){
     this.senderId =  this.cookiesServices.get('UserId')
     this.selectedUser = this.userService.getSelectedUser()
     this.recepientId = this.selectedUser.user_id
     this.userMessages = this.getMessages(this.senderId, this.recepientId)
     this.clickedUserMessages=this.getMessages(this.recepientId, this.senderId)
-   
+  
+    this.messages.push(this.userMessages)
+    console.log(this.messages)
    
   }
  
