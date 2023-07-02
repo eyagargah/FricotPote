@@ -16,18 +16,15 @@ export class ChatDisplayComponent {
   recepientId: any
   selectedUser: any
   clickedUserMessages: any
+  messages: any
   ngOnInit(){
     this.senderId =  this.cookiesServices.get('UserId')
     this.selectedUser = this.userService.getSelectedUser()
     this.recepientId = this.selectedUser.user_id
     this.userMessages = this.getMessages(this.senderId, this.recepientId)
-    this.clickedUserMessages= this.getMessages(this.recepientId, this.senderId)
-    this.userMessages.concat(this.clickedUserMessages)
-    console.log(this.userMessages)
-    this.userMessages.sort( function (a:any,b:any){
-      return a.timestamp - b.timestamp
-    })
-    console.log(this.userMessages)
+    this.clickedUserMessages=this.getMessages(this.recepientId, this.senderId)
+   
+   
   }
  
   getMessages = async (senderId: any, recepientId: any) => {
