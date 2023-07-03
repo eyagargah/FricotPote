@@ -4,6 +4,10 @@
         <img src={{currentUser.url}} alt="profile picture">
         <h5> {{message.message}}</h5>
     </div>
+    <div class="messages" *ngFor="let message of clickedUserMessages | async">
+        <img src={{selectedUser.url}} alt="profile picture">
+        <h5> {{message.message}}</h5>
+    </div>
     
 </div>
 <app-chat-input  [currentUser]="currentUser"></app-chat-input>
