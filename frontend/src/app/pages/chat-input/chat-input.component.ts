@@ -18,8 +18,13 @@ export class ChatInputComponent {
   selectedUser: any;
   clickedUserMessages: any;
   messages: any;
-
   
+  ngOnInit(){
+    this.recepientId = this.userService.getSelectedUserId();
+     this.selectedUser= this.userService.getSelectedUser()
+     this.senderId = this.cookiesServices.get('UserId')
+  }
+
   getMessages = async (senderId: any, recepientId: any) => {
     try {
       const response = await axios.get('http://localhost:8000/messages', {
@@ -33,19 +38,19 @@ export class ChatInputComponent {
 
   sendMsg = async (e: any) => {
     const chatInput = document.querySelector('.msg') as HTMLTextAreaElement;
-    const selectedUserId = this.userService.getSelectedUserId();
-    const selectedUser= this.userService.getSelectedUser()
-    const currentUserId = this.cookiesServices.get('UserId')
-    if (selectedUser) {
+    if (this.selectedUser) {
       const message = {
         timestamp: new Date().toISOString(),
-        from_user: currentUserId,
-        to_user: selectedUserId,
+        from_user: this.senderId,
+        to_user: this.recepientId,
         message: chatInput.value,
       };
 
       try {
         await axios.post('http://localhost:8000/message', { message: message });
+        this.userMessages = this.getMessages(this.senderId, this.recepientId)
+        this.clickedUserMessages = this.getMessages(this.recepientId, this.senderId)
+        chatInput.innerHTML=""
       } catch (error) {
         console.log(error);
       }
