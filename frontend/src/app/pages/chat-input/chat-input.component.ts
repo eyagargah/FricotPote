@@ -50,7 +50,7 @@ export class ChatInputComponent {
         await axios.post('http://localhost:8000/message', { message: message });
         this.userMessages = this.getMessages(this.senderId, this.recepientId)
         this.clickedUserMessages = this.getMessages(this.recepientId, this.senderId)
-        chatInput.innerHTML=""
+        chatInput.value=""
       } catch (error) {
         console.log(error);
       }
