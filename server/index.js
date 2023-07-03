@@ -240,7 +240,7 @@ app.get('/messages', async (req, res) => {
           from_user: userId, to_user: correspondingUserId
       }
       const foundMessages = await messages.find(query).toArray()
-      res.send(foundMessages)
+      res.json(foundMessages)
   } finally {
       await client.close()
   }
