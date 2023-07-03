@@ -11,6 +11,26 @@ import { UserService } from 'src/app/services/user.service';
 export class ChatInputComponent {
   constructor(private userService: UserService , private cookiesServices:CookieService) {}
   @Input() currentUser:any
+  userMessages: any;
+  userInitMessages: any;
+  senderId: any;
+  recepientId: any;
+  selectedUser: any;
+  clickedUserMessages: any;
+  messages: any;
+
+  
+  getMessages = async (senderId: any, recepientId: any) => {
+    try {
+      const response = await axios.get('http://localhost:8000/messages', {
+        params: { userId: senderId, correspondingUserId: recepientId },
+      });
+      return response.data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   sendMsg = async (e: any) => {
     const chatInput = document.querySelector('.msg') as HTMLTextAreaElement;
     const selectedUserId = this.userService.getSelectedUserId();
