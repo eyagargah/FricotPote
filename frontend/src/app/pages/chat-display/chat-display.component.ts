@@ -15,6 +15,7 @@ export class ChatDisplayComponent {
   ) {}
   @Input() currentUser: any;
   userMessages: any;
+  userInitMessages: any;
   senderId: any;
   recepientId: any;
   selectedUser: any;
@@ -30,20 +31,25 @@ export class ChatDisplayComponent {
       this.recepientId,
       this.senderId
     );
-
     if(this.userMessages){
-    setTimeout(this.displayMsg, 2000)
+      this.userInitMessages = Array.from(this.userMessages)
+      console.log(this.userInitMessages)
     }
-   
+    
+     this.userInitMessages?.forEach((message: { message: any; timestamp: any; }) => {
+      console.log(message)
+      const formattedMessage = {
+        timestamp: message.timestamp,
+        name: this.currentUser?.first_name,
+        url: this.currentUser?.url,
+        message: message.message,
+      };
+
+      this.messages.push(formattedMessage)
+
+  })
   }
 
-  displayMsg(){
-    for (let i = 0; i < Object.keys(this.userMessages).length; i++) {
-      console.log(
-        Object.keys(this.userMessages)[i]
-      );
-    }
-  }
   getMessages = async (senderId: any, recepientId: any) => {
     try {
       const response = await axios.get('http://localhost:8000/messages', {
