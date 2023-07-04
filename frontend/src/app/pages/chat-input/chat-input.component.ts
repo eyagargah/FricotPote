@@ -38,7 +38,7 @@ export class ChatInputComponent {
 
   sendMsg = async (e: any) => {
     const chatInput = document.querySelector('.msg') as HTMLTextAreaElement;
-    if (this.selectedUser) {
+    if (this.selectedUser && chatInput.value!=="") {
       const message = {
         timestamp: new Date().toISOString(),
         from_userId: this.senderId,
