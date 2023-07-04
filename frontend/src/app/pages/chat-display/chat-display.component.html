@@ -2,7 +2,7 @@
     <h3>Chat with {{ selectedUser.first_name}}</h3>
     <div class="messages" *ngFor="let message of userMessages | async">
         <img src={{currentUser.url}} alt="profile picture">
-        <h5> {{message.message}}</h5>
+        <h5>{{message.message}}</h5>
     </div>
     <div class="messages" *ngFor="let message of clickedUserMessages | async">
         <img src={{selectedUser.url}} alt="profile picture">
