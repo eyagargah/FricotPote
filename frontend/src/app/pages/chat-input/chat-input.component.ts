@@ -41,15 +41,15 @@ export class ChatInputComponent {
     if (this.selectedUser) {
       const message = {
         timestamp: new Date().toISOString(),
-        from_user: this.senderId,
-        to_user: this.recepientId,
+        from_userId: this.senderId,
+        from_user:this.currentUser,
+        to_userId: this.recepientId,
+        to_user: this.selectedUser,
         message: chatInput.value,
       };
 
       try {
         await axios.post('http://localhost:8000/message', { message: message });
-        this.userMessages = this.getMessages(this.senderId, this.recepientId)
-        this.clickedUserMessages = this.getMessages(this.recepientId, this.senderId)
         chatInput.value=""
       } catch (error) {
         console.log(error);
