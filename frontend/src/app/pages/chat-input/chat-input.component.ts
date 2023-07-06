@@ -23,6 +23,9 @@ export class ChatInputComponent {
     this.recepientId = this.userService.getSelectedUserId();
      this.selectedUser= this.userService.getSelectedUser()
      this.senderId = this.cookiesServices.get('UserId')
+
+     this.userMessages = this.getMessages(this.senderId , this.recepientId)
+     this.clickedUserMessages = this.getMessages(this.recepientId , this.senderId)
   }
 
   getMessages = async (senderId: any, recepientId: any) => {
@@ -51,7 +54,7 @@ export class ChatInputComponent {
       try {
         await axios.post('http://localhost:8000/message', { message: message });
         chatInput.value=""
-        
+        this.userMessages.push()
       } catch (error) {
         console.log(error);
       }
