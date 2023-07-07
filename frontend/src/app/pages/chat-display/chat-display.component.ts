@@ -26,14 +26,10 @@ export class ChatDisplayComponent {
     this.senderId = this.cookiesServices.get('UserId');
     this.selectedUser = this.userService.getSelectedUser();
     this.recepientId = this.selectedUser.user_id;
-    this.userMessages = this.getMessages(this.senderId, this.recepientId);
-    this.clickedUserMessages = this.getMessages(
-      this.recepientId,
-      this.senderId
-    );
-    if(Object.keys(this.userMessages).length >0 ){
-      console.log('true')
-  }
+   this.getMessages(this.senderId , this.recepientId).then( data => {
+    console.log(data)
+    this.userMessages = data
+   })
   }
   getMessages = async (senderId: any, recepientId: any) => {
     try {
