@@ -21,6 +21,7 @@ export class ChatDisplayComponent {
   selectedUser: any;
   clickedUserMessages: any;
    messages : any[] = [];
+   finalMessages : any[] = [];
 
   ngOnInit() {
     this.senderId = this.cookiesServices.get('UserId');
@@ -35,12 +36,23 @@ export class ChatDisplayComponent {
       this.messages.push(this.userMessages[i])
       
     }
+    this.messages = this.filterMessages(this.messages)
     console.log(this.messages)
    })
 
    this.getMessages(this.recepientId , this.senderId).then( data => {
     this.clickedUserMessages = data
+    for(let i=0 ; i<=this.clickedUserMessages.length; i++){
+      this.messages.push(this.clickedUserMessages[i])
+      
+    }
+    this.messages = this.filterMessages(this.messages)
+
+    console.log(this.messages)
+
    })
+
+  
 
    
   }
@@ -56,4 +68,8 @@ export class ChatDisplayComponent {
       console.log(err);
     }
   };
+
+  filterMessages(messages: any){
+    return messages.filter((el: undefined) => el != undefined)
+  }
 }
