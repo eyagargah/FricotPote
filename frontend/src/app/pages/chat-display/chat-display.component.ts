@@ -20,7 +20,7 @@ export class ChatDisplayComponent {
   recepientId: any;
   selectedUser: any;
   clickedUserMessages: any;
-  messages: any;
+   messages : any[] = [];
 
   ngOnInit() {
     this.senderId = this.cookiesServices.get('UserId');
@@ -29,12 +29,23 @@ export class ChatDisplayComponent {
 
    this.getMessages(this.senderId , this.recepientId).then( data => {
     this.userMessages = data
+    console.log( this.userMessages)
+
+    for(let i=0 ; i<=this.userMessages.length; i++){
+      this.messages.push(this.userMessages[i])
+      
+    }
+    console.log(this.messages)
    })
 
    this.getMessages(this.recepientId , this.senderId).then( data => {
     this.clickedUserMessages = data
    })
+
+   
   }
+
+  
   getMessages = async (senderId: any, recepientId: any) => {
     try {
       const response = await axios.get('http://localhost:8000/messages', {
