@@ -24,8 +24,7 @@ export class ChatInputComponent {
      this.selectedUser= this.userService.getSelectedUser()
      this.senderId = this.cookiesServices.get('UserId')
 
-     this.userMessages = this.getMessages(this.senderId , this.recepientId)
-     this.clickedUserMessages = this.getMessages(this.recepientId , this.senderId)
+
   }
 
   getMessages = async (senderId: any, recepientId: any) => {
