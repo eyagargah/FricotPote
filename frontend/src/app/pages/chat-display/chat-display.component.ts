@@ -20,44 +20,36 @@ export class ChatDisplayComponent {
   recepientId: any;
   selectedUser: any;
   clickedUserMessages: any;
-   messages : any[] = [];
-   finalMessages : any[] = [];
+  messages: any[] = [];
+  
 
   ngOnInit() {
     this.senderId = this.cookiesServices.get('UserId');
     this.selectedUser = this.userService.getSelectedUser();
     this.recepientId = this.selectedUser.user_id;
 
-   this.getMessages(this.senderId , this.recepientId).then( data => {
-    this.userMessages = data
-    console.log( this.userMessages)
+    this.getMessages(this.senderId, this.recepientId).then((data) => {
+      this.userMessages = data;
+      console.log(this.userMessages);
 
-    for(let i=0 ; i<=this.userMessages.length; i++){
-      this.messages.push(this.userMessages[i])
-      
-    }
-    this.messages = this.filterMessages(this.messages)
-    console.log(this.messages)
-   })
+      for (let i = 0; i <= this.userMessages.length; i++) {
+        this.messages.push(this.userMessages[i]);
+      }
+      this.messages = this.filterMessages(this.messages);
+      console.log(this.messages);
+    });
 
-   this.getMessages(this.recepientId , this.senderId).then( data => {
-    this.clickedUserMessages = data
-    for(let i=0 ; i<=this.clickedUserMessages.length; i++){
-      this.messages.push(this.clickedUserMessages[i])
-      
-    }
-    this.messages = this.filterMessages(this.messages)
+    this.getMessages(this.recepientId, this.senderId).then((data) => {
+      this.clickedUserMessages = data;
+      for (let i = 0; i <= this.clickedUserMessages.length; i++) {
+        this.messages.push(this.clickedUserMessages[i]);
+      }
+      this.messages = this.filterMessages(this.messages);
 
-    console.log(this.messages)
-
-   })
-
-  
-
-   
+      console.log(this.messages);
+    });
   }
 
-  
   getMessages = async (senderId: any, recepientId: any) => {
     try {
       const response = await axios.get('http://localhost:8000/messages', {
@@ -69,7 +61,22 @@ export class ChatDisplayComponent {
     }
   };
 
-  filterMessages(messages: any){
-    return messages.filter((el: undefined) => el != undefined)
+  filterMessages(messages: any) {
+    return messages.filter((el: undefined) => el != undefined);
   }
+
+  formatUserMessages(messages: any){
+    messages?.forEach((message: { message: any; timestamp: any; }) => {
+      const formattedMessage = {
+        name:  this.currentUser?.first_name,
+        url : this.currentUser?.url,
+        message: message.message,
+        timestamp: message.timestamp
+      }
+      
+      messages.push(formattedMessage)
+  })
+  }
+
+
 }
