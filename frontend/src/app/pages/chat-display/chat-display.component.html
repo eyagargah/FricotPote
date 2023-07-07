@@ -1,6 +1,6 @@
 <div class="chat-display">
     <h3>Chat with {{ selectedUser.first_name}}</h3>
-    <div class="messages" *ngFor="let message of userMessages | async">
+    <div class="messages" *ngFor="let message of userMessages">
         <img src={{currentUser.url}} alt="profile picture">
         <h5>{{message.message}}</h5>
     </div>
