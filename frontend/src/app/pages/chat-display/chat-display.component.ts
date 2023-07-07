@@ -21,6 +21,7 @@ export class ChatDisplayComponent {
   selectedUser: any;
   clickedUserMessages: any;
   messages: any[] = [];
+  finalMessages: any[] = [];
   
 
   ngOnInit() {
@@ -65,18 +66,7 @@ export class ChatDisplayComponent {
     return messages.filter((el: undefined) => el != undefined);
   }
 
-  formatUserMessages(messages: any){
-    messages?.forEach((message: { message: any; timestamp: any; }) => {
-      const formattedMessage = {
-        name:  this.currentUser?.first_name,
-        url : this.currentUser?.url,
-        message: message.message,
-        timestamp: message.timestamp
-      }
-      
-      messages.push(formattedMessage)
-  })
-  }
+
 
 
 }
