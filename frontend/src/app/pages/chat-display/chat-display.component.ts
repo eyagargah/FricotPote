@@ -37,6 +37,9 @@ export class ChatDisplayComponent {
         this.messages.push(this.userMessages[i]);
       }
       this.messages = this.filterMessages(this.messages);
+      this.messages.sort(function (a,b){
+        return a.timestamp - b.timestamp
+      })
       console.log(this.messages);
     });
 
@@ -46,7 +49,9 @@ export class ChatDisplayComponent {
         this.messages.push(this.clickedUserMessages[i]);
       }
       this.messages = this.filterMessages(this.messages);
-
+      this.messages.sort(function (a,b){
+        return a.timestamp - b.timestamp
+      })
       console.log(this.messages);
     });
   }
@@ -65,6 +70,8 @@ export class ChatDisplayComponent {
   filterMessages(messages: any) {
     return messages.filter((el: undefined) => el != undefined);
   }
+
+ 
 
 
 
