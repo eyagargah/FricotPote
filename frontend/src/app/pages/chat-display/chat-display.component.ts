@@ -21,7 +21,7 @@ export class ChatDisplayComponent {
   selectedUser: any;
   clickedUserMessages: any;
   messages: any[] = [];
-  finalMessages: any[] = [];
+  
   
 
   ngOnInit() {
@@ -33,26 +33,27 @@ export class ChatDisplayComponent {
       this.userMessages = data;
 
       for (let i = 0; i <= this.userMessages.length; i++) {
-        this.messages.push(this.userMessages[i]);
+        this.messages.push(this.formatMessages(this.userMessages[i]));
+      }
+      this.messages = this.filterMessages(this.messages);
+      this.messages.sort(function (a,b){
+        return a.timestamp - b.timestamp
+      })
+
+      
+    });
+
+    this.getMessages(this.recepientId, this.senderId).then((data) => {
+      this.clickedUserMessages = data;
+      for (let i = 0; i <= this.clickedUserMessages.length; i++) {
+
+        this.messages.push(this.formatMessages(this.clickedUserMessages[i]));
       }
       this.messages = this.filterMessages(this.messages);
       this.messages.sort(function (a,b){
         return a.timestamp - b.timestamp
       })
       
-      this.formatMessages(this.messages)
-    });
-
-    this.getMessages(this.recepientId, this.senderId).then((data) => {
-      this.clickedUserMessages = data;
-      for (let i = 0; i <= this.clickedUserMessages.length; i++) {
-        this.messages.push(this.clickedUserMessages[i]);
-      }
-      this.messages = this.filterMessages(this.messages);
-      this.messages.sort(function (a,b){
-        return a.timestamp - b.timestamp
-      })
-      this.formatMessages(this.messages)
     });
   }
 
@@ -71,21 +72,14 @@ export class ChatDisplayComponent {
     return messages.filter((el: undefined) => el != undefined);
   }
 
-  formatMessages(messages:any){
-    messages.forEach((msg: { timestamp: any; from_user: { url: any; }; message: any; })  => {
+  formatMessages(message:any){
       let formattedMsg = {
-        timestamp: msg.timestamp,
-        url : msg.from_user.url,
-        message: msg.message,
+        timestamp: message.timestamp,
+        url : message.from_user.url,
+        message: message.message,
       }
-      this.finalMessages.push(formattedMsg)
-    })
-    
+      return formattedMsg
+    }
   }
 
- 
 
-
-
-
-}
