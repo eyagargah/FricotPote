@@ -31,7 +31,6 @@ export class ChatDisplayComponent {
 
     this.getMessages(this.senderId, this.recepientId).then((data) => {
       this.userMessages = data;
-      console.log(this.userMessages);
 
       for (let i = 0; i <= this.userMessages.length; i++) {
         this.messages.push(this.userMessages[i]);
@@ -40,6 +39,7 @@ export class ChatDisplayComponent {
       this.messages.sort(function (a,b){
         return a.timestamp - b.timestamp
       })
+      
       this.formatMessages(this.messages)
     });
 
