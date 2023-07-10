@@ -40,7 +40,7 @@ export class ChatDisplayComponent {
       this.messages.sort(function (a,b){
         return a.timestamp - b.timestamp
       })
-      console.log(this.messages);
+      this.formatMessages(this.messages)
     });
 
     this.getMessages(this.recepientId, this.senderId).then((data) => {
@@ -52,7 +52,7 @@ export class ChatDisplayComponent {
       this.messages.sort(function (a,b){
         return a.timestamp - b.timestamp
       })
-      console.log(this.messages);
+      this.formatMessages(this.messages)
     });
   }
 
@@ -69,6 +69,18 @@ export class ChatDisplayComponent {
 
   filterMessages(messages: any) {
     return messages.filter((el: undefined) => el != undefined);
+  }
+
+  formatMessages(messages:any){
+    messages.forEach((msg: { timestamp: any; from_user: { url: any; }; message: any; })  => {
+      let formattedMsg = {
+        timestamp: msg.timestamp,
+        url : msg.from_user.url,
+        message: msg.message,
+      }
+      this.finalMessages.push(formattedMsg)
+    })
+    
   }
 
  
