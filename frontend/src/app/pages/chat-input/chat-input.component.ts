@@ -1,6 +1,7 @@
 import { Component, Input} from '@angular/core';
 import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
+import { MessageService } from 'src/app/services/message.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./chat-input.component.scss'],
 })
 export class ChatInputComponent {
-  constructor(private userService: UserService , private cookiesServices:CookieService) {}
+  constructor(private userService: UserService , private cookiesServices:CookieService , private messageService: MessageService) {}
   @Input() currentUser:any
   userMessages: any;
   userInitMessages: any;
@@ -17,7 +18,7 @@ export class ChatInputComponent {
   recepientId: any;
   selectedUser: any;
   clickedUserMessages: any;
-  @Input() messages: any;
+  messages: any;
   
   ngOnInit(){
     this.recepientId = this.userService.getSelectedUserId();
