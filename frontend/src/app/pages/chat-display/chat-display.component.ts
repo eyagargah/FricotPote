@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
+import { MessageService } from 'src/app/services/message.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -11,7 +12,8 @@ import { UserService } from 'src/app/services/user.service';
 export class ChatDisplayComponent {
   constructor(
     private cookiesServices: CookieService,
-    private userService: UserService
+    private userService: UserService,
+    private messageService: MessageService
   ) {}
   @Input() currentUser: any;
   userMessages: any;
@@ -21,8 +23,6 @@ export class ChatDisplayComponent {
   selectedUser: any;
   clickedUserMessages: any;
   messages: any[] = [];
-  
-  
 
   ngOnInit() {
     this.senderId = this.cookiesServices.get('UserId');
@@ -33,27 +33,23 @@ export class ChatDisplayComponent {
       this.userMessages = data;
 
       for (let i = 0; i <= this.userMessages.length; i++) {
-        this.messages.push(this.formatMessages(this.userMessages[i]));
+        this.messages.push(this.messageService.formatMsg((this.userMessages[i])));
       }
-      this.messages = this.filterMessages(this.messages);
-      this.messages.sort(function (a,b){
-        return a.timestamp - b.timestamp
-      })
-
-      
+      this.messages = this.messageService.filterMessages(this.messages)
+     
     });
 
     this.getMessages(this.recepientId, this.senderId).then((data) => {
       this.clickedUserMessages = data;
       for (let i = 0; i <= this.clickedUserMessages.length; i++) {
-
-        this.messages.push(this.formatMessages(this.clickedUserMessages[i]));
+        this.messages.push(this.messageService.formatMsg((this.clickedUserMessages[i])));
       }
-      this.messages = this.filterMessages(this.messages);
-      this.messages.sort(function (a,b){
-        return a.timestamp - b.timestamp
-      })
+      this.messages = this.messageService.filterMessages(this.messages)
       
+    });
+
+    this.messages.sort(function (a, b) {
+      return a.timestamp - b.timestamp;
     });
   }
 
@@ -68,18 +64,7 @@ export class ChatDisplayComponent {
     }
   };
 
-  filterMessages(messages: any) {
-    return messages.filter((el: undefined) => el != undefined);
-  }
-
-  formatMessages(message:any){
-      let formattedMsg = {
-        timestamp: message.timestamp,
-        url : message.from_user.url,
-        message: message.message,
-      }
-      return formattedMsg
-    }
-  }
 
 
+ 
+}
