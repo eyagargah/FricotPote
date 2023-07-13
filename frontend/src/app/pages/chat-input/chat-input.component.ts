@@ -17,26 +17,14 @@ export class ChatInputComponent {
   recepientId: any;
   selectedUser: any;
   clickedUserMessages: any;
-  messages: any;
+  @Input() messages: any;
   
   ngOnInit(){
     this.recepientId = this.userService.getSelectedUserId();
      this.selectedUser= this.userService.getSelectedUser()
      this.senderId = this.cookiesServices.get('UserId')
 
-
   }
-
-  getMessages = async (senderId: any, recepientId: any) => {
-    try {
-      const response = await axios.get('http://localhost:8000/messages', {
-        params: { userId: senderId, correspondingUserId: recepientId },
-      });
-      return response.data;
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   sendMsg = async (e: any) => {
     const chatInput = document.querySelector('.msg') as HTMLTextAreaElement;
