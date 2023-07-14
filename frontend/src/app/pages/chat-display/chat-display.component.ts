@@ -36,7 +36,8 @@ export class ChatDisplayComponent {
         this.messages.push(this.messageService.formatMsg((this.userMessages[i])));
       }
       this.messages = this.messageService.filterMessages(this.messages)
-     
+      this.messageService.sortMessages(this.messages)
+     console.log(this.messages)
     });
 
     this.getMessages(this.recepientId, this.senderId).then((data) => {
@@ -45,17 +46,11 @@ export class ChatDisplayComponent {
         this.messages.push(this.messageService.formatMsg((this.clickedUserMessages[i])));
       }
       this.messages = this.messageService.filterMessages(this.messages)
-      
+      this.messageService.sortMessages(this.messages)
+      console.log(this.messages)
     });
+    this.messageService.sortMessages(this.messages)
 
-    console.log(this.messages)
-    this.messages.sort(function (a, b) {
-      console.log(a.timestamp - b.timestamp)
-      return a.timestamp - b.timestamp;
-    });
-
-    console.log(this.messages)
-    
   }
 
   getMessages = async (senderId: any, recepientId: any) => {
