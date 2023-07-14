@@ -241,6 +241,7 @@ app.get('/messages', async (req, res) => {
       const foundMessages = await messages.find(query).toArray()
       
       res.send(foundMessages)
+      
   } finally {
       await client.close()
   }
