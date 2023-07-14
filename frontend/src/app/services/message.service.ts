@@ -21,7 +21,7 @@ export class MessageService {
 
   sortMessages(messages:any){
      messages.sort(function(a:any,b:any){
-      return +new Date(a.timestamp) - +new Date(b.timestamp)
+      return a.timestamp - b.timestamp
     })
   }
 
