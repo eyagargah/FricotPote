@@ -48,9 +48,14 @@ export class ChatDisplayComponent {
       
     });
 
+    console.log(this.messages)
     this.messages.sort(function (a, b) {
+      console.log(a.timestamp - b.timestamp)
       return a.timestamp - b.timestamp;
     });
+
+    console.log(this.messages)
+    
   }
 
   getMessages = async (senderId: any, recepientId: any) => {
