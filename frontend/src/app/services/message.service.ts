@@ -12,7 +12,7 @@ export class MessageService {
 
   formatMsg(message : any){
     let formattedMsg = {
-      timestamp: message.timestamp. ,
+      timestamp: message.timestamp,
       url : message.from_user.url,
       message: message.message,
     }
