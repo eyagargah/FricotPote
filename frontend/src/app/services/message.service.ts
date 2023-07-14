@@ -12,7 +12,7 @@ export class MessageService {
 
   formatMsg(message : any){
     let formattedMsg = {
-      timestamp:message.timestamp ,
+      timestamp: message.timestamp. ,
       url : message.from_user.url,
       message: message.message,
     }
@@ -21,7 +21,7 @@ export class MessageService {
 
   sortMessages(messages:any){
      messages.sort(function(a:any,b:any){
-      return a.timestamp - b.timestamp
+      return +new Date(a.timestamp) - +new Date(b.timestamp)
     })
   }
 
