@@ -31,7 +31,7 @@ export class ChatInputComponent {
     const chatInput = document.querySelector('.msg') as HTMLTextAreaElement;
     if (this.selectedUser && chatInput.value!=="") {
       const message = {
-        timestamp: new Date().toISOString(),
+        timestamp: new Date(),
         from_userId: this.senderId,
         from_user:this.currentUser,
         to_userId: this.recepientId,
