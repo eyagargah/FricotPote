@@ -63,8 +63,5 @@ export class ChatDisplayComponent {
       console.log(err);
     }
   };
-
-
-
  
 }
