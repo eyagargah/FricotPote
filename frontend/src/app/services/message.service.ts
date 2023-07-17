@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import axios from 'axios';
 
 @Injectable({
   providedIn: 'root'
@@ -6,8 +7,19 @@ import { Injectable } from '@angular/core';
 export class MessageService {
 
   constructor() { }
-  getMessage(){}
+  messages: any = []
+  getMessage = async (senderId: any, recepientId: any) => {
+    try {
+      const response = await axios.get('http://localhost:8000/messages', {
+        params: { userId: senderId, correspondingUserId: recepientId },
+      });
+      return response.data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
+  getMessages(){}
   sendMsg(){}
 
   formatMsg(message : any){
