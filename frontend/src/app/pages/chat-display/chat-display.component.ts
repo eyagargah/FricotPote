@@ -36,7 +36,7 @@ export class ChatDisplayComponent {
       }
       this.messages = this.messageService.filterMessages(this.messages)
       this.messageService.sortMessages(this.messages)
-     console.log(typeof this.messages[0].timestamp)
+     
     });
 
     this.getMessages(this.recepientId, this.senderId).then((data) => {
