@@ -31,13 +31,12 @@ export class ChatDisplayComponent {
 
     this.getMessages(this.senderId, this.recepientId).then((data) => {
       this.userMessages = data;
-
       for (let i = 0; i <= this.userMessages.length; i++) {
         this.messages.push(this.messageService.formatMsg((this.userMessages[i])));
       }
       this.messages = this.messageService.filterMessages(this.messages)
       this.messageService.sortMessages(this.messages)
-     console.log(this.messages)
+     console.log(typeof this.messages[0].timestamp)
     });
 
     this.getMessages(this.recepientId, this.senderId).then((data) => {
