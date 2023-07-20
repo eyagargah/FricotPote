@@ -42,7 +42,7 @@ export class MatchesComponent {
 
   getUser(e: any) {
     this.selectedUser = e;
-    
+    this.messages = this.messageService.getMessages()
     console.log(this.selectedUser)
     this.userService.setSelectedUser(this.selectedUser);
     this.showMatches = false
