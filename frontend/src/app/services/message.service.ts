@@ -32,8 +32,11 @@ export class MessageService {
   }
 
   sortMessages(messages:any){
+   
      messages.sort(function(a:any,b:any){
-      return a.timestamp - b.timestamp
+      const dateA = Date.parse(a.timestamp)/1000
+      const dateB = Date.parse(b.timestamp)/100
+      return dateA- dateB
     })
   }
 
