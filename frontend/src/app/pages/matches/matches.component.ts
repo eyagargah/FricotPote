@@ -21,6 +21,7 @@ export class MatchesComponent {
   matchesData: any;
   selectedUser: any;
   displayChat: any;
+  messages:any=[]
   getMatches = async (userId: any) => {
     try {
       const response = await axios.get('http://localhost:8000/users', {
@@ -39,6 +40,7 @@ export class MatchesComponent {
 
   getUser(e: any) {
     this.selectedUser = e;
+    
     console.log(this.selectedUser)
     this.userService.setSelectedUser(this.selectedUser);
     this.showMatches = false
