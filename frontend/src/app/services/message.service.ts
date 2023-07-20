@@ -8,7 +8,7 @@ export class MessageService {
 
   constructor() { }
   messages: any = []
-  getMessage  = async (senderId: any, recepientId: any) => {
+  getMessage = async (senderId: any, recepientId: any) => {
     try {
       const response = await axios.get('http://localhost:8000/messages', {
         params: { userId: senderId, correspondingUserId: recepientId },
