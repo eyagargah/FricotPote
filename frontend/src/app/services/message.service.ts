@@ -19,9 +19,7 @@ export class MessageService {
     }
   };
 
-  getMessages(senderId:any , recepientId:any){
-   
-  }
+  
   sendMsg(){}
 
   formatMsg(message : any){
