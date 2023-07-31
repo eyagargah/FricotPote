@@ -9,33 +9,22 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./chat-container.component.scss'],
 })
 export class ChatContainerComponent {
-  constructor(private cookiesservice: CookieService, private userService: UserService) {}
-  showMatches = true
+  constructor(
+    private cookiesservice: CookieService,
+    private userService: UserService
+  ) {}
+  showMatches = true;
   userId = this.cookiesservice.get('UserId');
   @Input() currentUser: any;
-  @Input() matches: any
-
-  selectedUser= this.userService.getSelectedUser()
-  getUser = async () => {
-    try {
-      const response = await axios.get('http://localhost:8000/user', {
-        params: { userId: this.userId },
-      });
-      this.currentUser = response.data;
-    
-    } catch (err) {
-      console.log(err);
+  @Input() matches: any;
+  messages: any;
+  selectedUser = this.userService.getSelectedUser();
+  
+  showMatchSection() {
+    if (this.showMatches == true) {
+      this.showMatches = false;
+    } else {
+      this.showMatches = true;
     }
-  };
- 
-  showMatchSection(){
-    if(this.showMatches == true){
-      this.showMatches = false
-    }
-    else {
-      this.showMatches =true
-    }
-
   }
-
 }
