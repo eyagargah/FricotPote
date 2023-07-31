@@ -36,9 +36,11 @@ export class ChatDisplayComponent {
       }
       this.messages = this.messageService.filterMessages(this.messages)
       this.messageService.sortMessages(this.messages)
-     
+      console.log(this.messages + "messages from sender")
     });
 
+
+    this.messageService.sortMessages(this.messages)
     this.getMessages(this.recepientId, this.senderId).then((data) => {
       this.clickedUserMessages = data;
       for (let i = 0; i <= this.clickedUserMessages.length; i++) {
@@ -46,7 +48,8 @@ export class ChatDisplayComponent {
       }
       this.messages = this.messageService.filterMessages(this.messages)
       this.messageService.sortMessages(this.messages)
-      console.log(this.messages)
+      
+
     });
     this.messageService.sortMessages(this.messages)
 
