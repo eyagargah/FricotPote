@@ -3,8 +3,6 @@
     <div class="messages" *ngFor="let message of messages">
         <img src={{message.url}} alt="profile picture">
         <h5>{{message.message}}</h5>
-        &nbsp; &nbsp;
-        <h5>{{message.timestamp}}</h5>
     </div>
 </div>
 <app-chat-input  [currentUser]="currentUser"></app-chat-input>
