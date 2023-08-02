@@ -29,7 +29,7 @@ export class ChatDisplayComponent {
     this.selectedUser = this.userService.getSelectedUser();
     this.recepientId = this.selectedUser.user_id;
 
-    this.getMessages(this.senderId, this.recepientId).then((data) => {
+    this.messageService.getMessages(this.senderId, this.recepientId).then((data) => {
       this.userMessages = data;
       for (let i = 0; i <= this.userMessages.length; i++) {
         this.messages.push(this.messageService.formatMsg((this.userMessages[i])));
@@ -41,7 +41,7 @@ export class ChatDisplayComponent {
 
 
     this.messageService.sortMessages(this.messages)
-    this.getMessages(this.recepientId, this.senderId).then((data) => {
+    this.messageService.getMessages(this.recepientId, this.senderId).then((data) => {
       this.clickedUserMessages = data;
       for (let i = 0; i <= this.clickedUserMessages.length; i++) {
         this.messages.push(this.messageService.formatMsg((this.clickedUserMessages[i])));
@@ -55,15 +55,6 @@ export class ChatDisplayComponent {
 
   }
 
-  getMessages = async (senderId: any, recepientId: any) => {
-    try {
-      const response = await axios.get('http://localhost:8000/messages', {
-        params: { userId: senderId, correspondingUserId: recepientId },
-      });
-      return response.data;
-    } catch (err) {
-      console.log(err);
-    }
-  };
+ 
  
 }
