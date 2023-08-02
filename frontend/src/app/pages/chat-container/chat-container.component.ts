@@ -17,7 +17,6 @@ export class ChatContainerComponent {
   userId = this.cookiesservice.get('UserId');
   @Input() currentUser: any;
   @Input() matches: any;
-  messages: any;
   selectedUser = this.userService.getSelectedUser();
   
   showMatchSection() {
