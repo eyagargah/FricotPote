@@ -24,7 +24,7 @@ export class ChatInputComponent {
     this.recepientId = this.userService.getSelectedUserId();
      this.selectedUser= this.userService.getSelectedUser()
      this.senderId = this.cookiesServices.get('UserId')
-
+     
   }
 
   sendMsg = async (e: any) => {
