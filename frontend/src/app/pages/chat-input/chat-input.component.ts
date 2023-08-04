@@ -18,13 +18,11 @@ export class ChatInputComponent {
   recepientId: any;
   selectedUser: any;
   clickedUserMessages: any;
-  messages: any;
-  
+
   ngOnInit(){
     this.recepientId = this.userService.getSelectedUserId();
      this.selectedUser= this.userService.getSelectedUser()
      this.senderId = this.cookiesServices.get('UserId')
-     
   }
 
   sendMsg = async (e: any) => {
