@@ -33,7 +33,7 @@ export class MessageService {
 
   sortMessages(messages:any){
      messages.sort(function(a:any,b:any){
-      return new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
+      return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
     })
   }
 
