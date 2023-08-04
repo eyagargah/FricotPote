@@ -52,9 +52,9 @@ export class ChatDisplayComponent {
       for (let i=0 ; i<=this.messages.length ; i++){
         console.log(this.messages[i].timestamp)
       }
-
+      
     });
-    
+    this.messageService.sortMessages(this.messages)
 
   }
 
