@@ -49,9 +49,12 @@ export class ChatDisplayComponent {
       this.messages = this.messageService.filterMessages(this.messages)
       this.messageService.sortMessages(this.messages)
       
+      for (let i=0 ; i<=this.messages.length ; i++){
+        console.log(this.messages[i].timestamp)
+      }
 
     });
-    this.messageService.sortMessages(this.messages)
+    
 
   }
 
