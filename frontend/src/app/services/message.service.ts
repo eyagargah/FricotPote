@@ -19,9 +19,6 @@ export class MessageService {
     }
   };
 
-  
-  sendMsg(){}
-
   formatMsg(message : any){
     let formattedMsg = {
       timestamp: message.timestamp,
