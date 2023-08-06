@@ -39,7 +39,6 @@ export class ChatInputComponent {
 
       try {
         await axios.post('http://localhost:8000/message', { message: message });
-        
         chatInput.value=""
       } catch (error) {
         console.log(error);
