@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
 import { MessageService } from 'src/app/services/message.service';
@@ -8,6 +8,7 @@ import { UserService } from 'src/app/services/user.service';
   selector: 'app-chat-input',
   templateUrl: './chat-input.component.html',
   styleUrls: ['./chat-input.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChatInputComponent {
   constructor(
