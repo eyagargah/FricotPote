@@ -45,7 +45,7 @@ export class ChatInputComponent {
         await axios.post('http://localhost:8000/message', { message: message });
         chatInput.value = '';
 
-        this.messageService.getMessages(this.currentUser, this.selectedUser).then((data) => {
+        this.messageService.getMessages(this.senderId, this.recepientId).then((data) => {
           this.userMessages = data;
           for (let i = 0; i <= this.userMessages.length; i++) {
             this.messages.push(this.messageService.formatMsg((this.userMessages[i])));
