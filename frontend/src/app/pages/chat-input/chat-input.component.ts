@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
 import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
 import { MessageService } from 'src/app/services/message.service';
@@ -14,7 +14,8 @@ export class ChatInputComponent {
   constructor(
     private userService: UserService,
     private cookiesServices: CookieService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private cd: ChangeDetectorRef
   ) {}
   @Input() currentUser: any;
   userMessages: any;
