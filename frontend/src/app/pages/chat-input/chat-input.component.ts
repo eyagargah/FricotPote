@@ -45,14 +45,34 @@ export class ChatInputComponent {
         await axios.post('http://localhost:8000/message', { message: message });
         chatInput.value = '';
 
-        this.userMessages = this.messageService.getMessages(
-          this.currentUser,
-          this.selectedUser
-        );
-        this.clickedUserMessages = this.messageService.getMessages(
-          this.selectedUser,
-          this.currentUser
-        );
+        this.messageService.getMessages(this.currentUser, this.selectedUser).then((data) => {
+          this.userMessages = data;
+          for (let i = 0; i <= this.userMessages.length; i++) {
+            this.messages.push(this.messageService.formatMsg((this.userMessages[i])));
+          }
+          this.messages = this.messageService.filterMessages(this.messages)
+          this.messageService.sortMessages(this.messages)
+          console.log(this.messages + "messages from sender")
+        });
+    
+    
+        this.messageService.sortMessages(this.messages)
+        this.messageService.getMessages(this.recepientId, this.senderId).then((data) => {
+          this.clickedUserMessages = data;
+          for (let i = 0; i <= this.clickedUserMessages.length; i++) {
+            this.messages.push(this.messageService.formatMsg((this.clickedUserMessages[i])));
+          }
+          this.messages = this.messageService.filterMessages(this.messages)
+          this.messageService.sortMessages(this.messages)
+          
+          for (let i=0 ; i<=this.messages.length ; i++){
+            console.log(this.messages[i].timestamp)
+          }
+          
+        });
+        this.messageService.sortMessages(this.messages)
+    
+        
       } catch (error) {
         console.log(error);
       }
