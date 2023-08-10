@@ -34,6 +34,9 @@ export class MessageService {
     })
   }
 
+  removeDuplicatesFromMessages(messages:any){
+    return new Set(messages)
+  }
   filterMessages(messages:any){
     return messages.filter((el: undefined) => el != undefined);
   }
