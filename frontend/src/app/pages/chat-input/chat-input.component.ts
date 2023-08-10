@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
+import { Observable } from 'rxjs';
 import { MessageService } from 'src/app/services/message.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -23,14 +24,17 @@ export class ChatInputComponent {
     private cd: ChangeDetectorRef
   ) {}
   @Input() currentUser: any;
-  userMessages: any;
-  userInitMessages: any;
   senderId: any;
   recepientId: any;
   selectedUser: any;
-  clickedUserMessages: any;
-  @Input() messages: any;
+  chatMessages:any
+  @Input() messages: Observable<any> | any;
   ngOnInit() {
+    this.messages.subscribe((item: any) => {
+      this.chatMessages = [...this.chatMessages, ...item];
+      this.cd.markForCheck();
+    });
+  
     this.recepientId = this.userService.getSelectedUserId();
     this.selectedUser = this.userService.getSelectedUser();
     this.senderId = this.cookiesServices.get('UserId');
