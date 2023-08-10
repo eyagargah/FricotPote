@@ -20,7 +20,6 @@ export class ChatInputComponent {
   constructor(
     private userService: UserService,
     private cookiesServices: CookieService,
-    private messageService: MessageService,
     private cd: ChangeDetectorRef
   ) {}
   @Input() currentUser: any;
@@ -28,9 +27,9 @@ export class ChatInputComponent {
   recepientId: any;
   selectedUser: any;
   chatMessages:any
-  @Input() messages: Observable<any> | any;
+  @Input() data: Observable<any> | any;
   ngOnInit() {
-    this.messages.subscribe((item: any) => {
+    this.data.subscribe((item: any) => {
       this.chatMessages = [...this.chatMessages, ...item];
       this.cd.markForCheck();
     });
@@ -57,7 +56,7 @@ export class ChatInputComponent {
       try {
         await axios.post('http://localhost:8000/message', { message: message });
         chatInput.value = '';
-
+        this.cd.detectChanges();
       } catch (error) {
         console.log(error);
       }
