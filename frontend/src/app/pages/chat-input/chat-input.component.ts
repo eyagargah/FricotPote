@@ -26,21 +26,14 @@ export class ChatInputComponent {
   senderId: any;
   recepientId: any;
   selectedUser: any;
-  chatMessages:any
-  @Input() data: Observable<any> | any;
+  chatMessages: any;
+  @Input() messages: any;
   ngOnInit() {
-    this.data.subscribe((item: any) => {
-      this.chatMessages = [...this.chatMessages, ...item];
-      this.cd.markForCheck();
-    });
-  
     this.recepientId = this.userService.getSelectedUserId();
     this.selectedUser = this.userService.getSelectedUser();
     this.senderId = this.cookiesServices.get('UserId');
   }
-  update() {
-    this.cd.detectChanges();
-  }
+
   sendMsg = async (e: any) => {
     const chatInput = document.querySelector('.msg') as HTMLTextAreaElement;
     if (this.selectedUser && chatInput.value !== '') {
@@ -56,7 +49,6 @@ export class ChatInputComponent {
       try {
         await axios.post('http://localhost:8000/message', { message: message });
         chatInput.value = '';
-        this.cd.detectChanges();
       } catch (error) {
         console.log(error);
       }
