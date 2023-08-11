@@ -80,7 +80,6 @@ export class ChatInputComponent {
         });
         this.messageService.sortMessages(this.messages)
 
-        
         chatInput.value = '';
       } catch (error) {
         console.log(error);
