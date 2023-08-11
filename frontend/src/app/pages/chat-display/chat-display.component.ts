@@ -54,7 +54,7 @@ export class ChatDisplayComponent {
       
     });
     this.messageService.sortMessages(this.messages)
-
+    this.messages = this.messageService.removeDuplicatesFromMessages(this.messages)
   }
 
  addMsg(message:any){
