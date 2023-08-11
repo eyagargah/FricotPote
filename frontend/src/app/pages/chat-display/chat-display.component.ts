@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
 import { MessageService } from 'src/app/services/message.service';
 import { UserService } from 'src/app/services/user.service';
