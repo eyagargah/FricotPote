@@ -40,11 +40,7 @@ export class DashboardComponent {
   }
 
   checkMatches(matches: any , selectedUser: any){
-    if(matches.includes(selectedUser)){
-      console.log('this user already exists')
-    }else {
-      console.log('this user dosent exist on this list!')
-    }
+    console.log(typeof matches[0])
   }
   updateMatches = async (selectedUser: any) => {
     try {
