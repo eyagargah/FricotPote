@@ -39,8 +39,16 @@ export class DashboardComponent {
     }
   }
 
+  checkMatches(matches: any , selectedUser: any){
+    if(matches.includes(selectedUser)){
+      console.log('this user already exists')
+    }else {
+      console.log('this user dosent exist on this list!')
+    }
+  }
   updateMatches = async (selectedUser: any) => {
     try {
+      this.checkMatches(this.matches , selectedUser)
       const response = await axios.put('http://localhost:8000/addmatch', {
         userId: this.userId,
         matchedUser: selectedUser,
