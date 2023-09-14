@@ -39,26 +39,17 @@ export class DashboardComponent {
     }
   }
 
-  checkMatches(matches: any , selectedUser: any){
-    if(matches.includes(selectedUser)){
-      console.log(matches)
-      console.log(selectedUser)
-    }else {
-      console.log('this user dosent exist on this list!')
-      console.log(matches)
-      console.log(selectedUser)
-    }
-  }
+
   updateMatches = async (selectedUser: any) => {
     try {
       this.getUser();
-      this.checkMatches(this.matches , selectedUser)
       const response = await axios.put('http://localhost:8000/addmatch', {
         userId: this.userId,
         matchedUser: selectedUser,
       });
       
       this.found = false;
+      console.log(this.matches)
     } catch (err) {
       console.log(err);
     }
@@ -72,6 +63,8 @@ export class DashboardComponent {
       this.currentUser = response.data;
       this.gender = this.currentUser.gender_interest;
       this.matches = this.currentUser.matches;
+      
+      console.log(this.matches)
     } catch (err) {
       console.log(err);
     }
