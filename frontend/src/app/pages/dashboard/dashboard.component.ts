@@ -65,6 +65,11 @@ export class DashboardComponent {
   }
   updateMatches = async (selectedUser: any) => {
     try {
+      if(this.matches.includes(selectedUser)){
+        console.log("exists")
+      }else {
+        console.log('new user added')
+      }
       this.getUser();
       const response = await axios.put('http://localhost:8000/addmatch', {
         userId: this.userId,
@@ -86,9 +91,9 @@ export class DashboardComponent {
       this.gender = this.currentUser.gender_interest;
       this.matches = this.currentUser.matches;
       
-      console.log( this.matches)
+      
       this.matches = this.filterMatches(this.matches)
-
+      console.log( this.matches)
     } catch (err) {
       console.log(err);
     }
