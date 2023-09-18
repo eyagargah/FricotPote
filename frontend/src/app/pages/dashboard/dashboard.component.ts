@@ -65,27 +65,29 @@ export class DashboardComponent {
 
   updateMatches = async (selectedUser: any) => {
     try {
+      let isMatched = false;
       for (var match of this.matches) {
         let user = this.matches[match].user;
-        if (user !== selectedUser) {
-          console.log('add selected user to db!!')
+        if (user === selectedUser) {
+          console.log('add selected user to db!!');
+          isMatched = true;
+        } else {
+          console.log('match already exists!!');
+        }
+        if (isMatched) {
           const response = await axios.put('http://localhost:8000/addmatch', {
             userId: this.userId,
             matchedUser: selectedUser,
           });
-        } else {
-          console.log('match already exists!!');
         }
       }
       this.getUser();
-      
 
       this.found = false;
     } catch (err) {
       console.log(err);
     }
   };
-
 
   getUser = async () => {
     try {
