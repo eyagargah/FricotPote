@@ -49,7 +49,7 @@ export class DashboardComponent {
     for (let i in matches) {
  
         // Extract the title
-        let objTitle = matches[i].user
+        let objTitle = matches[i].user.user_id
  
         // Use the title as the index
         uniqueObject[objTitle] = matches[i];
