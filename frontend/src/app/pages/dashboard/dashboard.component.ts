@@ -66,9 +66,9 @@ export class DashboardComponent {
   updateMatches = async (selectedUser: any) => {
     try {
       let isMatched = false;
-      for (var match of this.matches) {
-        let user = this.matches[match].user;
-        if (user === selectedUser) {
+      for (var match in this.matches) {
+        let user = this.matches[match].user.user_id;
+        if (user === selectedUser.user_id) {
           console.log('add selected user to db!!');
           isMatched = true;
         } else {
