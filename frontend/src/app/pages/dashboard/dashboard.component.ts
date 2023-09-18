@@ -39,7 +39,30 @@ export class DashboardComponent {
     }
   }
 
-
+  filterMatches(matches:any){
+    let newArray = [];
+ 
+    // Declare an empty object
+    let uniqueObject: any = {};
+ 
+    // Loop for the array elements
+    for (let i in matches) {
+ 
+        // Extract the title
+        let objTitle = matches[i].user
+ 
+        // Use the title as the index
+        uniqueObject[objTitle] = matches[i];
+    }
+ 
+    // Loop to push unique object into array
+    for (let i in uniqueObject) {
+        newArray.push(uniqueObject[i]);
+    }
+ 
+    // Display the unique objects
+    return newArray
+  }
   updateMatches = async (selectedUser: any) => {
     try {
       this.getUser();
@@ -49,7 +72,6 @@ export class DashboardComponent {
       });
       
       this.found = false;
-      console.log(this.matches)
     } catch (err) {
       console.log(err);
     }
@@ -64,7 +86,9 @@ export class DashboardComponent {
       this.gender = this.currentUser.gender_interest;
       this.matches = this.currentUser.matches;
       
-      console.log(this.matches)
+      console.log( this.matches)
+      this.matches = this.filterMatches(this.matches)
+
     } catch (err) {
       console.log(err);
     }
