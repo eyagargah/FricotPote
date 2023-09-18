@@ -39,49 +39,54 @@ export class DashboardComponent {
     }
   }
 
-  filterMatches(matches:any){
+  filterMatches(matches: any) {
     let newArray = [];
- 
+
     // Declare an empty object
     let uniqueObject: any = {};
- 
+
     // Loop for the array elements
     for (let i in matches) {
- 
-        // Extract the title
-        let objTitle = matches[i].user.user_id
- 
-        // Use the title as the index
-        uniqueObject[objTitle] = matches[i];
+      // Extract the title
+      let userId = matches[i].user.user_id;
+
+      // Use the title as the index
+      uniqueObject[userId] = matches[i];
     }
- 
+
     // Loop to push unique object into array
     for (let i in uniqueObject) {
-        newArray.push(uniqueObject[i]);
+      newArray.push(uniqueObject[i]);
     }
- 
+
     // Display the unique objects
-    return newArray
+    return newArray;
   }
+
   updateMatches = async (selectedUser: any) => {
     try {
-      if(this.matches.includes(selectedUser)){
-        console.log("exists")
-      }else {
-        console.log('new user added')
-      }
       this.getUser();
       const response = await axios.put('http://localhost:8000/addmatch', {
         userId: this.userId,
         matchedUser: selectedUser,
       });
-      
+
       this.found = false;
     } catch (err) {
       console.log(err);
     }
   };
 
+  checkMatches(matches: any, selectedUser: any) {
+    for (var match of matches) {
+      let user = matches[match].user;
+      if (user !== selectedUser) {
+        console.log('new match is added to db!!!');
+      } else {
+        console.log('match already exists!!');
+      }
+    }
+  }
   getUser = async () => {
     try {
       const response = await axios.get('http://localhost:8000/user', {
@@ -90,10 +95,9 @@ export class DashboardComponent {
       this.currentUser = response.data;
       this.gender = this.currentUser.gender_interest;
       this.matches = this.currentUser.matches;
-      
-      
-      this.matches = this.filterMatches(this.matches)
-      console.log( this.matches)
+
+      this.matches = this.filterMatches(this.matches);
+      console.log(this.matches);
     } catch (err) {
       console.log(err);
     }
