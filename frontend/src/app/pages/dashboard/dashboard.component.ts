@@ -74,12 +74,13 @@ export class DashboardComponent {
         } else {
           console.log('match already exists!!');
         }
-        if (isMatched) {
-          const response = await axios.put('http://localhost:8000/addmatch', {
-            userId: this.userId,
-            matchedUser: selectedUser,
-          });
-        }
+        
+      }
+      if (!isMatched) {
+        const response = await axios.put('http://localhost:8000/addmatch', {
+          userId: this.userId,
+          matchedUser: selectedUser,
+        });
       }
       this.getUser();
 
