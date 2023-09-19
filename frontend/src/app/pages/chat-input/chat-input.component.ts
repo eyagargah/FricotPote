@@ -47,7 +47,7 @@ export class ChatInputComponent {
         to_user: this.selectedUser,
         message: chatInput.value,
       };
-
+      console.log(message)
       try {
         await axios.post('http://localhost:8000/message', { message: message });
 
