@@ -22,7 +22,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use(express.json());
+app.use(express.json({limit: '20mb'}));
 
 app.get("/", (req, res) => {
   res.json("hello to my app");
