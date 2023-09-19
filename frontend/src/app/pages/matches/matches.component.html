@@ -1,7 +1,7 @@
 <div class="matchesDisplay" *ngIf="showMatches">
   <div class="matches"  *ngFor="let match of matches">
     <div class="user" (click)="getUser(match.user)">
-      <img src="{{ match.user.url }}" alt="user profile picture" />
+      <img src="{{ match.user.url }}" alt="user profile picture" loading="lazy"/>
       <div class="userName">{{ match.user.first_name }}</div>
     </div>
   </div>
