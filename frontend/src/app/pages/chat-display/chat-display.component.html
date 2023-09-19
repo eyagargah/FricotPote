@@ -1,7 +1,7 @@
 <div class="chat-display">
     <h3 *ngIf="messages.length == 0">Chat with {{ selectedUser.first_name}}</h3>
     <div class="messages" *ngFor="let message of messages">
-        <img src={{message.url}} alt="profile picture">
+        <img src={{message.url}} alt="profile picture" loading="lazy">
         <h5>{{message.message}}</h5>
     </div>
 </div>
