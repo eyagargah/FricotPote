@@ -60,7 +60,6 @@ export class ChatInputComponent {
           }
           this.messages = this.messageService.filterMessages(this.messages)
           this.messageService.sortMessages(this.messages)
-          console.log(this.messages + "messages from sender")
         });
     
     
@@ -76,7 +75,6 @@ export class ChatInputComponent {
 
         });
         this.messageService.sortMessages(this.messages)
-        console.log(this.messages)
         chatInput.value = '';
         this.msgEvent.emit(this.messages)
       } catch (error) {
