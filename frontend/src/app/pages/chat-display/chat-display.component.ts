@@ -60,4 +60,7 @@ export class ChatDisplayComponent {
  addMsg(message:any){
   this.messages = [...this.messages, message];
  }
+ recieveMsgs($event:any){
+    this.messages = $event
+ }
 }
