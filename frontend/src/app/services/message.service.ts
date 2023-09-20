@@ -10,10 +10,10 @@ export class MessageService {
   messages: any = []
   userMessages: any= []
   senderMessages: any= []
-  getAllMessages = async(user1 : any , user2: any)=> {
+  getAllMessages = async(senderId: any, recepientId: any)=> {
     try {
       const response1 = await axios.get('http://localhost:8000/messages', {
-        params: { userId: user1, correspondingUserId: user2 },
+        params: { userId: senderId, correspondingUserId: recepientId },
       });
       this.userMessages.push (response1.data);
       for (let i = 0; i <= this.userMessages.length; i++) {
@@ -23,7 +23,7 @@ export class MessageService {
       this.sortMessages(this.messages)
       
       const response2 = await axios.get('http://localhost:8000/messages', {
-        params: { userId: user2, correspondingUserId: user1 },
+        params: { userId: recepientId, correspondingUserId: senderId },
       });
       this.senderMessages.push (response2.data);
       
@@ -32,7 +32,7 @@ export class MessageService {
       }
       this.messages = this.filterMessages(this.messages)
       this.sortMessages(this.messages)
-      
+
       return this.messages
     } catch (err) {
       console.log(err);
