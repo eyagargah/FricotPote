@@ -47,10 +47,8 @@ export class ChatInputComponent {
         to_user: this.selectedUser,
         message: chatInput.value,
       };
-      console.log(message)
       try {
         await axios.post('http://localhost:8000/message', { message: message });
-
         //get messages sent from this user
 
         this.messageService.getMessages(this.senderId, this.recepientId).then((data) => {
@@ -72,14 +70,10 @@ export class ChatInputComponent {
           }
           this.messages = this.messageService.filterMessages(this.messages)
           this.messageService.sortMessages(this.messages)
-          
-          for (let i=0 ; i<=this.messages.length ; i++){
-            console.log(this.messages[i].timestamp)
-          }
-          
+
         });
         this.messageService.sortMessages(this.messages)
-
+        console.log(this.messages)
         chatInput.value = '';
       } catch (error) {
         console.log(error);
