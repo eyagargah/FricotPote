@@ -2,11 +2,12 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  EventEmitter,
   Input,
+  Output,
 } from '@angular/core';
 import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
-import { Observable } from 'rxjs';
 import { MessageService } from 'src/app/services/message.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -30,12 +31,13 @@ export class ChatInputComponent {
   clickedUserMessages : any;
   chatMessages: any;
   @Input() messages: any;
+  @Output() msgEvent = new EventEmitter<any>();
   ngOnInit() {
     this.recepientId = this.userService.getSelectedUserId();
     this.selectedUser = this.userService.getSelectedUser();
     this.senderId = this.cookiesServices.get('UserId');
   }
-
+  
   sendMsg = async (e: any) => {
     const chatInput = document.querySelector('.msg') as HTMLTextAreaElement;
     if (this.selectedUser && chatInput.value !== '') {
@@ -70,11 +72,13 @@ export class ChatInputComponent {
           }
           this.messages = this.messageService.filterMessages(this.messages)
           this.messageService.sortMessages(this.messages)
+          this.messageService.removeDuplicatesFromMessages(this.messages)
 
         });
         this.messageService.sortMessages(this.messages)
         console.log(this.messages)
         chatInput.value = '';
+       // this.msgEvent.emit(this.messages)
       } catch (error) {
         console.log(error);
       }
