@@ -1,2 +1,2 @@
 # FricotPote
-A Tinder clone ...
+A Tinder clone 
