@@ -1,2 +1,2 @@
 # FricotPote
-A matching website for food lovers
+A Tinder clone ...
