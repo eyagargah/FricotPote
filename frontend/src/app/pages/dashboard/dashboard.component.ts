@@ -100,7 +100,6 @@ export class DashboardComponent {
       this.matches = this.currentUser.matches;
 
       this.matches = this.filterMatches(this.matches);
-      console.log(this.matches);
     } catch (err) {
       console.log(err);
     }
