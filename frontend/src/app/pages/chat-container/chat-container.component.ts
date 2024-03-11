@@ -26,4 +26,8 @@ export class ChatContainerComponent {
       this.showMatches = true;
     }
   }
+
+  hideMatchesSection(){
+    this.showMatches = false
+  }
 }
