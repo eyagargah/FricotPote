@@ -26,7 +26,7 @@ export class MatchesComponent {
   messages:any=[]
   getMatches = async (userId: any) => {
     try {
-      const response = await axios.get('http://localhost:8000/users', {
+      const response = await axios.get('https://fricotpote-backend.onrender.com/users', {
         params: { userIds: this.matchedUserIds },
       });
       this.matchesData = response.data;
