@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import axios from 'axios';
-import {CookieService} from 'ngx-cookie-service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-auth-modal',
@@ -21,7 +21,7 @@ export class AuthModalComponent {
     public dialogRef: MatDialogRef<any>,
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: { title: string },
-    private cookieService:CookieService
+    private cookieService: CookieService
   ) {}
 
   ngOnInit() {
@@ -50,27 +50,29 @@ export class AuthModalComponent {
         this.error = 'Passwords need to match!';
         return;
       }
-      
-      const response = await axios.post(`http://localhost:8000/${this.isSignIn ? 'login' : 'signup'}`, { email: this.email, password: this.currentPwd })
 
-      this.cookieService.set('Email', JSON.stringify(this.email))
-      this.cookieService.set('UserId', response.data.userId)                                      
-      this.cookieService.set('AuthToken', response.data.token)
-      
+      const response = await axios.post(
+        `https://fricotpote-backend.onrender.com/${
+          this.isSignIn ? 'login' : 'signup'
+        }`,
+        { email: this.email, password: this.currentPwd }
+      );
+
+      this.cookieService.set('Email', JSON.stringify(this.email));
+      this.cookieService.set('UserId', response.data.userId);
+      this.cookieService.set('AuthToken', response.data.token);
 
       const success = response.status === 201;
-      console.log("🚀 ~ file: auth-modal.component.ts:65 ~ AuthModalComponent ~ submitForm= ~ success:", success)
-    
+
       if (success && !this.isSignIn) {
-        this.dialogRef.close()
+        this.dialogRef.close();
         this.router.navigateByUrl('onboarding');
       }
 
       if (success && this.isSignIn) {
-        this.dialogRef.close()
+        this.dialogRef.close();
         this.router.navigateByUrl('dashboard');
       }
-      
     } catch (err) {
       console.log(err);
     }
