@@ -50,7 +50,7 @@ export class ChatInputComponent {
         message: chatInput.value,
       };
       try {
-        await axios.post('http://localhost:8000/message', { message: message });
+        await axios.post('https://fricotpote-backend.onrender.com/message', { message: message });
         //get messages sent from this user
         this.messageService.getMessages(this.senderId, this.recepientId).then((data) => {
           this.userMessages = data;
