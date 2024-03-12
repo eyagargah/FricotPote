@@ -23,7 +23,6 @@ export class HomeComponent {
     if(this.authToken){
       this.cookiesServices.deleteAll()
       this.router.navigateByUrl('home')
-      console.log('true')
     }
     else {
       this.fileNameDialogRef = this.dialog.open(AuthModalComponent, {
