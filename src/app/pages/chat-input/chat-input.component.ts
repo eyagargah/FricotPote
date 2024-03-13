@@ -57,7 +57,6 @@ export class ChatInputComponent {
           for (let i = 0; i <= this.userMessages.length; i++) {
             this.messages.push(this.messageService.formatMsg((this.userMessages[i])));
           }
-          console.table(this.messages)
           this.messages = this.messageService.filterMessages(this.messages)
           this.messageService.sortMessages(this.messages)
         });
