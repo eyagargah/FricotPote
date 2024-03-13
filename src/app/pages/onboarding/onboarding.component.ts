@@ -29,7 +29,6 @@ export class OnboardingComponent {
     const value = event.target.value;
     const name = event.target.name;
     console.log(event.target.checked);
-    console.log(name);
     switch (name) {
       case 'first_name':
         this.formData.first_name = value;
@@ -61,7 +60,6 @@ export class OnboardingComponent {
         this.formData.about = value;
         break;
     }
-    console.log(this.formData);
   }
 
   handleSubmit = async (e: any) => {
