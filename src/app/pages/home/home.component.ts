@@ -19,7 +19,6 @@ export class HomeComponent {
   fileNameDialogRef: MatDialogRef<AuthModalComponent> | undefined;
   btn = document.querySelector('.primary-button')
   openDialog(e:any) {
-    console.log(e.target.innerHTML)
     if(this.authToken){
       this.cookiesServices.deleteAll()
       this.router.navigateByUrl('home')
