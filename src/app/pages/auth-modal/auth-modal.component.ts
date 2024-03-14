@@ -45,6 +45,8 @@ export class AuthModalComponent {
 
   submitForm = async (e: any) => {
     e.preventDefault();
+    console.log(this.email)
+
     try {
       if (!this.isSignIn && this.pwdToCheck != this.currentPwd) {
         this.error = 'Passwords need to match!';
@@ -57,7 +59,6 @@ export class AuthModalComponent {
         }`,
         { email: this.email, password: this.currentPwd }
       );
-        console.log(this.email)
         // Store email and user id in cookies for later use
       this.cookieService.set('Email', JSON.stringify(this.email));
       this.cookieService.set('UserId', response.data.userId);
