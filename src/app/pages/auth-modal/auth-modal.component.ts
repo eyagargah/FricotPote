@@ -57,7 +57,8 @@ export class AuthModalComponent {
         }`,
         { email: this.email, password: this.currentPwd }
       );
-
+        console.log(this.email)
+        // Store email and user id in cookies for later use
       this.cookieService.set('Email', JSON.stringify(this.email));
       this.cookieService.set('UserId', response.data.userId);
       this.cookieService.set('AuthToken', response.data.token);
