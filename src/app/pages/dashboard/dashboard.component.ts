@@ -135,9 +135,7 @@ export class DashboardComponent {
     return new Promise((res) => setTimeout(res, ms));
   }
 
-  getUserCard(event: any) {
-    console.log(event.target);
-  }
+ 
   async startAnimation(state: any) {
     if (!this.animationState) {
       if (state == 'swiperight') {
