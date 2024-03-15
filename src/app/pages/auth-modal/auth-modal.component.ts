@@ -54,7 +54,7 @@ export class AuthModalComponent {
       }
 
       const response = await axios.post(
-        `http://localhost:5000/${
+        `https://fricotpote-backend-1.onrender.com/${
           this.isSignIn ? 'login' : 'signup'
         }`,
         { email: this.email, password: this.currentPwd }
