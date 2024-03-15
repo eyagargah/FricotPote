@@ -45,7 +45,7 @@ export class AuthModalComponent {
 
   submitForm = async (e: any) => {
     e.preventDefault();
-    console.log(this.email)
+    console.log(this.isSignIn)
 
     try {
       if (!this.isSignIn && this.pwdToCheck != this.currentPwd) {
@@ -54,7 +54,7 @@ export class AuthModalComponent {
       }
 
       const response = await axios.post(
-        `https://fricotpote-backend.onrender.com/${
+        `http://localhost:5000/${
           this.isSignIn ? 'login' : 'signup'
         }`,
         { email: this.email, password: this.currentPwd }
