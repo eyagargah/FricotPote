@@ -65,7 +65,7 @@ export class OnboardingComponent {
   handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await axios.put(`https://fricotpote-backend.onrender.com/user`, {
+      const response = await axios.put(`https://fricotpote-backend-1.onrender.com/user`, {
         formData: this.formData,
       });
       const succes = response.status === 200;
