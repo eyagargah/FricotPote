@@ -12,7 +12,7 @@ export class MessageService {
   senderMessages: any= []
   getAllMessages = async(senderId: any, recepientId: any)=> {
     try {
-      const response1 = await axios.get('https://fricotpote-backend.onrender.com/messages', {
+      const response1 = await axios.get('https://fricotpote-backend-1.onrender.com/messages', {
         params: { userId: senderId, correspondingUserId: recepientId },
       });
       this.userMessages.push (response1.data);
@@ -22,7 +22,7 @@ export class MessageService {
       this.messages = this.filterMessages(this.userMessages)
       this.sortMessages(this.messages)
       
-      const response2 = await axios.get('https://fricotpote-backend.onrender.com/messages', {
+      const response2 = await axios.get('https://fricotpote-backend-1.onrender.com/messages', {
         params: { userId: recepientId, correspondingUserId: senderId },
       });
       this.senderMessages.push (response2.data);
@@ -40,7 +40,7 @@ export class MessageService {
   }
   getMessages = async (senderId: any, recepientId: any) => {
     try {
-      const response = await axios.get('https://fricotpote-backend.onrender.com/messages', {
+      const response = await axios.get('https://fricotpote-backend-1.onrender.com/messages', {
         params: { userId: senderId, correspondingUserId: recepientId },
       });
       return response.data;
