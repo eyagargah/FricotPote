@@ -77,7 +77,7 @@ export class DashboardComponent {
         
       }
       if (!isMatched) {
-        const response = await axios.put('https://fricotpote-backend.onrender.com/addmatch', {
+        const response = await axios.put('http://localhost:5000/addmatch', {
           userId: this.userId,
           matchedUser: selectedUser,
         });
@@ -92,7 +92,7 @@ export class DashboardComponent {
 
   getUser = async () => {
     try {
-      const response = await axios.get('https://fricotpote-backend.onrender.com/user', {
+      const response = await axios.get('http://localhost:5000/user', {
         params: { userId: this.userId },
       });
       this.currentUser = response.data;
@@ -108,7 +108,7 @@ export class DashboardComponent {
   getGenderedUsers = async () => {
     try {
       const response = await axios.get(
-        'https://fricotpote-backend.onrender.com/gendered-users/',
+        'http://localhost:5000/gendered-users/',
         {
           params: { gender: this.currentUser.gender_interest },
         }
