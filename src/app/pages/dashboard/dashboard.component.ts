@@ -123,11 +123,18 @@ export class DashboardComponent {
       );
 
       this.unmatchedUsers = response.data;
-        this.matches.filter()
+      this.unmatchedUsers.filter((unmatchedUser:any) => {
+        return !this.matches.find(function(matchedUser:any) {
+          return unmatchedUser.user_id === matchedUser.user_id
+        })
+      })
+      console.table(this.unmatchedUsers);
     } catch (err) {
       console.log(err);
     }
   };
+
+
   getGenderedUsers = async () => {
     try {
       const response = await axios.get(
@@ -148,6 +155,8 @@ export class DashboardComponent {
     });
     this.getUser();
     setTimeout(this.getGenderedUsers, 1000);
+    console.log("Unmatched users")
+    this.getUnmatchedUsers()
   }
 
   cardAnimation(value: string) {
