@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
+import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class UserService {
  
   selectedUser: any
   matches :  any;
-  constructor(private cookiesServices: CookieService ) { }
+  constructor(private cookiesServices: CookieService , private messageService : MessageService) { }
   getCurrentUser(){
     return this.cookiesServices.get('user_id')
   }
@@ -26,7 +27,6 @@ export class UserService {
      
       this.matches = this.selectedUser.matches;
 
-      this.matches = this.filterMatches(this.matches);
     } catch (err) {
       console.log(err);
     }
