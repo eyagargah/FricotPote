@@ -39,6 +39,10 @@ export class DashboardComponent {
     }
   }
 
+  getMatches(){
+    
+  }
+
   filterMatches(matches: any) {
     let newArray = [];
 
