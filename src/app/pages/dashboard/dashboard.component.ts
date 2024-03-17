@@ -39,9 +39,7 @@ export class DashboardComponent {
     }
   }
 
-  getMatches(){
-    
-  }
+  getMatches() {}
 
   filterMatches(matches: any) {
     let newArray = [];
@@ -78,13 +76,15 @@ export class DashboardComponent {
         } else {
           console.log('match already exists!!');
         }
-        
       }
       if (!isMatched) {
-        const response = await axios.put('https://fricotpote-backend-1.onrender.com/addmatch', {
-          userId: this.userId,
-          matchedUser: selectedUser,
-        });
+        const response = await axios.put(
+          'https://fricotpote-backend-1.onrender.com/addmatch',
+          {
+            userId: this.userId,
+            matchedUser: selectedUser,
+          }
+        );
       }
       this.getUser();
 
@@ -93,12 +93,15 @@ export class DashboardComponent {
       console.log(err);
     }
   };
-  
+
   getUser = async () => {
     try {
-      const response = await axios.get('https://fricotpote-backend-1.onrender.com/user', {
-        params: { userId: this.userId },
-      });
+      const response = await axios.get(
+        'https://fricotpote-backend-1.onrender.com/user',
+        {
+          params: { userId: this.userId },
+        }
+      );
       this.currentUser = response.data;
       this.gender = this.currentUser.gender_interest;
       this.matches = this.currentUser.matches;
@@ -109,6 +112,18 @@ export class DashboardComponent {
     }
   };
 
+  getUnmatchedUsers = async () => {
+    try {
+      const response = await axios.get(
+        'https://fricotpote-backend-1.onrender.com/gendered-users/',
+        {
+          params: { gender: this.currentUser.gender_interest },
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
   getGenderedUsers = async () => {
     try {
       const response = await axios.get(
@@ -139,7 +154,6 @@ export class DashboardComponent {
     return new Promise((res) => setTimeout(res, ms));
   }
 
- 
   async startAnimation(state: any) {
     if (!this.animationState) {
       if (state == 'swiperight') {
