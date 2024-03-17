@@ -89,7 +89,7 @@ export class DashboardComponent {
       console.log(err);
     }
   };
-
+  
   getUser = async () => {
     try {
       const response = await axios.get('https://fricotpote-backend-1.onrender.com/user', {
