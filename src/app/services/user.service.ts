@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
@@ -7,7 +8,8 @@ import { CookieService } from 'ngx-cookie-service';
 export class UserService {
  
   selectedUser: any
-  constructor(private cookiesServices: CookieService) { }
+  matches :  any;
+  constructor(private cookiesServices: CookieService ) { }
   getCurrentUser(){
     return this.cookiesServices.get('user_id')
   }
@@ -16,6 +18,20 @@ export class UserService {
     this.selectedUser = user
   }
   
+  getUser = async () => {
+    try {
+      const response = await axios.get('https://fricotpote-backend-1.onrender.com/user', {
+        params: { userId: this.selectedUser },
+      });
+     
+      this.matches = this.selectedUser.matches;
+
+      this.matches = this.filterMatches(this.matches);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   getSelectedUser(){
     return this.selectedUser
   }
