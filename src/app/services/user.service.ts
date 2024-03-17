@@ -19,7 +19,7 @@ export class UserService {
     this.selectedUser = user
   }
   
-  getUserMatches = async () => {
+  getUnmatchedUsers = async () => {
     try {
       const response = await axios.get('https://fricotpote-backend-1.onrender.com/user', {
         params: { userId: this.selectedUser },
