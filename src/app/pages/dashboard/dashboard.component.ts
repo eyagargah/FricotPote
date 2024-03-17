@@ -28,6 +28,7 @@ export class DashboardComponent {
   gender: any;
   matches: any;
   swipedUserId: any;
+  unmatchedUsers : any;
 
   found: boolean = false;
   filteredGenderedUsers: any;
@@ -120,6 +121,9 @@ export class DashboardComponent {
           params: { gender: this.currentUser.gender_interest },
         }
       );
+
+      this.unmatchedUsers = response.data;
+        this.matches.filter()
     } catch (err) {
       console.log(err);
     }
