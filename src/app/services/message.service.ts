@@ -10,6 +10,7 @@ export class MessageService {
   messages: any = []
   userMessages: any= []
   senderMessages: any= []
+
   getAllMessages = async(senderId: any, recepientId: any)=> {
     try {
       const response1 = await axios.get('https://fricotpote-backend-1.onrender.com/messages', {
@@ -38,6 +39,7 @@ export class MessageService {
       console.log(err);
     }
   }
+  
   getMessages = async (senderId: any, recepientId: any) => {
     try {
       const response = await axios.get('https://fricotpote-backend-1.onrender.com/messages', {
