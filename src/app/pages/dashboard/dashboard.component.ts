@@ -120,10 +120,8 @@ export class DashboardComponent {
         }
       );
       this.users = response.data;
-      this.unmatchedUsers = this.users.filter(
-        (obj: any) => !this.matches.includes(obj.user_id)
-      );
-      console.table(this.matches);
+      this.unmatchedUsers = this.users.filter((user:any) => this.matches.some((obj:any) => obj.user_id === user.user_id));
+
       console.table(this.unmatchedUsers);
     } catch (err) {
       console.log(err);
