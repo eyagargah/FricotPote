@@ -123,6 +123,11 @@ export class DashboardComponent {
         }
       );
       this.users = response.data;
+      this.users = this.users.filter((user:any )=> {
+        return this.matches.find(function(matchedUser:any){
+          return  matchedUser.user_id !== user.user_id;
+        })
+      })
     } catch (err) {
       console.log(err);
     }
