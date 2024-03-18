@@ -111,26 +111,7 @@ export class DashboardComponent {
     }
   };
 
-  getUnmatchedUsers = async () => {
-    try {
-      const response = await axios.get(
-        'https://fricotpote-backend-1.onrender.com/gendered-users/',
-        {
-          params: { gender: this.currentUser.gender_interest },
-        }
-      );
 
-      this.unmatchedUsers = response.data;
-      this.unmatchedUsers = this.unmatchedUsers.filter((unmatchedUser:any) => {
-        return !this.matches.find(function(matchedUser:any) {
-          return unmatchedUser.user_id !== matchedUser.user_id
-        })
-      })
-      console.table(this.unmatchedUsers);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
 
   getGenderedUsers = async () => {
@@ -153,9 +134,6 @@ export class DashboardComponent {
     });
     this.getUser();
     setTimeout(this.getGenderedUsers, 1000);
-    console.log("Unmatched users")
-
-    setTimeout(this.getUnmatchedUsers, 1000);
   }
 
   cardAnimation(value: string) {
