@@ -28,7 +28,7 @@ export class DashboardComponent {
   gender: any;
   matches: any;
   swipedUserId: any;
-  unmatchedUsers : any;
+  unmatchedUsers: any;
 
   found: boolean = false;
   filteredGenderedUsers: any;
@@ -111,9 +111,6 @@ export class DashboardComponent {
     }
   };
 
-
-
-
   getGenderedUsers = async () => {
     try {
       const response = await axios.get(
@@ -123,9 +120,11 @@ export class DashboardComponent {
         }
       );
       this.users = response.data;
-      this.unmatchedUsers = this.users.filter((obj:any) => !this.matches.includes(obj.user_id))
-      console.table(this.matches)
-      console.table(this.unmatchedUsers)
+      this.unmatchedUsers = this.users.filter(
+        (obj: any) => !this.matches.includes(obj.user_id)
+      );
+      console.table(this.matches);
+      console.table(this.unmatchedUsers);
     } catch (err) {
       console.log(err);
     }
