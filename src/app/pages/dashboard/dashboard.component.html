@@ -9,7 +9,7 @@
         (@cardAnimator.done)="resetAnimationState($event)"
         (swipeleft)="startAnimation('swipeleft')"
         (swiperight)="startAnimation('swiperight')"
-        (swipe)="getSelectedUser(users[index])"
+        (swipe)="getSelectedUser(unmatchedUsers[index])"
       >
         <div
           class="card"
