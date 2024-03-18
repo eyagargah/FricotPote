@@ -40,8 +40,6 @@ export class DashboardComponent {
     }
   }
 
-  getMatches() {}
-
   filterMatches(matches: any) {
     let newArray = [];
 
@@ -123,9 +121,9 @@ export class DashboardComponent {
       );
 
       this.unmatchedUsers = response.data;
-      this.unmatchedUsers.filter((unmatchedUser:any) => {
+      this.unmatchedUsers = this.unmatchedUsers.filter((unmatchedUser:any) => {
         return !this.matches.find(function(matchedUser:any) {
-          return unmatchedUser.user_id === matchedUser.user_id
+          return unmatchedUser.user_id !== matchedUser.user_id
         })
       })
       console.table(this.unmatchedUsers);
@@ -156,7 +154,8 @@ export class DashboardComponent {
     this.getUser();
     setTimeout(this.getGenderedUsers, 1000);
     console.log("Unmatched users")
-    this.getUnmatchedUsers()
+
+    setTimeout(this.getUnmatchedUsers, 1000);
   }
 
   cardAnimation(value: string) {
