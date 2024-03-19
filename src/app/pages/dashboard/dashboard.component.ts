@@ -121,19 +121,18 @@ export class DashboardComponent {
       );
       this.users = response.data;
       //this.unmatchedUsers = this.users.filter((user:any) => !this.matches.some((obj:any) => obj._id === user._id));
-      this.unmatchedUsers = this.users.filter(
-        (user: any) => this.matches.filter((obj: any) => obj._id !== user._id)
-      );
-      console.log("unmatched")
-      console.log(this.unmatchedUsers)
     } catch (err) {
       console.log(err);
     }
   };
 
+  getUnmatchedUsers() {
 
-  getUnmatchedUsers(){
-    
+    for (let i = 0; i < this.users.length; i++) {
+      let obj = this.users[i];
+      console.log(obj);
+  }
+  
   }
   ngOnInit() {
     this.parentSubject?.subscribe((event) => {
@@ -141,6 +140,7 @@ export class DashboardComponent {
     });
     this.getUser();
     setTimeout(this.getGenderedUsers, 1000);
+    this.getUnmatchedUsers();
   }
 
   cardAnimation(value: string) {
