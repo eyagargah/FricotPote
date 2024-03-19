@@ -124,14 +124,6 @@ export class DashboardComponent {
       this.unmatchedUsers = this.matches.filter(
         (match: any) => !this.users.some((obj: any) => obj === match)
       );
-      console.log("unmatched users:")
-      console.table(this.unmatchedUsers);
-
-      console.log("matches")
-      console.table(this.matches)
-
-      console.log("gendered users")
-      console.table(this.users)
     } catch (err) {
       console.log(err);
     }
