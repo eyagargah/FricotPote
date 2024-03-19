@@ -121,14 +121,20 @@ export class DashboardComponent {
       );
       this.users = response.data;
       //this.unmatchedUsers = this.users.filter((user:any) => !this.matches.some((obj:any) => obj._id === user._id));
-      this.unmatchedUsers = this.matches.filter(
-        (match: any) => !this.users.some((obj: any) => obj === match)
+      this.unmatchedUsers = this.users.filter(
+        (user: any) => this.matches.filter((obj: any) => obj._id !== user._id)
       );
+      console.log("unmatched")
+      console.log(this.unmatchedUsers)
     } catch (err) {
       console.log(err);
     }
   };
 
+
+  getUnmatchedUsers(){
+    
+  }
   ngOnInit() {
     this.parentSubject?.subscribe((event) => {
       this.startAnimation(event);
