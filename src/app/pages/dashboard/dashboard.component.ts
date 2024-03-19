@@ -121,10 +121,17 @@ export class DashboardComponent {
       );
       this.users = response.data;
       //this.unmatchedUsers = this.users.filter((user:any) => !this.matches.some((obj:any) => obj._id === user._id));
-      this.unmatchedUsers = this.users.filter(
-        (user: any) => !this.matches.some((obj: any) => obj === user)
+      this.unmatchedUsers = this.matches.filter(
+        (match: any) => !this.users.some((obj: any) => obj === match)
       );
+      console.log("unmatched users:")
       console.table(this.unmatchedUsers);
+
+      console.log("matches")
+      console.table(this.matches)
+
+      console.log("gendered users")
+      console.table(this.users)
     } catch (err) {
       console.log(err);
     }
