@@ -70,7 +70,7 @@ export class OnboardingComponent {
       });
       const succes = response.status === 200;
 
-      if (succes) this.router.navigateByUrl('dashboard');
+      if (succes) this.router.navigateByUrl('preference');
     } catch (err) {
       console.log(err);
     }
