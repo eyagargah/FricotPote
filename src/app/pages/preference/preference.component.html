@@ -22,7 +22,10 @@
             required="true"
             (change)="handleChange($event)"
           />
-          
+          <label for="maxDistance">Maximum Distance</label>
+          <div class="maxDistanceSlider">
+            <input type="range" min="1" max="100" value="50" class="slider" id="maxDistanceRange">
+          </div>
         </section>
       </form>
     </div>
