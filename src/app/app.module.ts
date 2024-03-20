@@ -19,6 +19,7 @@ import { ChatDisplayComponent } from './pages/chat-display/chat-display.componen
 import { ChatInputComponent } from './pages/chat-input/chat-input.component';
 import axios from 'axios';
 import {CookieService} from 'ngx-cookie-service';
+import { PreferenceComponent } from './pages/preference/preference.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import {CookieService} from 'ngx-cookie-service';
     ChatHeaderComponent,
     MatchesComponent,
     ChatDisplayComponent,
-    ChatInputComponent
+    ChatInputComponent,
+    PreferenceComponent
   ],
   imports: [BrowserModule, AppRoutingModule, MatIconModule, MatDialogModule,BrowserAnimationsModule,HammerModule],
   entryComponents: [AuthModalComponent],
