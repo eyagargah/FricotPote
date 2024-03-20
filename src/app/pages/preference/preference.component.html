@@ -1,1 +1,30 @@
-<p>preference works!</p>
+<div class="preference">
+    <div class="header">
+      <div class="logo-container">
+        <img
+          class="logo"
+          src="../../../assets/color-logo-tinder.png"
+          alt="logo image"
+          loading="lazy"
+        />
+      </div>
+    </div>
+    <div class="content">
+      <h2>Add preferences</h2>
+      <form>
+        <section>
+          <label for="location">Location</label>
+          <input
+            type="text"
+            id="firstName"
+            name="first_name"
+            placeholder="First Name"
+            required="true"
+            (change)="handleChange($event)"
+          />
+          
+        </section>
+      </form>
+    </div>
+  </div>
+  
