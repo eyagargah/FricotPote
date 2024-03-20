@@ -1,71 +1,143 @@
 <div class="preference">
-    <div class="header">
-      <div class="logo-container">
-        <img
-          class="logo"
-          src="../../../assets/color-logo-tinder.png"
-          alt="logo image"
-          loading="lazy"
-        />
-      </div>
-    </div>
-    <div class="content">
-      <h2>Add preferences</h2>
-      <form>
-        <section>
-          <label for="location">Location</label>
-          <input
-            type="text"
-            id="firstName"
-            name="first_name"
-            placeholder="First Name"
-            required="true"
-            (change)="handleChange($event)"
-          />
-          <label for="maxDistance">Maximum Distance</label>
-          <div class="maxDistanceSlider">
-            <input type="range" min="1" max="100" value="50" class="slider" id="maxDistanceRange">
-          </div>
-
-          <label for="maxAge">Maximum Age</label>
-          <div class="maxAgeSlider">
-            <input type="range" min="18" max="100" value="30" class="slider" id="maxAgeRange">
-          </div>
-
-          <label>Gender</label>
-          <div class="multiple-input">
-            <input
-              type="radio"
-              id="man_gender_identity"
-              name="gender_identity"
-              required
-              value="man"
-              (click)="handleChange($event)"
-            />
-            <label for="man_gender_identity">Man</label>
-  
-            <input
-              type="radio"
-              id="woman_gender_identity"
-              name="gender_identity"
-              required
-              value="woman"
-              (click)="handleChange($event)"
-            />
-            <label for="woman_gender_identity">Woman</label>
-  
-            <input
-              type="radio"
-              id="more_gender_identity"
-              name="gender_identity"
-              required
-              value="everyone"
-              (click)="handleChange($event)"
-            />
-            <label for="more_gender_identity">More</label>
-          </div>
-        </section>
-      </form>
+  <div class="header">
+    <div class="logo-container">
+      <img
+        class="logo"
+        src="../../../assets/color-logo-tinder.png"
+        alt="logo image"
+        loading="lazy"
+      />
     </div>
   </div>
-  
+  <div class="content">
+    <h2>Add preferences</h2>
+    <form>
+      <section>
+        <label for="location">Location</label>
+        <input
+          type="text"
+          id="firstName"
+          name="first_name"
+          placeholder="First Name"
+          required="true"
+          (change)="handleChange($event)"
+        />
+        <label for="maxDistance">Maximum Distance</label>
+        <div class="maxDistanceSlider">
+          <input
+            type="range"
+            min="1"
+            max="100"
+            value="50"
+            class="slider"
+            id="maxDistanceRange"
+          />
+        </div>
+
+        <label for="maxAge">Maximum Age</label>
+        <div class="maxAgeSlider">
+          <input
+            type="range"
+            min="18"
+            max="100"
+            value="30"
+            class="slider"
+            id="maxAgeRange"
+          />
+        </div>
+
+        <label>Dietary preferences</label>
+        <div class="multiple-input">
+          <input
+            type="radio"
+            id="vegan_dietairy_preferences"
+            name="dietairy_preferences"
+            required
+            value="vegan"
+            (click)="handleChange($event)"
+          />
+          <label for="vegan_dietairy_preferences">Vegan</label>
+
+          <input
+            type="radio"
+            id="vegetarian_dietairy_preferences"
+            name="dietairy_preferences"
+            required
+            value="vegetarian"
+            (click)="handleChange($event)"
+          />
+          <label for="vegetarian_dietairy_preferences">Vegetarian</label>
+          <input
+            type="radio"
+            id="pescatarian_dietairy_preferences"
+            name="dietairy_preferences"
+            required
+            value="pescatarian"
+            (click)="handleChange($event)"
+          />
+          <label for="pescatarian_dietairy_preferences">Pescatarian</label>
+
+          <input
+            type="radio"
+            id="vegan_dietairy_preferences"
+            name="dietairy_preferences"
+            required
+            value="vegan"
+            (click)="handleChange($event)"
+          />
+          <label for="kosher_dietairy_preferences">kosher</label>
+          <input
+            type="radio"
+            id="kosher_dietairy_preferences"
+            name="dietairy_preferences"
+            required
+            value="kosher"
+            (click)="handleChange($event)"
+          />
+          <label for="kosher_dietairy_preferences">Kosher</label>
+
+          <input
+            type="radio"
+            id="halal_dietairy_preferences"
+            name="dietairy_preferences"
+            required
+            value="halal"
+            (click)="handleChange($event)"
+          />
+          <label for="halal_dietairy_preferences">Halal</label>
+
+          <input
+            type="radio"
+            id="carnivore_dietairy_preferences"
+            name="dietairy_preferences"
+            required
+            value="carnivore"
+            (click)="handleChange($event)"
+          />
+          <label for="carnivore_dietairy_preferences">Carnivore</label>
+
+          <input
+            type="radio"
+            id="omnivore_dietairy_preferences"
+            name="dietairy_preferences"
+            required
+            value="omnivore"
+            (click)="handleChange($event)"
+          />
+          <label for="omnivore_dietairy_preferences">Omnivore</label>
+
+          <input
+            type="radio"
+            id="other_dietairy_preferences"
+            name="dietairy_preferences"
+            required
+            value="other"
+            (click)="handleChange($event)"
+          />
+          <label for="other_dietairy_preferences">Other</label>
+          
+        </div>
+      </section>
+    </form>
+  </div>
+</div>
