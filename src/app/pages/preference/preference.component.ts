@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./preference.component.scss']
 })
 export class PreferenceComponent {
+  handleChange(e:any){
 
+  }
+
+  handleSubmit(e:any){
+    
+  }
 }
