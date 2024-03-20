@@ -31,6 +31,39 @@
           <div class="maxAgeSlider">
             <input type="range" min="18" max="100" value="30" class="slider" id="maxAgeRange">
           </div>
+
+          <label>Gender</label>
+          <div class="multiple-input">
+            <input
+              type="radio"
+              id="man_gender_identity"
+              name="gender_identity"
+              required
+              value="man"
+              (click)="handleChange($event)"
+            />
+            <label for="man_gender_identity">Man</label>
+  
+            <input
+              type="radio"
+              id="woman_gender_identity"
+              name="gender_identity"
+              required
+              value="woman"
+              (click)="handleChange($event)"
+            />
+            <label for="woman_gender_identity">Woman</label>
+  
+            <input
+              type="radio"
+              id="more_gender_identity"
+              name="gender_identity"
+              required
+              value="everyone"
+              (click)="handleChange($event)"
+            />
+            <label for="more_gender_identity">More</label>
+          </div>
         </section>
       </form>
     </div>
