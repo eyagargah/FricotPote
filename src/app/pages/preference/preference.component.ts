@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-preference',
@@ -6,6 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./preference.component.scss'],
 })
 export class PreferenceComponent {
+  constructor(private cookiesservice: CookieService){}
+  formData = {
+    user_id : this.cookiesservice.get('UserId'),
+    
+  }
   handleChange(e: any) {}
 
   handleSubmit(e: any) {}
