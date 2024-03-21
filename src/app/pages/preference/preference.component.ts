@@ -15,7 +15,11 @@ export class PreferenceComponent {
     age_preference:'',
     distance:''
   }
-  handleChange(e: any) {}
+  handleChange(event: any) {
+    const value = event.target.value;
+    const name = event.target.name;
+    console.log(event.target.checked);
+  }
 
   handleSubmit(e: any) {}
 
