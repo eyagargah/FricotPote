@@ -3,18 +3,34 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-preference',
   templateUrl: './preference.component.html',
-  styleUrls: ['./preference.component.scss']
+  styleUrls: ['./preference.component.scss'],
 })
 export class PreferenceComponent {
-  handleChange(e:any){
+  handleChange(e: any) {}
 
-  }
+  handleSubmit(e: any) {}
 
-  handleSubmit(e:any){
-    
-  }
+  async getLocation() {
+    const axios = require('axios');
 
-  getLocation(){
-    
+    const options = {
+      method: 'GET',
+      url: 'https://map-places.p.rapidapi.com/queryautocomplete/json',
+      params: {
+        input: 'pizza near Sydney',
+        radius: '50000',
+      },
+      headers: {
+        'X-RapidAPI-Key': '390ad486a1mshad7d5a1836bba4ep1285e6jsn91be75833afa',
+        'X-RapidAPI-Host': 'map-places.p.rapidapi.com',
+      },
+    };
+
+    try {
+      const response = await axios.request(options);
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
