@@ -13,4 +13,8 @@ export class PreferenceComponent {
   handleSubmit(e:any){
     
   }
+
+  getLocation(){
+    
+  }
 }
