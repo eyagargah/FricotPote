@@ -10,7 +10,10 @@ export class PreferenceComponent {
   constructor(private cookiesservice: CookieService){}
   formData = {
     user_id : this.cookiesservice.get('UserId'),
-    
+    location:'',
+    diet:'',
+    age_preference:'',
+    distance:''
   }
   handleChange(e: any) {}
 
