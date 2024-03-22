@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LocationService {
+  constructor() {}
+  radius: number | undefined;
 
-  constructor() { }
-  radius : number | undefined
+  getPlacesNearMe() {}
 
-    getPlacesNearMe(){
-
-  }
-  
-  async getLocation( radius : number , search : string) {
+  async getLocation(radius: number, search: string) {
     const axios = require('axios');
 
     const options = {
@@ -36,13 +33,11 @@ export class LocationService {
     }
   }
 
-  setMapRadius(){
-
+  setMapRadius() {}
+  getRadius() {
+    return this.radius;
   }
-
-  setSearchLocation(){
-
-  }
+  setSearchLocation() {}
 
   getCurrentLocation() {
     return new Promise((resolve, reject) => {
