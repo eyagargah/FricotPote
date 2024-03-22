@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class LocationService {
 
   constructor() { }
+  radius : number | undefined
 
     getPlacesNearMe(){
 
@@ -18,8 +19,8 @@ export class LocationService {
       method: 'GET',
       url: 'https://map-places.p.rapidapi.com/queryautocomplete/json',
       params: {
-        input: 'pizza near Sydney',
-        radius: '50000',
+        input: search,
+        radius: radius,
       },
       headers: {
         'X-RapidAPI-Key': '390ad486a1mshad7d5a1836bba4ep1285e6jsn91be75833afa',
