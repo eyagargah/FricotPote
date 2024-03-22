@@ -6,4 +6,18 @@ import { Injectable } from '@angular/core';
 export class LocationService {
 
   constructor() { }
+
+  getLocation(){}
+
+  getPlacesNearMe(){
+
+  }
+
+  setMapRadius(){
+
+  }
+
+  setSearchLocation(){
+    
+  }
 }
