@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { LocationService } from 'src/app/services/location.service';
 
 @Component({
   selector: 'app-preference',
@@ -7,7 +8,7 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./preference.component.scss'],
 })
 export class PreferenceComponent {
-  constructor(private cookiesservice: CookieService){}
+  constructor(private cookiesservice: CookieService , private locationservice: LocationService){}
   formData = {
     user_id : this.cookiesservice.get('UserId'),
     location:'',
@@ -23,6 +24,10 @@ export class PreferenceComponent {
 
   handleSubmit(e: any) {}
 
+  async getCurrentLocation(){
+    const position: any = await this.locationservice.getCurrentLocation();
+    console.log(position);
+  }
   async getLocation() {
     const axios = require('axios');
 
