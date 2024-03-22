@@ -11,7 +11,7 @@ export class LocationService {
 
   }
   
-  async getLocation() {
+  async getLocation( radius : number , search : string) {
     const axios = require('axios');
 
     const options = {
