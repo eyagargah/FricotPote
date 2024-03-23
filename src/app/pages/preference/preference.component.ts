@@ -26,6 +26,8 @@ export class PreferenceComponent {
 
   async getCurrentLocation(){
     const position: any = await this.locationservice.getCurrentLocation();
+    const longitude = position.lng
+    const latitude = position.lat
     console.log(position);
   }
   async getLocation() {
