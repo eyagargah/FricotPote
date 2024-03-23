@@ -10,6 +10,32 @@ export class LocationService {
   latitude:any
   getPlacesNearMe() {}
 
+
+  async getNearestCities(longitude : any , latitude:any) {
+    const axios = require('axios');
+
+    const options = {
+      method: 'GET',
+      url: 'https://geocodeapi.p.rapidapi.com/GetNearestCities',
+      params: {
+        latitude: longitude,
+        longitude: latitude,
+        range: '0',
+      },
+      headers: {
+        'X-RapidAPI-Key': '390ad486a1mshad7d5a1836bba4ep1285e6jsn91be75833afa',
+        'X-RapidAPI-Host': 'geocodeapi.p.rapidapi.com',
+      },
+    };
+
+    try {
+      const response = await axios.request(options);
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
   async getLocation(radius: number, search: string) {
     const axios = require('axios');
 
