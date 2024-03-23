@@ -8,15 +8,18 @@ import { LocationService } from 'src/app/services/location.service';
   styleUrls: ['./preference.component.scss'],
 })
 export class PreferenceComponent {
-  constructor(private cookiesservice: CookieService , private locationservice: LocationService){}
+  constructor(
+    private cookiesservice: CookieService,
+    private locationservice: LocationService
+  ) {}
 
   formData = {
-    user_id : this.cookiesservice.get('UserId'),
-    location:'',
-    diet:'',
-    age_preference:'',
-    distance:''
-  }
+    user_id: this.cookiesservice.get('UserId'),
+    location: '',
+    diet: '',
+    age_preference: '',
+    distance: '',
+  };
   handleChange(event: any) {
     const value = event.target.value;
     const name = event.target.name;
@@ -25,14 +28,39 @@ export class PreferenceComponent {
 
   handleSubmit(e: any) {}
 
-  async getCurrentLocation(){
+  async getCurrentLocation() {
     const position: any = await this.locationservice.getCurrentLocation();
-    const longitude = position.lng
+    const longitude = position.lng;
     this.locationservice.setLongitude(longitude);
-    const latitude = position.lat
+    const latitude = position.lat;
     this.locationservice.setLatitude(latitude);
 
     console.log(position);
+  }
+
+  async getNearestCities() {
+    const axios = require('axios');
+
+    const options = {
+      method: 'GET',
+      url: 'https://geocodeapi.p.rapidapi.com/GetNearestCities',
+      params: {
+        latitude: '53.55196',
+        longitude: '9.98558',
+        range: '0',
+      },
+      headers: {
+        'X-RapidAPI-Key': '390ad486a1mshad7d5a1836bba4ep1285e6jsn91be75833afa',
+        'X-RapidAPI-Host': 'geocodeapi.p.rapidapi.com',
+      },
+    };
+
+    try {
+      const response = await axios.request(options);
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   }
   async getLocation() {
     const axios = require('axios');
