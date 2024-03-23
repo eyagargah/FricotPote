@@ -37,6 +37,10 @@ export class LocationService {
   getRadius() {
     return this.radius;
   }
+
+  setRadius(radius: number) {
+    this.radius = radius;
+  }
   setSearchLocation() {}
 
   getCurrentLocation() {
@@ -45,12 +49,6 @@ export class LocationService {
         navigator.geolocation.getCurrentPosition(
           (position) => {
             if (position) {
-              console.log(
-                'Latitude: ' +
-                  position.coords.latitude +
-                  'Longitude: ' +
-                  position.coords.longitude
-              );
               let lat = position.coords.latitude;
               let lng = position.coords.longitude;
 
