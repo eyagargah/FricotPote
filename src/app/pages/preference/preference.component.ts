@@ -9,6 +9,7 @@ import { LocationService } from 'src/app/services/location.service';
 })
 export class PreferenceComponent {
   constructor(private cookiesservice: CookieService , private locationservice: LocationService){}
+  
   formData = {
     user_id : this.cookiesservice.get('UserId'),
     location:'',
