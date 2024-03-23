@@ -38,15 +38,15 @@ export class PreferenceComponent {
     console.log(position);
   }
 
-  async getNearestCities() {
+  async getNearestCities(longitude : any , latitude:any) {
     const axios = require('axios');
 
     const options = {
       method: 'GET',
       url: 'https://geocodeapi.p.rapidapi.com/GetNearestCities',
       params: {
-        latitude: '53.55196',
-        longitude: '9.98558',
+        latitude: longitude,
+        longitude: latitude,
         range: '0',
       },
       headers: {
