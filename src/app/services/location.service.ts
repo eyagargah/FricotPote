@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 export class LocationService {
   constructor() {}
   radius: number | undefined;
-
+  longitude: any
+  latitude:any
   getPlacesNearMe() {}
 
   async getLocation(radius: number, search: string) {
@@ -36,6 +37,22 @@ export class LocationService {
   setMapRadius() {}
   getRadius() {
     return this.radius;
+  }
+
+  getLongitude(){
+    return this.longitude
+  }
+
+  setLongitude( longitude:any){
+    this.longitude = longitude
+  }
+
+  getLatitude(){
+    return this.latitude
+  }
+
+  setLatitude( latitude:any){
+    this.latitude = latitude
   }
 
   setRadius(radius: number) {
