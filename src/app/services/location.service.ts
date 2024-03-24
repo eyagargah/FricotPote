@@ -8,6 +8,7 @@ export class LocationService {
   radius: number | undefined;
   longitude: any
   latitude:any
+  city:any
   getPlacesNearMe() {}
 
 cities:any
@@ -31,6 +32,7 @@ cities:any
     try {
       const response = await axios.request(options);
       console.log(response.data);
+      this.city = response.data[0].City
       this.cities= response.data
     } catch (error) {
       console.error(error);
