@@ -39,6 +39,32 @@ cities:any
     }
   }
   
+
+  async getNearbyRestaurant(){
+    const axios = require('axios');
+
+const options = {
+  method: 'GET',
+  url: 'https://map-places.p.rapidapi.com/nearbysearch/json',
+  params: {
+    location: '-33.8670522,151.1957362',
+    radius: '1500',
+    keyword: 'cruise',
+    type: 'restaurant'
+  },
+  headers: {
+    'X-RapidAPI-Key': '390ad486a1mshad7d5a1836bba4ep1285e6jsn91be75833afa',
+    'X-RapidAPI-Host': 'map-places.p.rapidapi.com'
+  }
+};
+
+try {
+	const response = await axios.request(options);
+	console.log(response.data);
+} catch (error) {
+	console.error(error);
+}
+  }
   async getLocation(radius: number, search: string) {
     const axios = require('axios');
 
