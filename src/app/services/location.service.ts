@@ -10,7 +10,7 @@ export class LocationService {
   latitude:any
   getPlacesNearMe() {}
 
-
+cities:any
   async getNearestCities(longitude : any , latitude:any) {
     const axios = require('axios');
 
@@ -31,6 +31,7 @@ export class LocationService {
     try {
       const response = await axios.request(options);
       console.log(response.data);
+      this.cities= response.data
     } catch (error) {
       console.error(error);
     }
