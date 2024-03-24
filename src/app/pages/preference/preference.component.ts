@@ -47,7 +47,7 @@ export class PreferenceComponent {
       method: 'GET',
       url: 'https://map-places.p.rapidapi.com/queryautocomplete/json',
       params: {
-        input: 'pizza near Sydney',
+        input: 'pizza near Tunis',
         radius: '50000',
       },
       headers: {
