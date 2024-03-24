@@ -34,34 +34,12 @@ export class PreferenceComponent {
     this.locationservice.setLongitude(longitude);
     const latitude = position.lat;
     this.locationservice.setLatitude(latitude);
-
-    console.log(position);
+    console.log(longitude)
+    console.log(latitude)
+    this.locationservice.getNearestCities(longitude , latitude)
   }
 
-  async getNearestCities(longitude : any , latitude:any) {
-    const axios = require('axios');
 
-    const options = {
-      method: 'GET',
-      url: 'https://geocodeapi.p.rapidapi.com/GetNearestCities',
-      params: {
-        latitude: longitude,
-        longitude: latitude,
-        range: '0',
-      },
-      headers: {
-        'X-RapidAPI-Key': '390ad486a1mshad7d5a1836bba4ep1285e6jsn91be75833afa',
-        'X-RapidAPI-Host': 'geocodeapi.p.rapidapi.com',
-      },
-    };
-
-    try {
-      const response = await axios.request(options);
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  }
   async getLocation() {
     const axios = require('axios');
 
