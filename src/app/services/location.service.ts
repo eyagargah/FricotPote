@@ -18,8 +18,8 @@ export class LocationService {
       method: 'GET',
       url: 'https://geocodeapi.p.rapidapi.com/GetNearestCities',
       params: {
-        latitude: longitude,
-        longitude: latitude,
+        latitude: latitude,
+        longitude: longitude,
         range: '0',
       },
       headers: {
