@@ -9,8 +9,8 @@ export class LocationService {
   longitude: any;
   latitude: any;
   city: any;
-  keyword:any
-  type:any
+  keyword: any;
+  type: any;
   getPlacesNearMe() {}
 
   cities: any;
@@ -90,14 +90,20 @@ export class LocationService {
     }
   }
 
-  setMapRadius(radius:any) {
-    this.radius = radius
+  setMapRadius(radius: any) {
+    this.radius = radius;
   }
   getRadius() {
     return this.radius;
   }
 
-  
+  getKeyword() {
+    return this.keyword;
+  }
+
+  setKeyword(keyword: any) {
+    this.keyword = keyword;
+  }
 
   getLongitude() {
     return this.longitude;
