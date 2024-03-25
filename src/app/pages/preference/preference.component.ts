@@ -54,6 +54,7 @@ export class PreferenceComponent {
     console.log(longitude)
     console.log(latitude)
     this.locationservice.getNearestCities(longitude , latitude)
+    this.formData.location = this.locationservice.city;
   }
 
 
