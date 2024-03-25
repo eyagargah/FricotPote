@@ -11,9 +11,8 @@ export class LocationService {
   city: any;
   keyword: any;
   type: any;
-  getPlacesNearMe() {}
-
   cities: any;
+
   async getNearestCities(longitude: any, latitude: any) {
     const axios = require('axios');
 
