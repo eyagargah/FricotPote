@@ -24,6 +24,20 @@ export class PreferenceComponent {
     const value = event.target.value;
     const name = event.target.name;
     console.log(event.target.checked);
+    switch(name){
+      case 'age_preference':
+        this.formData.age_preference=value;
+        break;
+      case  'distance':
+        this.formData.distance = value;
+        break
+      case  'diet':
+        this.formData.diet = event.target.checked;
+        break
+      case   'location':
+        this.formData.location = value
+        break
+    }
   }
 
   handleSubmit(e: any) {
