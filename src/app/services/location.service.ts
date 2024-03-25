@@ -6,13 +6,15 @@ import { Injectable } from '@angular/core';
 export class LocationService {
   constructor() {}
   radius: number | undefined;
-  longitude: any
-  latitude:any
-  city:any
+  longitude: any;
+  latitude: any;
+  city: any;
+  keyword:any
+  type:any
   getPlacesNearMe() {}
 
-cities:any
-  async getNearestCities(longitude : any , latitude:any) {
+  cities: any;
+  async getNearestCities(longitude: any, latitude: any) {
     const axios = require('axios');
 
     const options = {
@@ -32,38 +34,37 @@ cities:any
     try {
       const response = await axios.request(options);
       console.log(response.data);
-      this.city = response.data[0].City
-      this.cities= response.data
+      this.city = response.data[0].City;
+      this.cities = response.data;
     } catch (error) {
       console.error(error);
     }
   }
-  
 
-  async getNearbyRestaurant(){
+  async getNearbyRestaurant(longitude: any, latitude: any) {
     const axios = require('axios');
 
-const options = {
-  method: 'GET',
-  url: 'https://map-places.p.rapidapi.com/nearbysearch/json',
-  params: {
-    location: '-33.8670522,151.1957362',
-    radius: '1500',
-    keyword: 'cruise',
-    type: 'restaurant'
-  },
-  headers: {
-    'X-RapidAPI-Key': '390ad486a1mshad7d5a1836bba4ep1285e6jsn91be75833afa',
-    'X-RapidAPI-Host': 'map-places.p.rapidapi.com'
-  }
-};
+    const options = {
+      method: 'GET',
+      url: 'https://map-places.p.rapidapi.com/nearbysearch/json',
+      params: {
+        location: longitude + latitude,
+        radius: this.radius,
+        keyword: 'cruise',
+        type: 'restaurant',
+      },
+      headers: {
+        'X-RapidAPI-Key': '390ad486a1mshad7d5a1836bba4ep1285e6jsn91be75833afa',
+        'X-RapidAPI-Host': 'map-places.p.rapidapi.com',
+      },
+    };
 
-try {
-	const response = await axios.request(options);
-	console.log(response.data);
-} catch (error) {
-	console.error(error);
-}
+    try {
+      const response = await axios.request(options);
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   }
   async getLocation(radius: number, search: string) {
     const axios = require('axios');
@@ -89,25 +90,29 @@ try {
     }
   }
 
-  setMapRadius() {}
+  setMapRadius(radius:any) {
+    this.radius = radius
+  }
   getRadius() {
     return this.radius;
   }
 
-  getLongitude(){
-    return this.longitude
+  
+
+  getLongitude() {
+    return this.longitude;
   }
 
-  setLongitude( longitude:any){
-    this.longitude = longitude
+  setLongitude(longitude: any) {
+    this.longitude = longitude;
   }
 
-  getLatitude(){
-    return this.latitude
+  getLatitude() {
+    return this.latitude;
   }
 
-  setLatitude( latitude:any){
-    this.latitude = latitude
+  setLatitude(latitude: any) {
+    this.latitude = latitude;
   }
 
   setRadius(radius: number) {
