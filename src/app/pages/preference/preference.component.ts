@@ -26,7 +26,10 @@ export class PreferenceComponent {
     console.log(event.target.checked);
   }
 
-  handleSubmit(e: any) {}
+  handleSubmit(e: any) {
+    e.preventDefault();
+    console.log(this.formData)
+  }
 
   async getCurrentLocation() {
     const position: any = await this.locationservice.getCurrentLocation();
