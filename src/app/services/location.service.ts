@@ -13,6 +13,12 @@ export class LocationService {
   type: any;
   cities: any;
 
+  getCity(){
+    return this.city
+  }
+  setCity(city: string){
+    this.city = city;
+  }
   async getNearestCities(longitude: any, latitude: any) {
     const axios = require('axios');
 
@@ -33,8 +39,9 @@ export class LocationService {
     try {
       const response = await axios.request(options);
       console.log(response.data);
-      this.city = response.data[0].City;
-      this.cities = response.data;
+      //this.setCity(response.data[0].City);
+      return response.data;
+
     } catch (error) {
       console.error(error);
     }
@@ -60,7 +67,6 @@ export class LocationService {
 
     try {
       const response = await axios.request(options);
-      console.log(response.data);
     } catch (error) {
       console.error(error);
     }
