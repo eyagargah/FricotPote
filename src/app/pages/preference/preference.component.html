@@ -15,7 +15,9 @@
       <section>
         <label for="location">Location</label>
         <div class="locationBtns">
-          <button class="openMap" (click)="getCurrentLocation()">Set my location</button>
+          <button class="openMap" (click)="getCurrentLocation()">
+            Set my location
+          </button>
         </div>
 
         <label for="maxDistance">Maximum Distance</label>
@@ -26,6 +28,7 @@
             max="10000"
             value="5000"
             class="slider"
+            name="maximumDistance"
             id="maxDistanceRange"
             (change)="handleChange($event)"
           />
@@ -37,6 +40,7 @@
             type="range"
             min="18"
             max="100"
+            name-="maximumAge"
             value="50"
             class="slider"
             id="maxAgeRange"
@@ -83,17 +87,8 @@
             value="vegan"
             (click)="handleChange($event)"
           />
-          <label for="kosher_dietairy_preferences">kosher</label>
-          <input
-            type="radio"
-            id="kosher_dietairy_preferences"
-            name="dietairy_preferences"
-            required
-            value="kosher"
-            (click)="handleChange($event)"
-          />
-          <label for="kosher_dietairy_preferences">Kosher</label>
 
+          <label for="kosher_dietairy_preferences">kosher</label>
           <input
             type="radio"
             id="halal_dietairy_preferences"
