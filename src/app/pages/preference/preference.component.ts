@@ -24,7 +24,8 @@ export class PreferenceComponent {
   handleChange(event: any) {
     const value = event.target.value;
     const name = event.target.name;
-    console.log(event.target.checked);
+    console.log(event.target.value);
+    console.log(event.target.name);
     switch (name) {
       case 'age_preference':
         this.formData.age_preference = value;
@@ -32,8 +33,8 @@ export class PreferenceComponent {
       case 'distance':
         this.formData.distance = value;
         break;
-      case 'diet':
-        this.formData.diet = event.target.checked;
+      case 'dietairy_preferences':
+        this.formData.diet = value;
         break;
       case 'location':
         this.formData.location = this.locationservice.city;
@@ -54,6 +55,7 @@ export class PreferenceComponent {
     this.locationservice.setLatitude(latitude);
     this.locationservice.getNearestCities(longitude, latitude).then((data) => {
       this.cities = data;
+      this.formData.location = this.cities[0]
       console.log(this.cities);
     });
   }
