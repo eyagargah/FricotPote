@@ -13,6 +13,7 @@ export class PreferenceComponent {
     private locationservice: LocationService
   ) {}
 
+  cities: any;
   formData = {
     user_id: this.cookiesservice.get('UserId'),
     location: '',
@@ -24,25 +25,25 @@ export class PreferenceComponent {
     const value = event.target.value;
     const name = event.target.name;
     console.log(event.target.checked);
-    switch(name){
+    switch (name) {
       case 'age_preference':
-        this.formData.age_preference=value;
+        this.formData.age_preference = value;
         break;
-      case  'distance':
+      case 'distance':
         this.formData.distance = value;
-        break
-      case  'diet':
+        break;
+      case 'diet':
         this.formData.diet = event.target.checked;
-        break
-      case   'location':
-        this.formData.location = value
-        break
+        break;
+      case 'location':
+        this.formData.location = this.locationservice.city;
+        break;
     }
   }
 
   handleSubmit(e: any) {
     e.preventDefault();
-    console.log(this.formData)
+    console.log(this.formData);
   }
 
   async getCurrentLocation() {
@@ -51,12 +52,11 @@ export class PreferenceComponent {
     this.locationservice.setLongitude(longitude);
     const latitude = position.lat;
     this.locationservice.setLatitude(latitude);
-    console.log(longitude)
-    console.log(latitude)
-    this.locationservice.getNearestCities(longitude , latitude)
-    this.formData.location = this.locationservice.city;
+    this.locationservice.getNearestCities(longitude, latitude).then((data) => {
+      this.cities = data;
+      console.log(this.cities);
+    });
   }
-
 
   async getLocation() {
     const axios = require('axios');
