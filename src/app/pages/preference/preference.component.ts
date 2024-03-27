@@ -24,8 +24,7 @@ export class PreferenceComponent {
   handleChange(event: any) {
     const value = event.target.value;
     const name = event.target.name;
-    console.log(event.target.value);
-    console.log(event.target.name);
+    console.log(name + ' : ' + value);
     switch (name) {
       case 'maximumAge':
         this.formData.age_preference = value;
