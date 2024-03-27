@@ -22,23 +22,11 @@
       width: 70%;
       text-align: start;
   
-      input[type="number"] {
-        width: 10%;
-      }
+      
       input[type="radio"] {
         display: none;
       }
-      input[type="checkbox"] {
-       display: flex;
-       align-self: flex-start;
-      }
-      input[type="submit"]:hover {
-        background-color: rgb(235, 235, 235);
-        cursor: pointer;
-      }
-      input[type="submit"]:active {
-        background-color: rgb(235, 115, 115);
-      }
+    
       input[type="radio"]:checked + label {
         border: solid 2px rgb(221, 39, 22);
       }
