@@ -27,10 +27,10 @@ export class PreferenceComponent {
     console.log(event.target.value);
     console.log(event.target.name);
     switch (name) {
-      case 'age_preference':
+      case 'maximumAge':
         this.formData.age_preference = value;
         break;
-      case 'distance':
+      case 'maximumDistance':
         this.formData.distance = value;
         break;
       case 'dietairy_preferences':
