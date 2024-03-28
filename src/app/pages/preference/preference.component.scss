@@ -21,7 +21,22 @@
       padding: 1rem;
       width: 70%;
       text-align: start;
-  
+      
+      .location {
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        button {
+          color: gray;
+          border: none;
+          margin-top: 2rem;
+          font-size: 1rem;
+          background-color: transparent;
+        }
+      }
+
+      
       
       input[type="radio"] {
         display: none;
