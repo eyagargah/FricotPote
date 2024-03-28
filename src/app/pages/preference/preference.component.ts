@@ -15,6 +15,7 @@ export class PreferenceComponent {
 
   ngOnInit(){
     this.getCurrentLocation()
+    
   }
 
   cities: any;
