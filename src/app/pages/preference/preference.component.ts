@@ -13,7 +13,12 @@ export class PreferenceComponent {
     private locationservice: LocationService
   ) {}
 
+  ngOnInit(){
+    this.getCurrentLocation()
+  }
+
   cities: any;
+  currentLocation : any;
   formData = {
     user_id: this.cookiesservice.get('UserId'),
     location: '',
@@ -54,6 +59,7 @@ export class PreferenceComponent {
     this.locationservice.setLatitude(latitude);
     this.locationservice.getNearestCities(longitude, latitude).then((data) => {
       this.cities = data;
+      this.currentLocation = this.cities[0].City + " ," + this.cities[0].Country
       this.formData.location = this.cities[0]
       console.log(this.cities);
     });
