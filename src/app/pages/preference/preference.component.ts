@@ -15,7 +15,8 @@ export class PreferenceComponent {
 
   ngOnInit(){
     this.getCurrentLocation()
-    
+    this.maxAge= document.querySelector('#maxAge')
+    console.log(this.maxAge)
   }
 
   cities: any;
