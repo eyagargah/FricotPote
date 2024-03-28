@@ -19,6 +19,8 @@ export class PreferenceComponent {
 
   cities: any;
   currentLocation : any;
+  distance : any
+  maxAge : any
   formData = {
     user_id: this.cookiesservice.get('UserId'),
     location: '',
