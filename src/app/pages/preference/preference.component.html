@@ -16,7 +16,7 @@
         <div class="location">
           <label for="location">Location</label>
           <div class="locationBtns">
-            <button>{{ currentLocation }} ></button>
+            <button>{{ currentLocation }}</button>
           </div>
         </div>
 
@@ -40,8 +40,11 @@
         </div>
 
         <div class="age">
-          <label for="maxAge">Age Range</label>
-          <label for="maxAgeValue">{{ maxAge }}</label>
+          <div class="ageInfo">
+            <label for="maxAge">Age Range</label>
+            <label for="maxAgeValue">{{ maxAge }}</label>
+          </div>
+
           <div class="maxAgeSlider">
             <input
               type="range"
