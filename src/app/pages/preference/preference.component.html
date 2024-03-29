@@ -16,15 +16,15 @@
         <div class="location">
           <label for="location">Location</label>
           <div class="locationBtns">
-            <button>
-              {{currentLocation}} >
-            </button>
+            <button>{{ currentLocation }} ></button>
           </div>
         </div>
 
         <div class="distance">
-          <label for="maxDistance">Maximum Distance</label>
-          <label class="maxDistance" > {{distance}}</label>
+          <div class="distanceInfo">
+            <label for="maxDistance">Maximum Distance</label>
+            <label class="maxDistance"> {{ distance }}</label>
+          </div>
           <div class="maxDistanceSlider">
             <input
               type="range"
@@ -41,7 +41,7 @@
 
         <div class="age">
           <label for="maxAge">Age Range</label>
-          <label for="maxAgeValue">{{maxAge}}</label>
+          <label for="maxAgeValue">{{ maxAge }}</label>
           <div class="maxAgeSlider">
             <input
               type="range"
