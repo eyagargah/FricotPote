@@ -24,10 +24,7 @@
       text-align: start;
       
       .location {
-        label {
-          font-weight: 300;
-          font-size: 1.5rem;
-        }
+       
         input {
           width: 100%;
         }
@@ -44,6 +41,11 @@
         }
       }
 
+      .distanceInfo {
+        display: flex;
+        justify-content: space-between;
+      }
+
       
       
       input[type="radio"] {
@@ -56,6 +58,8 @@
   
       label {
         margin: 10px 0;
+        font-weight: 300;
+        font-size: 1.2rem;
       }
   
       input {
