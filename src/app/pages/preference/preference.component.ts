@@ -15,7 +15,8 @@ export class PreferenceComponent {
 
   ngOnInit(){
     this.getCurrentLocation()
-    this.maxAge= document.querySelector('#maxAge')
+    this.distance=  document.querySelectorAll('input')[0].value
+    this.maxAge=  document.querySelectorAll('input')[1].value
     console.log(this.maxAge)
   }
 
