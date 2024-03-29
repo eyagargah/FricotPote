@@ -15,7 +15,7 @@
   form {
     display: flex;
     justify-content: center;
-  
+    margin: 0 10rem;
     section {
       display: flex;
       flex-direction: column;
@@ -24,6 +24,13 @@
       text-align: start;
       
       .location {
+        label {
+          font-weight: 300;
+          font-size: 1.5rem;
+        }
+        input {
+          width: 100%;
+        }
         margin-bottom: 2rem;
         display: flex;
         align-items: baseline;
@@ -52,7 +59,7 @@
       }
   
       input {
-        padding: 1rem 2rem;
+        padding: 1rem 15rem;
         margin: 10px 0;
         font-size: 1rem;
         border: solid 2px rgb(219, 219, 219);
