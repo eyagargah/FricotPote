@@ -1,150 +1,157 @@
-<div class="preference">
-  <div class="header">
-    <div class="logo-container">
-      <img
-        class="logo"
-        src="../../../assets/color-logo-tinder.png"
-        alt="logo image"
-        loading="lazy"
-      />
+  <div class="preference">
+    <div class="header">
+      <div class="logo-container">
+        <img
+          class="logo"
+          src="../../../assets/color-logo-tinder.png"
+          alt="logo image"
+          loading="lazy"
+        />
+      </div>
+    </div>
+    <div class="content">
+      <h2>Add preferences</h2>
+      <form>
+        <section>
+          <div class="location">
+            <label for="location">Location</label>
+            <div class="locationBtns">
+              <button>{{ currentLocation }}</button>
+            </div>
+          </div>
+
+          <div class="distance">
+            <div class="distanceInfo">
+              <label for="maxDistance">Maximum Distance</label>
+              <label class="maxDistance"> {{ distance }}</label>
+            </div>
+            <div class="maxDistanceSlider">
+              <input
+                type="range"
+                min="1000"
+                max="10000"
+                value="5000"
+                class="slider"
+                name="maximumDistance"
+                id="maxDistanceRange"
+                (change)="handleChange($event)"
+              />
+            </div>
+          </div>
+
+          <div class="age">
+            <div class="ageInfo">
+              <label for="maxAge">Age Range</label>
+              <label for="maxAgeValue">{{ maxAge }}</label>
+            </div>
+
+            <div class="maxAgeSlider">
+              <input
+                type="range"
+                min="18"
+                max="100"
+                id="maxAge"
+                name="maximumAge"
+                value="50"
+                class="slider"
+                (change)="handleChange($event)"
+              />
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                oninput="rangeValue.innerText = this.value"
+              />
+              <p id="rangeValue">100</p>
+            </div>
+          </div>
+
+          <div class="diet">
+            <label>Dietary preferences</label>
+            <div class="multiple-input">
+              <input
+                type="radio"
+                id="vegan_dietairy_preferences"
+                name="dietairy_preferences"
+                required
+                value="vegan"
+                (click)="handleChange($event)"
+              />
+              <label for="vegan_dietairy_preferences">Vegan</label>
+
+              <input
+                type="radio"
+                id="vegetarian_dietairy_preferences"
+                name="dietairy_preferences"
+                required
+                value="vegetarian"
+                (click)="handleChange($event)"
+              />
+              <label for="vegetarian_dietairy_preferences">Vegetarian</label>
+              <input
+                type="radio"
+                id="pescatarian_dietairy_preferences"
+                name="dietairy_preferences"
+                required
+                value="pescatarian"
+                (click)="handleChange($event)"
+              />
+              <label for="pescatarian_dietairy_preferences">Pescatarian</label>
+
+              <input
+                type="radio"
+                id="vegan_dietairy_preferences"
+                name="dietairy_preferences"
+                required
+                value="vegan"
+                (click)="handleChange($event)"
+              />
+
+              <label for="kosher_dietairy_preferences">kosher</label>
+              <input
+                type="radio"
+                id="halal_dietairy_preferences"
+                name="dietairy_preferences"
+                required
+                value="halal"
+                (click)="handleChange($event)"
+              />
+              <label for="halal_dietairy_preferences">Halal</label>
+
+              <input
+                type="radio"
+                id="carnivore_dietairy_preferences"
+                name="dietairy_preferences"
+                required
+                value="carnivore"
+                (click)="handleChange($event)"
+              />
+              <label for="carnivore_dietairy_preferences">Carnivore</label>
+
+              <input
+                type="radio"
+                id="omnivore_dietairy_preferences"
+                name="dietairy_preferences"
+                required
+                value="omnivore"
+                (click)="handleChange($event)"
+              />
+              <label for="omnivore_dietairy_preferences">Omnivore</label>
+
+              <input
+                type="radio"
+                id="other_dietairy_preferences"
+                name="dietairy_preferences"
+                required
+                value="other"
+                (click)="handleChange($event)"
+              />
+              <label for="other_dietairy_preferences">Other</label>
+            </div>
+          </div>
+        </section>
+      </form>
+      <input type="submit" value="submit" (click)="handleSubmit($event)" />
     </div>
   </div>
-  <div class="content">
-    <h2>Add preferences</h2>
-    <form>
-      <section>
-        <div class="location">
-          <label for="location">Location</label>
-          <div class="locationBtns">
-            <button>{{ currentLocation }}</button>
-          </div>
-        </div>
-
-        <div class="distance">
-          <div class="distanceInfo">
-            <label for="maxDistance">Maximum Distance</label>
-            <label class="maxDistance"> {{ distance }}</label>
-          </div>
-          <div class="maxDistanceSlider">
-            <input
-              type="range"
-              min="1000"
-              max="10000"
-              value="5000"
-              class="slider"
-              name="maximumDistance"
-              id="maxDistanceRange"
-              (change)="handleChange($event)"
-            />
-          </div>
-        </div>
-
-        <div class="age">
-          <div class="ageInfo">
-            <label for="maxAge">Age Range</label>
-            <label for="maxAgeValue">{{ maxAge }}</label>
-          </div>
-
-          <div class="maxAgeSlider">
-            <input
-              type="range"
-              min="18"
-              max="100"
-              id="maxAge"
-              name="maximumAge"
-              value="50"
-              class="slider"
-              (change)="handleChange($event)"
-            />
-            <input type="range" min="0" max="200" value="100"> 
-          </div>
-        </div>
-
-        <div class="diet">
-          <label>Dietary preferences</label>
-          <div class="multiple-input">
-            <input
-              type="radio"
-              id="vegan_dietairy_preferences"
-              name="dietairy_preferences"
-              required
-              value="vegan"
-              (click)="handleChange($event)"
-            />
-            <label for="vegan_dietairy_preferences">Vegan</label>
-
-            <input
-              type="radio"
-              id="vegetarian_dietairy_preferences"
-              name="dietairy_preferences"
-              required
-              value="vegetarian"
-              (click)="handleChange($event)"
-            />
-            <label for="vegetarian_dietairy_preferences">Vegetarian</label>
-            <input
-              type="radio"
-              id="pescatarian_dietairy_preferences"
-              name="dietairy_preferences"
-              required
-              value="pescatarian"
-              (click)="handleChange($event)"
-            />
-            <label for="pescatarian_dietairy_preferences">Pescatarian</label>
-
-            <input
-              type="radio"
-              id="vegan_dietairy_preferences"
-              name="dietairy_preferences"
-              required
-              value="vegan"
-              (click)="handleChange($event)"
-            />
-
-            <label for="kosher_dietairy_preferences">kosher</label>
-            <input
-              type="radio"
-              id="halal_dietairy_preferences"
-              name="dietairy_preferences"
-              required
-              value="halal"
-              (click)="handleChange($event)"
-            />
-            <label for="halal_dietairy_preferences">Halal</label>
-
-            <input
-              type="radio"
-              id="carnivore_dietairy_preferences"
-              name="dietairy_preferences"
-              required
-              value="carnivore"
-              (click)="handleChange($event)"
-            />
-            <label for="carnivore_dietairy_preferences">Carnivore</label>
-
-            <input
-              type="radio"
-              id="omnivore_dietairy_preferences"
-              name="dietairy_preferences"
-              required
-              value="omnivore"
-              (click)="handleChange($event)"
-            />
-            <label for="omnivore_dietairy_preferences">Omnivore</label>
-
-            <input
-              type="radio"
-              id="other_dietairy_preferences"
-              name="dietairy_preferences"
-              required
-              value="other"
-              (click)="handleChange($event)"
-            />
-            <label for="other_dietairy_preferences">Other</label>
-          </div>
-        </div>
-      </section>
-    </form>
-    <input type="submit" value="submit" (click)="handleSubmit($event)" />
-  </div>
-</div>
