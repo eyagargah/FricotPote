@@ -42,7 +42,7 @@
           <div class="age">
             <div class="ageInfo">
               <label for="maxAge">Age Range</label>
-              <p id="rangeValue">100</p>
+              <p id="ageValue">100</p>
             </div>
 
             <div class="maxAgeSlider">
@@ -55,7 +55,7 @@
               value="50"
               class="slider"
               (change)="handleChange($event)"
-              oninput="rangeValue.innerText = this.value"
+              oninput="ageValue.innerText = this.value"
               />
               
             </div>
