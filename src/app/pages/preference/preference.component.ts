@@ -17,7 +17,6 @@ export class PreferenceComponent {
     this.getCurrentLocation()
     this.distance=  document.querySelectorAll('input')[0].value
     this.maxAge=  document.querySelectorAll('input')[1].value
-    console.log(this.maxAge)
   }
 
   cities: any;
