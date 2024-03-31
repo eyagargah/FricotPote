@@ -12,6 +12,17 @@
   .content {
     border-top: solid 2px rgb(154,154,154) ;
   }
+
+        
+  input[type="submit"]:hover {
+    background-color: rgb(235, 235, 235);
+    cursor: pointer;
+  }
+  input[type="submit"]:active {
+    background-color: rgb(235, 115, 115);
+  }
+
+  
   form {
     display: flex;
     justify-content: center;
