@@ -33,7 +33,6 @@ export class PreferenceComponent {
   handleChange(event: any) {
     const value = event.target.value;
     const name = event.target.name;
-    console.log(name + ' : ' + value);
     switch (name) {
       case 'maximumAge':
         this.formData.age_preference = value;
@@ -52,7 +51,6 @@ export class PreferenceComponent {
 
   handleSubmit(e: any) {
     e.preventDefault();
-    console.log(this.formData);
   }
 
   async getCurrentLocation() {
@@ -65,7 +63,6 @@ export class PreferenceComponent {
       this.cities = data;
       this.currentLocation = this.cities[0].City + " ," + this.cities[0].Country
       this.formData.location = this.cities[0]
-      console.log(this.cities);
     });
   }
 
