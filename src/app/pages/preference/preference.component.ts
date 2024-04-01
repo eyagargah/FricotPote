@@ -51,6 +51,7 @@ export class PreferenceComponent {
 
   handleSubmit(e: any) {
     e.preventDefault();
+    console.log(this.formData)
   }
 
   async getCurrentLocation() {
