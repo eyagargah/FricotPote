@@ -13,6 +13,7 @@
     border-top: solid 2px rgb(154,154,154) ;
   }
 
+    
         
   input[type="submit"]:hover {
     background-color: rgb(235, 235, 235);
@@ -52,6 +53,10 @@
         }
       }
 
+      .distance , .age {
+        margin-bottom: 2rem;
+      }
+
       .distanceInfo , .ageInfo{
         display: flex;
         justify-content: space-between;
@@ -68,7 +73,7 @@
       }
   
       label {
-        margin: 10px 0;
+        margin: 20px 0;
         font-weight: 300;
         font-size: 1.2rem;
       }
