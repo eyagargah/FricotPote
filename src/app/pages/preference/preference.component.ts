@@ -39,6 +39,7 @@ export class PreferenceComponent {
         break;
       case 'maximumDistance':
         this.formData.distance = value;
+        this.locationservice.setRadius(Number(value));
         break;
       case 'dietairy_preferences':
         this.formData.diet = value;
