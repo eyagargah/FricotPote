@@ -1,20 +1,24 @@
 .header {
-    .logo-container {
-      width: 10rem;
-      margin: 1rem;
-  
-      .logo {
-        width: 100%;
-      }
+  .logo-container {
+    width: 10rem;
+    margin: 1rem;
+
+    .logo {
+      width: 100%;
     }
   }
+}
 .preference {
   .content {
-    border-top: solid 2px rgb(154,154,154) ;
+    border-top: solid 2px rgb(154, 154, 154);
   }
 
-    
-        
+  input[type="submit"] {
+    width: 55%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: none;
+  }
   input[type="submit"]:hover {
     background-color: rgb(235, 235, 235);
     cursor: pointer;
@@ -23,7 +27,6 @@
     background-color: rgb(235, 115, 115);
   }
 
-  
   form {
     display: flex;
     justify-content: center;
@@ -34,9 +37,8 @@
       padding: 1rem;
       width: 70%;
       text-align: start;
-      
+
       .location {
-       
         input {
           width: 100%;
         }
@@ -53,40 +55,38 @@
         }
       }
 
-      .distance , .age {
+      .distance,
+      .age {
         margin-bottom: 2rem;
       }
 
-      .distanceInfo , .ageInfo{
+      .distanceInfo,
+      .ageInfo {
         display: flex;
         justify-content: space-between;
       }
 
-      
-      
       input[type="radio"] {
         display: none;
       }
-    
+
       input[type="radio"]:checked + label {
         border: solid 2px rgb(221, 39, 22);
       }
-  
+
       label {
         margin: 20px 0;
         font-weight: 300;
         font-size: 1.2rem;
       }
-  
+
       input {
         width: 100%;
-        //padding: 1rem 15rem;
-        //margin: 10px 0;
         font-size: 1rem;
         border: solid 2px rgb(219, 219, 219);
         border-radius: 10px;
       }
-  
+
       input::-webkit-outer-spin-button,
       input::-webkit-inner-spin-button {
         -webkit-appearance: none;
@@ -94,11 +94,11 @@
       }
       .multiple-input {
         display: flex;
-  
+
         input {
           margin-right: 10px;
         }
-  
+
         label {
           padding: 10px;
           border: solid 2px rgb(144, 144, 144);
@@ -110,5 +110,3 @@
     }
   }
 }
- 
-  
