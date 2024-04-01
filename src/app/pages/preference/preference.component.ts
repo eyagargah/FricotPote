@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
 import { LocationService } from 'src/app/services/location.service';
 
@@ -10,7 +12,8 @@ import { LocationService } from 'src/app/services/location.service';
 export class PreferenceComponent {
   constructor(
     private cookiesservice: CookieService,
-    private locationservice: LocationService
+    private locationservice: LocationService,
+    private router: Router
   ) {}
 
   ngOnInit(){
@@ -50,9 +53,19 @@ export class PreferenceComponent {
     }
   }
 
-  handleSubmit(e: any) {
+  async handleSubmit(e: any) {
     e.preventDefault();
     console.log(this.formData)
+    try {
+      const response = await axios.put(`https://fricotpote-backend-1.onrender.com/user`, {
+        formData: this.formData,
+      });
+      const succes = response.status === 200;
+
+      if (succes) this.router.navigateByUrl('dashboard');
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   async getCurrentLocation() {
