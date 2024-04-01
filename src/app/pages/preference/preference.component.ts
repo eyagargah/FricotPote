@@ -27,8 +27,8 @@ export class PreferenceComponent {
     user_id: this.cookiesservice.get('UserId'),
     location: '',
     diet: '',
-    age_preference: '',
-    distance: '',
+    age_preference: '18',
+    distance: '5000',
   };
   handleChange(event: any) {
     const value = event.target.value;
