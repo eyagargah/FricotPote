@@ -55,6 +55,7 @@ export class PreferenceComponent {
 
   refreshLocation(){
     this.getCurrentLocation()
+    console.log(this.currentLocation)
   }
   async handleSubmit(e: any) {
     e.preventDefault();
