@@ -57,7 +57,7 @@ export class PreferenceComponent {
     e.preventDefault();
     console.log(this.formData)
     try {
-      const response = await axios.put(`https://fricotpote-backend-1.onrender.com/user`, {
+      const response = await axios.put(`https://fricotpote-backend-1.onrender.com/user-preferences`, {
         formData: this.formData,
       });
       const succes = response.status === 200;
