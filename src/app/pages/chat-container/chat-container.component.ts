@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
+import { MessageService } from 'src/app/services/message.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -11,7 +12,8 @@ import { UserService } from 'src/app/services/user.service';
 export class ChatContainerComponent {
   constructor(
     private cookiesservice: CookieService,
-    private userService: UserService
+    private userService: UserService,
+    private msgService : MessageService
   ) {}
   showMatches = true;
   userId = this.cookiesservice.get('UserId');
@@ -29,5 +31,9 @@ export class ChatContainerComponent {
 
   hideMatchesSection(){
     this.showMatches = false
+  }
+
+  showChatSection(){
+    
   }
 }
