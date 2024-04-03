@@ -34,6 +34,10 @@ export class ChatContainerComponent {
   }
 
   showChatSection(){
+
+  }
+
+  hideChatSection(){
     
   }
 }
