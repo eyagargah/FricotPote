@@ -34,9 +34,11 @@ export class DashboardComponent {
   filteredGenderedUsers: any;
 
   getSelectedUser(selectedUser: any) {
-    if (this.direction == 'right') {
+    if ((this.direction == 'right') && (this.index< this.users.length)) {
       this.swipedUserId = selectedUser.user_id;
       this.updateMatches(selectedUser);
+    } else {
+      alert("no more users")
     }
   }
 
@@ -144,7 +146,12 @@ export class DashboardComponent {
   }
 
   cardAnimation(value: string) {
+    if(this.index <= this.users.length-1){
     this.parentSubject.next(value);
+
+    }else {
+      alert("no more users ")
+    }
   }
 
   sleep(ms: number) {
