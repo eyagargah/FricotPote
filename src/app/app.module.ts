@@ -21,6 +21,7 @@ import axios from 'axios';
 import {CookieService} from 'ngx-cookie-service';
 import { PreferenceComponent } from './pages/preference/preference.component';
 import { FooterComponent } from './pages/footer/footer.component';
+import { ChatsComponent } from './pages/chats/chats.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { FooterComponent } from './pages/footer/footer.component';
     ChatDisplayComponent,
     ChatInputComponent,
     PreferenceComponent,
-    FooterComponent
+    FooterComponent,
+    ChatsComponent
   ],
   imports: [BrowserModule, AppRoutingModule, MatIconModule, MatDialogModule,BrowserAnimationsModule,HammerModule],
   entryComponents: [AuthModalComponent],
