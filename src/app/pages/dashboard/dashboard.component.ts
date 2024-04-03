@@ -147,10 +147,12 @@ export class DashboardComponent {
 
   cardAnimation(value: string) {
     if(this.index <= this.users.length-1){
-    this.parentSubject.next(value);
+      this.parentSubject.next(value);
 
     }else {
       alert("no more users ")
+      let cardContainer = document.querySelector('.swipe')
+      cardContainer?.classList.remove('transition');
     }
   }
 
