@@ -45,7 +45,6 @@ export class AuthModalComponent {
 
   submitForm = async (e: any) => {
     e.preventDefault();
-    console.log(this.isSignIn)
 
     try {
       if (!this.isSignIn && this.pwdToCheck != this.currentPwd) {
