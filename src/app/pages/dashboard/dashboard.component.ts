@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import * as kf from './keyframes';
 import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
+import { LocationService } from 'src/app/services/location.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -16,7 +17,7 @@ import { CookieService } from 'ngx-cookie-service';
   ],
 })
 export class DashboardComponent {
-  constructor(private cookiesService: CookieService) {}
+  constructor(private cookiesService: CookieService , private locationService : LocationService) {}
   userId = this.cookiesService.get('UserId');
   animationState: string | undefined;
   parentSubject: Subject<string> = new Subject();
@@ -73,6 +74,7 @@ export class DashboardComponent {
         let user = this.matches[match].user.user_id;
         if (user === selectedUser.user_id) {
           console.log('add selected user to db!!');
+          console.log(this.locationService.countDistance(this.currentUser.location ,selectedUser.location ))
           isMatched = true;
         } else {
           console.log('match already exists!!');
