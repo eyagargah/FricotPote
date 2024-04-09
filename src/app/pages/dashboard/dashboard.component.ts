@@ -165,7 +165,6 @@ export class DashboardComponent {
     this.getUser();
     setTimeout(this.getGenderedUsers, 1000);
     setTimeout(this.filterUsersByDistance, 1500);
-
     this.getUnmatchedUsers();
   }
 
