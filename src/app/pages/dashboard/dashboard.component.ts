@@ -79,7 +79,7 @@ export class DashboardComponent {
           console.log('match already exists!!');
         }
 
-        console.log(selectedUser.location)
+        console.log(this.locationService.countDistance(this.currentUser.location , selectedUser.location))
 
       }
       if (!isMatched) {
