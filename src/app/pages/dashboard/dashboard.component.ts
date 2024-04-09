@@ -132,9 +132,10 @@ export class DashboardComponent {
         this.users[i].location
       );
       if (distance <= this.currentUser.distance) {
-        filteredUsers.push(this.users[i]);
+        this.filteredUsers.push(this.users[i]);
       }
     }
+    console.table(this.filteredUsers);
   }
   getGenderedUsers = async () => {
     try {
