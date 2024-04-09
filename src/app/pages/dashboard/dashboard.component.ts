@@ -17,7 +17,10 @@ import { LocationService } from 'src/app/services/location.service';
   ],
 })
 export class DashboardComponent {
-  constructor(private cookiesService: CookieService , private locationService : LocationService) {}
+  constructor(
+    private cookiesService: CookieService,
+    private locationService: LocationService
+  ) {}
   userId = this.cookiesService.get('UserId');
   animationState: string | undefined;
   parentSubject: Subject<string> = new Subject();
@@ -35,11 +38,11 @@ export class DashboardComponent {
   filteredGenderedUsers: any;
 
   getSelectedUser(selectedUser: any) {
-    if ((this.direction == 'right') && (this.index< this.users.length)) {
+    if (this.direction == 'right' && this.index < this.users.length) {
       this.swipedUserId = selectedUser.user_id;
       this.updateMatches(selectedUser);
     } else {
-      alert("no more users")
+      alert('no more users');
     }
   }
 
@@ -79,8 +82,12 @@ export class DashboardComponent {
           console.log('match already exists!!');
         }
 
-        console.log(this.locationService.countDistance(this.currentUser.location , selectedUser.location))
-
+        console.log(
+          this.locationService.countDistance(
+            this.currentUser.location,
+            selectedUser.location
+          )
+        );
       }
       if (!isMatched) {
         const response = await axios.put(
@@ -117,6 +124,19 @@ export class DashboardComponent {
     }
   };
 
+  filterUsersByDistance() {
+    let filteredUsers = [];
+
+    for (let i = 0; i < this.users.length; i++) {
+      let distance = this.locationService.countDistance(
+        this.currentUser.location,
+        this.users[i].location
+      );
+      if (distance <= this.currentUser.distance) {
+        filteredUsers.push(this.users[i]);
+      }
+    }
+  }
   getGenderedUsers = async () => {
     try {
       const response = await axios.get(
@@ -133,12 +153,10 @@ export class DashboardComponent {
   };
 
   getUnmatchedUsers() {
-
     for (let i = 0; i < this.users.length; i++) {
       let obj = this.users[i];
       console.log(obj);
-  }
-  
+    }
   }
   ngOnInit() {
     this.parentSubject?.subscribe((event) => {
@@ -150,12 +168,11 @@ export class DashboardComponent {
   }
 
   cardAnimation(value: string) {
-    if(this.index <= this.users.length-1){
+    if (this.index <= this.users.length - 1) {
       this.parentSubject.next(value);
-
-    }else {
-      alert("no more users ")
-      let cardContainer = document.querySelector('.swipe')
+    } else {
+      alert('no more users ');
+      let cardContainer = document.querySelector('.swipe');
       cardContainer?.classList.remove('transition');
     }
   }
