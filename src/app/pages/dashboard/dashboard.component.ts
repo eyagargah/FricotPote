@@ -33,6 +33,7 @@ export class DashboardComponent {
   matches: any;
   swipedUserId: any;
   unmatchedUsers: any;
+  filteredUsers: any;
 
   found: boolean = false;
   filteredGenderedUsers: any;
@@ -125,8 +126,6 @@ export class DashboardComponent {
   };
 
   filterUsersByDistance() {
-    let filteredUsers = [];
-
     for (let i = 0; i < this.users.length; i++) {
       let distance = this.locationService.countDistance(
         this.currentUser.location,
@@ -164,8 +163,8 @@ export class DashboardComponent {
     });
     this.getUser();
     setTimeout(this.getGenderedUsers, 1000);
-    setTimeout(this.filterUsersByDistance , 1500)
-    
+    setTimeout(this.filterUsersByDistance, 1500);
+
     this.getUnmatchedUsers();
   }
 
