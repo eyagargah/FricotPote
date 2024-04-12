@@ -125,18 +125,7 @@ export class DashboardComponent {
     }
   };
 
-  filterUsersByDistance() {
-    for (let i = 0; i < this.users.length; i++) {
-      let distance = this.locationService.countDistance(
-        this.currentUser.location,
-        this.users[i].location
-      );
-      if (distance <= this.currentUser.distance) {
-        this.filteredUsers.push(this.users[i]);
-      }
-    }
-    console.table(this.filteredUsers);
-  }
+
   getGenderedUsers = async () => {
     try {
       const response = await axios.get(
@@ -164,7 +153,10 @@ export class DashboardComponent {
     });
     this.getUser();
     setTimeout(this.getGenderedUsers, 1000);
-    setTimeout(this.filterUsersByDistance, 2000);
+    if(!this.users.empty){
+      setTimeout(this.filterUsersByDistance, 2000);
+    }
+    //setTimeout(this.filterUsersByDistance, 2000);
     //this.getUnmatchedUsers();
   }
 
