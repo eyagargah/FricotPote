@@ -160,6 +160,20 @@ export class DashboardComponent {
     //this.getUnmatchedUsers();
   }
 
+
+  filterUsersByDistance() {
+    for (let i = 0; i < this.users.length; i++) {
+      let distance = this.locationService.countDistance(
+        this.currentUser.location,
+        this.users[i].location
+      );
+      if (distance <= this.currentUser.distance) {
+        this.filteredUsers.push(this.users[i]);
+      }
+    }
+    console.table(this.filteredUsers);
+  }
+  
   cardAnimation(value: string) {
     if (this.index <= this.users.length - 1) {
       this.parentSubject.next(value);
