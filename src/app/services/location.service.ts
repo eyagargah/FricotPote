@@ -74,11 +74,11 @@ export class LocationService {
 
   countDistance(location1 :any  , location2 : any){
     let distance
-    let lat1 = location1.latitude
-    let lat2 = location2.latitude
+    let lat1 = location1.Latitude
+    let lat2 = location2.Latitude
 
-    let lon1 = location1.longitude
-    let lon2 = location2.longitude
+    let lon1 = location1.Longitude
+    let lon2 = location2.Longitude
     distance = Math.acos(Math.sin(lat1)*Math.sin(lat2)+Math.cos(lat1)*Math.cos(lat2)*Math.cos(lon2-lon1))*6371 
 
     return distance
