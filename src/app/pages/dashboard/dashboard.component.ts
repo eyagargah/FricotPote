@@ -167,10 +167,9 @@ export class DashboardComponent {
         this.currentUser.location,
         this.users[i].location
       );
-      console.log(this.currentUser.location.Latitude)
-     // if (distance <= this.currentUser.distance) { this.filteredUsers.push(this.users[i]);}
+     if (distance <= this.currentUser.distance) { this.filteredUsers.push(this.users[i]);}
     }
-    //console.table(this.filteredUsers);
+    console.table(this.filteredUsers);
   }
 
   cardAnimation(value: string) {
