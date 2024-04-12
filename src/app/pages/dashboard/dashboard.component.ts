@@ -135,6 +135,8 @@ export class DashboardComponent {
         }
       );
       this.users = response.data;
+      console.log(this.users.length)
+      this.filterUsersByDistance()
       //this.unmatchedUsers = this.users.filter((user:any) => !this.matches.some((obj:any) => obj._id === user._id));
     } catch (err) {
       console.log(err);
