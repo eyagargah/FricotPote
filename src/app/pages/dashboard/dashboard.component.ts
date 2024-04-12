@@ -153,9 +153,7 @@ export class DashboardComponent {
     });
     this.getUser();
     setTimeout(this.getGenderedUsers, 1000);
-    if(!this.users.empty){
-      setTimeout(this.filterUsersByDistance, 2000);
-    }
+    
     //setTimeout(this.filterUsersByDistance, 2000);
     //this.getUnmatchedUsers();
   }
@@ -173,7 +171,7 @@ export class DashboardComponent {
     }
     console.table(this.filteredUsers);
   }
-  
+
   cardAnimation(value: string) {
     if (this.index <= this.users.length - 1) {
       this.parentSubject.next(value);
