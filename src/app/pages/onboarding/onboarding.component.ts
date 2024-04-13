@@ -14,6 +14,7 @@ export class OnboardingComponent {
   formData = {
     user_id: this.cookiesservice.get('UserId'),
     first_name: '',
+    age:'',
     dob_day: '',
     dob_month: '',
     dob_year: '',
@@ -33,6 +34,7 @@ export class OnboardingComponent {
       case 'first_name':
         this.formData.first_name = value;
         break;
+      
       case 'dob_day':
         this.formData.dob_day = value;
         break;
