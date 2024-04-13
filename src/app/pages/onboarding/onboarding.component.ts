@@ -14,7 +14,7 @@ export class OnboardingComponent {
   formData = {
     user_id: this.cookiesservice.get('UserId'),
     first_name: '',
-    age:'',
+    age: '',
     dob_day: '',
     dob_month: '',
     dob_year: '',
@@ -34,7 +34,9 @@ export class OnboardingComponent {
       case 'first_name':
         this.formData.first_name = value;
         break;
-      
+      case 'age':
+        this.formData.age = value;
+        break;
       case 'dob_day':
         this.formData.dob_day = value;
         break;
@@ -67,9 +69,12 @@ export class OnboardingComponent {
   handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await axios.put(`https://fricotpote-backend-1.onrender.com/user`, {
-        formData: this.formData,
-      });
+      const response = await axios.put(
+        `https://fricotpote-backend-1.onrender.com/user`,
+        {
+          formData: this.formData,
+        }
+      );
       const succes = response.status === 200;
 
       if (succes) this.router.navigateByUrl('preference');
