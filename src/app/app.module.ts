@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, HammerModule  } from '@angular/platform-browser';
-import {MatIconModule} from '@angular/material/icon'
+import {MatIconModule} from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
