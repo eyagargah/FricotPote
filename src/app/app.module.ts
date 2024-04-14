@@ -20,7 +20,6 @@ import { ChatInputComponent } from './pages/chat-input/chat-input.component';
 import axios from 'axios';
 import {CookieService} from 'ngx-cookie-service';
 import { PreferenceComponent } from './pages/preference/preference.component';
-import { FooterComponent } from './pages/footer/footer.component';
 import { ChatsComponent } from './pages/chats/chats.component';
 import { OfferComponent } from './pages/offer/offer.component';
 @NgModule({
@@ -39,7 +38,6 @@ import { OfferComponent } from './pages/offer/offer.component';
     ChatDisplayComponent,
     ChatInputComponent,
     PreferenceComponent,
-    FooterComponent,
     ChatsComponent,
     OfferComponent
   ],
