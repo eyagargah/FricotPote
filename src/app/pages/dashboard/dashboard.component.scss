@@ -29,10 +29,18 @@
         h3 {
           position: absolute;
           color: white;
-          bottom: 0;
+          bottom: 2rem;
           font-weight: 700;
           font-size: 2rem;
           left: 1rem
+        }
+        h5 {
+          position: absolute;
+          color: white;
+          bottom: 0;
+          font-weight: 500;
+          font-size: 1.5rem;
+          left: 1;
         }
         .age {
           left : 10rem;
