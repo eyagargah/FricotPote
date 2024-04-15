@@ -1,6 +1,6 @@
 <div class="dashboard">
   <app-chat-container [matches]="matches" [currentUser]="currentUser"></app-chat-container>
-  <div class="swipe-container" *ngIf="users.length>0">
+  <div class="swipe-container" *ngIf="filteredUsers.length>0">
     <h3 *ngIf="direction && !undo">You swiped {{ direction }}</h3>
     <div class="card-container" >
       <div
@@ -9,13 +9,13 @@
         (@cardAnimator.done)="resetAnimationState($event)"
         (swipeleft)="startAnimation('swipeleft')"
         (swiperight)="startAnimation('swiperight')"
-        (swipe)="getSelectedUser(users[index])"
+        (swipe)="getSelectedUser(filteredUsers[index])"
       >
         <div
           class="card"
-          style="background-image: url({{users[index].url}} ); "
+          style="background-image: url({{filteredUsers[index].url}} ); "
         >
-          <h3 class="name">{{ users[index].first_name }} , {{users[index].age}}</h3>
+          <h3 class="name">{{ filteredUsers[index].first_name }} , {{filteredUsers[index].age}}</h3>
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@
     <div class="card-control">
       <div class="replay" (click)="reload()"><mat-icon>replay</mat-icon></div>
       <div (click)="cardAnimation('swipeleft')" class="reject">X</div>
-      <div (click)="cardAnimation('swiperight')"  (click)="getSelectedUser(users[index])" class="accept">
+      <div (click)="cardAnimation('swiperight')"  (click)="getSelectedUser(filteredUsers[index])" class="accept">
         <mat-icon>favorite_border</mat-icon>
       </div>
     </div>
