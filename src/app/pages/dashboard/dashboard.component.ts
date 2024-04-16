@@ -125,7 +125,6 @@ export class DashboardComponent {
     }
   };
 
-
   getGenderedUsers = async () => {
     try {
       const response = await axios.get(
@@ -135,7 +134,7 @@ export class DashboardComponent {
         }
       );
       this.users = response.data;
-      this.filterUsersByPreferences()
+      this.filterUsersByPreferences();
       //this.unmatchedUsers = this.users.filter((user:any) => !this.matches.some((obj:any) => obj._id === user._id));
     } catch (err) {
       console.log(err);
@@ -154,11 +153,10 @@ export class DashboardComponent {
     });
     this.getUser();
     setTimeout(this.getGenderedUsers, 1000);
-    
+
     //setTimeout(this.filterUsersByDistance, 2000);
     //this.getUnmatchedUsers();
   }
-
 
   filterUsersByPreferences() {
     for (let i = 0; i < this.users.length; i++) {
@@ -166,7 +164,13 @@ export class DashboardComponent {
         this.currentUser.location,
         this.users[i].location
       );
-     if (distance <= this.currentUser.distance && this.users[i].age <= this.currentUser.age_preference && this.users[i].diet == this.currentUser.diet) { this.filteredUsers.push(this.users[i]);}
+      if (
+        distance <= this.currentUser.distance &&
+        this.users[i].age <= this.currentUser.age_preference &&
+        this.users[i].diet == this.currentUser.diet
+      ) {
+        this.filteredUsers.push(this.users[i]);
+      }
     }
     console.table(this.filteredUsers);
   }
