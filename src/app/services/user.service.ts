@@ -32,11 +32,9 @@ export class UserService {
     }
   };
 
-  
 
-  getUsersByDiet( diet : any){
 
-  }
+ 
   getSelectedUser(){
     return this.selectedUser
   }
