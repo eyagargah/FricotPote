@@ -32,19 +32,7 @@ export class UserService {
     }
   };
 
-  getUsersByAge = async ( age : any) =>{
-    try {
-      const response = await axios.get('https://fricotpote-backend-1.onrender.com/age-users', {
-        params: { userId: this.selectedUser  , age},
-      });
-      this.filteredUsers = response.data
-      return this.filteredUsers
-     
-
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  
 
   getUsersByDiet( diet : any){
 
