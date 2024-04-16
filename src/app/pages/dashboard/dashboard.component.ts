@@ -166,7 +166,7 @@ export class DashboardComponent {
         this.currentUser.location,
         this.users[i].location
       );
-     if (distance <= this.currentUser.distance && this.users[i].age <= this.currentUser.age_preference) { this.filteredUsers.push(this.users[i]);}
+     if (distance <= this.currentUser.distance && this.users[i].age <= this.currentUser.age_preference && this.users[i].diet == this.currentUser.diet) { this.filteredUsers.push(this.users[i]);}
     }
     console.table(this.filteredUsers);
   }
