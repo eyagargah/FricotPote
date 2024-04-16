@@ -31,16 +31,6 @@ export class UserService {
     }
   };
 
-
-  filterUsersByAgeAndDiet(preferedAge: any, preferedDiet: any , users: any){
-    let filteredUsers: any[] = [];
-    for (let i= 0; i<users.length; i++) {
-    if (users[i].age <= preferedAge && users[i].diet == preferedDiet ) {
-        filteredUsers = [...filteredUsers, users[i]];
-    }
-    console.table(filteredUsers)
-}
-  }
   getSelectedUser(){
     return this.selectedUser
   }
