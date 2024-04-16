@@ -9,7 +9,6 @@ export class UserService {
  
   selectedUser: any
   matches :  any;
-  filteredUsers : any
   constructor(private cookiesServices: CookieService) { }
   getCurrentUser(){
     return this.cookiesServices.get('user_id')
@@ -33,8 +32,14 @@ export class UserService {
   };
 
 
-  filterUsersByAgeAndDiet(age: any, diet: any , filteredUsers: any){
-    
+  filterUsersByAgeAndDiet(preferedAge: any, preferedDiet: any , users: any){
+    let filteredUsers: any[] = [];
+    for (let i= 0; i<users.length; i++) {
+    if (users[i].age <= preferedAge && users[i].diet == preferedDiet ) {
+        filteredUsers = [...filteredUsers, users[i]];
+    }
+    console.table(filteredUsers)
+}
   }
   getSelectedUser(){
     return this.selectedUser
