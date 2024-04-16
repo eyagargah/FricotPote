@@ -33,8 +33,9 @@ export class UserService {
   };
 
 
-
- 
+  filterUsersByAgeAndDiet(age: any, diet: any , filteredUsers: any){
+    
+  }
   getSelectedUser(){
     return this.selectedUser
   }
