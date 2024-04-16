@@ -160,13 +160,13 @@ export class DashboardComponent {
   }
 
 
-  filterUsersByDistance() {
+  filterUsersByPreferences() {
     for (let i = 0; i < this.users.length; i++) {
       let distance = this.locationService.countDistance(
         this.currentUser.location,
         this.users[i].location
       );
-     if (distance <= this.currentUser.distance) { this.filteredUsers.push(this.users[i]);}
+     if (distance <= this.currentUser.distance && this.users[i].age <= this.currentUser.age_preference && this.users[i].diet == ) { this.filteredUsers.push(this.users[i]);}
     }
     console.table(this.filteredUsers);
   }
