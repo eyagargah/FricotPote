@@ -107,6 +107,36 @@ export class DashboardComponent {
     }
   };
 
+  
+  updateLikes = async (selectedUser: any) => {
+    try {
+      let isLiked = false;
+      for (var like in this.likedUsers) {
+        let user = this.likedUsers[like].user.user_id;
+        if (user === selectedUser.user_id) {
+          console.log('add selected user to db!!');
+          isLiked = true;
+        } else {
+          console.log('this user is  already liked!!');
+        }
+      }
+      if (!isLiked) {
+        const response = await axios.put(
+          'https://fricotpote-backend-1.onrender.com/addmatch',
+          {
+            userId: this.userId,
+            likedUser: selectedUser,
+          }
+        );
+      }
+      this.getUser();
+
+      this.found = false;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   getUser = async () => {
     try {
       const response = await axios.get(
