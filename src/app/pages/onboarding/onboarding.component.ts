@@ -24,6 +24,7 @@ export class OnboardingComponent {
     url: '',
     about: '',
     matches: [],
+    likes:[]
   };
 
   handleChange(event: any) {
