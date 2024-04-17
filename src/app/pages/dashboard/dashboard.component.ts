@@ -34,7 +34,7 @@ export class DashboardComponent {
   swipedUserId: any;
   unmatchedUsers: any;
   filteredUsers: any = [];
-  likedUsers : any;
+  likes: any;
   found: boolean = false;
   filteredGenderedUsers: any;
 
@@ -107,12 +107,11 @@ export class DashboardComponent {
     }
   };
 
-  
   updateLikes = async (selectedUser: any) => {
     try {
       let isLiked = false;
-      for (var like in this.likedUsers) {
-        let user = this.likedUsers[like].user.user_id;
+      for (var like in this.likes) {
+        let user = this.likes[like].user.user_id;
         if (user === selectedUser.user_id) {
           console.log('add selected user to db!!');
           isLiked = true;
@@ -122,7 +121,7 @@ export class DashboardComponent {
       }
       if (!isLiked) {
         const response = await axios.put(
-          'https://fricotpote-backend-1.onrender.com/addmatch',
+          'https://fricotpote-backend-1.onrender.com/addlike',
           {
             userId: this.userId,
             likedUser: selectedUser,
@@ -130,8 +129,6 @@ export class DashboardComponent {
         );
       }
       this.getUser();
-
-      this.found = false;
     } catch (err) {
       console.log(err);
     }
@@ -171,7 +168,6 @@ export class DashboardComponent {
     }
   };
 
- 
   ngOnInit() {
     this.parentSubject?.subscribe((event) => {
       this.startAnimation(event);
