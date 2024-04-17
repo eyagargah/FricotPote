@@ -141,12 +141,7 @@ export class DashboardComponent {
     }
   };
 
-  getUnmatchedUsers() {
-    for (let i = 0; i < this.users.length; i++) {
-      let obj = this.users[i];
-      console.log(obj);
-    }
-  }
+ 
   ngOnInit() {
     this.parentSubject?.subscribe((event) => {
       this.startAnimation(event);
