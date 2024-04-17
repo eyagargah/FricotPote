@@ -34,7 +34,7 @@ export class DashboardComponent {
   swipedUserId: any;
   unmatchedUsers: any;
   filteredUsers: any = [];
-
+  likedUsers : any;
   found: boolean = false;
   filteredGenderedUsers: any;
 
