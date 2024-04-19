@@ -108,6 +108,18 @@ export class DashboardComponent {
     }
   };
 
+  checkLikes(selectedUser: any, currentUser: any) {
+    try {
+      for (let i = 0; i < this.likes.length; i++) {
+        if (selectedUser.likes.has(this.likes[i])) {
+          this.updateMatches(this.likes[i]);
+        }
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   updateLikes = async (selectedUser: any) => {
     try {
       let isLiked = false;
