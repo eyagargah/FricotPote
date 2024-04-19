@@ -119,7 +119,6 @@ export class DashboardComponent {
       for (var like in this.likes) {
         let user = this.likes[like].user.user_id;
         if (user === selectedUser.user_id) {
-          console.log('add selected user to db!!');
           isLiked = true;
         } else {
           console.log('this user is  already liked!!');
