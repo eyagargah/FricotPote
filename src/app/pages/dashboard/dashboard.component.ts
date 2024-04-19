@@ -41,8 +41,9 @@ export class DashboardComponent {
   getSelectedUser(selectedUser: any) {
     if (this.direction == 'right' && this.index < this.users.length) {
       this.swipedUserId = selectedUser.user_id;
-      this.updateMatches(selectedUser);
+      //this.updateMatches(selectedUser);
       this.updateLikes(selectedUser);
+      this.checkLikes(selectedUser);
     } else {
       alert('no more users');
     }
@@ -108,7 +109,7 @@ export class DashboardComponent {
     }
   };
 
-  checkLikes(selectedUser: any, currentUser: any) {
+  checkLikes(selectedUser: any) {
     try {
       for (let i = 0; i < this.likes.length; i++) {
         if (selectedUser.likes.has(this.likes[i])) {
