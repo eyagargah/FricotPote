@@ -78,18 +78,11 @@ export class DashboardComponent {
       for (var match in this.matches) {
         let user = this.matches[match].user.user_id;
         if (user === selectedUser.user_id) {
-          console.log('add selected user to db!!');
           isMatched = true;
         } else {
           console.log('match already exists!!');
         }
 
-        console.log(
-          this.locationService.countDistance(
-            this.currentUser.location,
-            selectedUser.location
-          )
-        );
       }
       if (!isMatched) {
         const response = await axios.put(
