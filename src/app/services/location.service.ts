@@ -38,8 +38,6 @@ export class LocationService {
 
     try {
       const response = await axios.request(options);
-      console.log(response.data);
-      //this.setCity(response.data[0].City);
       return response.data;
 
     } catch (error) {
