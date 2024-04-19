@@ -41,7 +41,6 @@ export class DashboardComponent {
   getSelectedUser(selectedUser: any) {
     if (this.direction == 'right' && this.index < this.users.length) {
       this.swipedUserId = selectedUser.user_id;
-      //this.updateMatches(selectedUser);
       this.updateLikes(selectedUser);
       this.checkLikes(selectedUser);
     } else {
