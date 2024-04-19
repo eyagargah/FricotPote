@@ -174,9 +174,6 @@ export class DashboardComponent {
     });
     this.getUser();
     setTimeout(this.getGenderedUsers, 1000);
-
-    //setTimeout(this.filterUsersByDistance, 2000);
-    //this.getUnmatchedUsers();
   }
 
   filterUsersByPreferences() {
