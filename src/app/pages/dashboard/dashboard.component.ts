@@ -42,6 +42,7 @@ export class DashboardComponent {
     if (this.direction == 'right' && this.index < this.users.length) {
       this.swipedUserId = selectedUser.user_id;
       this.updateMatches(selectedUser);
+      this.updateLikes(selectedUser);
     } else {
       alert('no more users');
     }
