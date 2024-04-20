@@ -44,7 +44,7 @@ export class DashboardComponent {
       this.startAnimation(event);
     });
     
-  this.getUser()
+  setTimeout(this.getUser,500)
   }
 
 
@@ -118,7 +118,6 @@ export class DashboardComponent {
         await this.updateMatches(this.filteredUsers[i])
       }
      }
-     console.log(this.matches);
     } catch (err) {
       console.log(err);
     }
