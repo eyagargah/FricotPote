@@ -153,6 +153,7 @@ export class DashboardComponent {
       this.matches = this.filterMatches(this.matches);
       console.log(this.currentUser)
       console.log(this.likes)
+      console.log(this.filteredUsers)
       this.checkLikes()
 
       console.log(this.matches)
@@ -181,8 +182,10 @@ export class DashboardComponent {
     this.parentSubject?.subscribe((event) => {
       this.startAnimation(event);
     });
-    this.getUser();
-    setTimeout(this.getGenderedUsers, 1000);
+    
+    setTimeout(this.getGenderedUsers, 500);
+    setTimeout(this.getUser, 1000);
+
   }
 
   filterUsersByPreferences() {
