@@ -122,8 +122,6 @@ export class DashboardComponent {
         let user = this.likes[like].user.user_id;
         if (user == selectedUser.user_id) {
           isLiked = true;
-        } else {
-          console.log('this user is  already liked!!');
         }
       }
       if (!isLiked) {
