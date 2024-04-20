@@ -108,8 +108,6 @@ export class DashboardComponent {
         this.updateMatches(this.filteredUsers[i])
       }
      }
-     console.log(this.filteredUsers)
-     console.log(this.matches)
     } catch (err) {
       console.log(err);
     }
@@ -151,7 +149,13 @@ export class DashboardComponent {
       this.gender = this.currentUser.gender_interest;
       this.matches = this.currentUser.matches;
       this.likes = this.currentUser.likes;
+      
       this.matches = this.filterMatches(this.matches);
+      console.log(this.currentUser)
+      console.log(this.likes)
+      this.checkLikes()
+
+      console.log(this.matches)
     } catch (err) {
       console.log(err);
     }
