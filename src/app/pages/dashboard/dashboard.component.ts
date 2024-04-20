@@ -104,7 +104,7 @@ export class DashboardComponent {
   checkLikes(selectedUser: any) {
     try {
       for (let i = 0; i < this.likes.length; i++) {
-        if (selectedUser.likes.has(this.likes[i])) {
+        if (selectedUser.likes.includes(this.likes[i])) {
           this.updateMatches(this.likes[i]);
           console.log(this.likes[i] + " " + selectedUser)
         }
