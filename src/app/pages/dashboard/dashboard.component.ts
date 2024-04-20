@@ -103,11 +103,8 @@ export class DashboardComponent {
 
   checkLikes(selectedUser: any) {
     try {
-      for (let i = 0; i < this.likes.length; i++) {
-        if (selectedUser.likes.includes(this.likes[i])) {
-          this.updateMatches(this.likes[i]);
-          console.log(this.likes[i] + " " + selectedUser)
-        }
+      if(selectedUser.likes.includes(this.currentUser)){
+        this.updateMatches(selectedUser)
       }
     } catch (err) {
       console.log(err);
@@ -152,7 +149,6 @@ export class DashboardComponent {
       this.gender = this.currentUser.gender_interest;
       this.matches = this.currentUser.matches;
       this.likes = this.currentUser.likes;
-      console.table(this.likes)
       this.matches = this.filterMatches(this.matches);
     } catch (err) {
       console.log(err);
@@ -197,7 +193,6 @@ export class DashboardComponent {
         this.filteredUsers.push(this.users[i]);
       }
     }
-    console.table(this.filteredUsers);
   }
 
   cardAnimation(value: string) {
