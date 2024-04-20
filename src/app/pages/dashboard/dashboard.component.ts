@@ -42,7 +42,7 @@ export class DashboardComponent {
     if (this.direction == 'right' && this.index < this.users.length) {
       this.swipedUserId = selectedUser.user_id;
       this.updateLikes(selectedUser);
-      this.checkLikes(selectedUser);
+      this.checkLikes();
     } else {
       alert('no more users');
     }
@@ -101,11 +101,15 @@ export class DashboardComponent {
     }
   };
 
-  checkLikes(selectedUser: any) {
+  checkLikes() {
     try {
-      if(selectedUser.likes.includes(this.currentUser)){
-        this.updateMatches(selectedUser)
+     for(let i=0;i<this.filteredUsers.length ; i++){
+      if(this.filteredUsers[i].likes.includes(this.currentUser)){
+        this.updateMatches(this.filteredUsers[i])
       }
+     }
+     console.log(this.filteredUsers)
+     console.log(this.matches)
     } catch (err) {
       console.log(err);
     }
@@ -150,6 +154,8 @@ export class DashboardComponent {
       this.matches = this.currentUser.matches;
       this.likes = this.currentUser.likes;
       this.matches = this.filterMatches(this.matches);
+      this.checkLikes();
+      console.log(this.matches)
     } catch (err) {
       console.log(err);
     }
@@ -165,6 +171,7 @@ export class DashboardComponent {
       );
       this.users = response.data;
       this.filterUsersByPreferences();
+      this.checkLikes()
       //this.unmatchedUsers = this.users.filter((user:any) => !this.matches.some((obj:any) => obj._id === user._id));
     } catch (err) {
       console.log(err);
