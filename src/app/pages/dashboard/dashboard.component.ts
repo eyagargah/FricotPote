@@ -157,12 +157,9 @@ export class DashboardComponent {
       );
       this.currentUser = response.data;
       this.gender = this.currentUser.gender_interest;
-      this.getGenderedUsers()
       this.matches = this.currentUser.matches;
       this.likes = this.currentUser.likes;
-      
       this.matches = this.filterMatches(this.matches);
-      this.checkLikes()
     } catch (err) {
       console.log(err);
     }
