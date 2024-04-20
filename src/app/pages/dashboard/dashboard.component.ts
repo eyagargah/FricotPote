@@ -106,6 +106,7 @@ export class DashboardComponent {
       for (let i = 0; i < this.likes.length; i++) {
         if (selectedUser.likes.has(this.likes[i])) {
           this.updateMatches(this.likes[i]);
+          console.log(this.likes[i] + " " + selectedUser)
         }
       }
     } catch (err) {
@@ -150,7 +151,7 @@ export class DashboardComponent {
       this.currentUser = response.data;
       this.gender = this.currentUser.gender_interest;
       this.matches = this.currentUser.matches;
-
+      this.likes = this.currentUser.likes;
       this.matches = this.filterMatches(this.matches);
     } catch (err) {
       console.log(err);
