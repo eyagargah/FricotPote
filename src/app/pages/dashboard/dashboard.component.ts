@@ -120,7 +120,7 @@ export class DashboardComponent {
       let isLiked = false;
       for (var like in this.likes) {
         let user = this.likes[like].user.user_id;
-        if (user === selectedUser.user_id) {
+        if (user == selectedUser.user_id) {
           isLiked = true;
         } else {
           console.log('this user is  already liked!!');
@@ -154,8 +154,6 @@ export class DashboardComponent {
       this.matches = this.currentUser.matches;
       this.likes = this.currentUser.likes;
       this.matches = this.filterMatches(this.matches);
-      this.checkLikes();
-      console.log(this.matches)
     } catch (err) {
       console.log(err);
     }
@@ -171,7 +169,6 @@ export class DashboardComponent {
       );
       this.users = response.data;
       this.filterUsersByPreferences();
-      this.checkLikes()
       //this.unmatchedUsers = this.users.filter((user:any) => !this.matches.some((obj:any) => obj._id === user._id));
     } catch (err) {
       console.log(err);
