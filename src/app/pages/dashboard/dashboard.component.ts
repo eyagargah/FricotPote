@@ -38,6 +38,16 @@ export class DashboardComponent {
   found: boolean = false;
   filteredGenderedUsers: any;
 
+
+  ngOnInit() {
+    this.parentSubject?.subscribe((event) => {
+      this.startAnimation(event);
+    });
+    
+  this.getUser()
+  }
+
+
   getSelectedUser(selectedUser: any) {
     if (this.direction == 'right' && this.index < this.users.length) {
       this.swipedUserId = selectedUser.user_id;
@@ -101,13 +111,14 @@ export class DashboardComponent {
     }
   };
 
-  checkLikes() {
+  checkLikes = async() => {
     try {
      for(let i=0;i<this.filteredUsers.length ; i++){
       if(this.filteredUsers[i].likes.includes(this.currentUser)){
-        this.updateMatches(this.filteredUsers[i])
+        await this.updateMatches(this.filteredUsers[i])
       }
      }
+     console.log(this.matches);
     } catch (err) {
       console.log(err);
     }
@@ -147,16 +158,12 @@ export class DashboardComponent {
       );
       this.currentUser = response.data;
       this.gender = this.currentUser.gender_interest;
+      this.getGenderedUsers()
       this.matches = this.currentUser.matches;
       this.likes = this.currentUser.likes;
       
       this.matches = this.filterMatches(this.matches);
-      console.log(this.currentUser)
-      console.log(this.likes)
-      console.log(this.filteredUsers)
       this.checkLikes()
-
-      console.log(this.matches)
     } catch (err) {
       console.log(err);
     }
@@ -178,15 +185,7 @@ export class DashboardComponent {
     }
   };
 
-  ngOnInit() {
-    this.parentSubject?.subscribe((event) => {
-      this.startAnimation(event);
-    });
-    
-    setTimeout(this.getGenderedUsers, 500);
-    setTimeout(this.getUser, 1000);
 
-  }
 
   filterUsersByPreferences() {
     for (let i = 0; i < this.users.length; i++) {
@@ -201,6 +200,7 @@ export class DashboardComponent {
       ) {
         this.filteredUsers.push(this.users[i]);
       }
+
     }
   }
 
