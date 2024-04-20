@@ -152,6 +152,7 @@ export class DashboardComponent {
       this.gender = this.currentUser.gender_interest;
       this.matches = this.currentUser.matches;
       this.likes = this.currentUser.likes;
+      console.table(this.likes)
       this.matches = this.filterMatches(this.matches);
     } catch (err) {
       console.log(err);
