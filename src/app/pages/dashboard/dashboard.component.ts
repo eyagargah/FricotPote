@@ -51,7 +51,7 @@ export class DashboardComponent {
     if (this.direction == 'right') {
       this.swipedUserId = selectedUser.user_id;
       this.updateLikes(selectedUser);
-      this.checkLikes();
+      this.checkLikes(selectedUser);
     } 
   }
 
@@ -107,17 +107,15 @@ export class DashboardComponent {
     }
   };
 
-  checkLikes = async () => {
+  checkLikes = async (selectedUser : any) => {
     try {
-      let  likeChecker = false
       for (let i = 0; i < this.filteredUsers.length; i++) {
         for(let j=0 ; j<this.filteredUsers[i].likes.length ; j++){
-          if(this.filteredUsers[i].likes[j].user.user_id == this.currentUser.user_id){
-            likeChecker = true
+          if(selectedUser.likes[j].user.user_id == this.currentUser.user_id){
+            this.updateMatches(selectedUser)
           }
         }
       }
-      console.log(likeChecker)
     } catch (err) {
       console.log(err);
     }
