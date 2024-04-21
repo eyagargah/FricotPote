@@ -24,13 +24,12 @@ export class OnboardingComponent {
     url: '',
     about: '',
     matches: [],
-    likes:[]
+    likes: [],
   };
 
   handleChange(event: any) {
     const value = event.target.value;
     const name = event.target.name;
-    console.log(event.target.checked);
     switch (name) {
       case 'first_name':
         this.formData.first_name = value;
