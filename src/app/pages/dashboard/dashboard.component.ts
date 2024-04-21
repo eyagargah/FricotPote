@@ -174,7 +174,7 @@ export class DashboardComponent {
       this.users = response.data;
       this.filterUsersByPreferences();
       console.table(this.filteredUsers)
-      console.table(this.matches)
+      console.table(this.likes)
       //this.unmatchedUsers = this.users.filter((user:any) => !this.matches.some((obj:any) => obj._id === user._id));
     } catch (err) {
       console.log(err);
