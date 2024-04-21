@@ -114,6 +114,7 @@ export class DashboardComponent {
       for (let i = 0; i < this.filteredUsers.length; i++) {
         if (this.filteredUsers[i].likes.includes(this.currentUser)) {
           await this.updateMatches(this.filteredUsers[i]);
+          console.table(this.matches)
         }
       }
     } catch (err) {
