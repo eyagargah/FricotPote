@@ -38,15 +38,13 @@ export class DashboardComponent {
   found: boolean = false;
   filteredGenderedUsers: any;
 
-
   ngOnInit() {
     this.parentSubject?.subscribe((event) => {
       this.startAnimation(event);
     });
-    
-  setTimeout(this.getUser,500)
-  }
 
+    setTimeout(this.getUser, 500);
+  }
 
   getSelectedUser(selectedUser: any) {
     if (this.direction == 'right' && this.index < this.users.length) {
@@ -92,7 +90,6 @@ export class DashboardComponent {
         } else {
           console.log('match already exists!!');
         }
-
       }
       if (!isMatched) {
         const response = await axios.put(
@@ -111,17 +108,17 @@ export class DashboardComponent {
     }
   };
 
-  checkLikes = async() => {
+  checkLikes = async () => {
     try {
-     for(let i=0;i<this.filteredUsers.length ; i++){
-      if(this.filteredUsers[i].likes.includes(this.currentUser)){
-        await this.updateMatches(this.filteredUsers[i])
+      for (let i = 0; i < this.filteredUsers.length; i++) {
+        if (this.filteredUsers[i].likes.includes(this.currentUser)) {
+          await this.updateMatches(this.filteredUsers[i]);
+        }
       }
-     }
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   updateLikes = async (selectedUser: any) => {
     try {
@@ -181,8 +178,6 @@ export class DashboardComponent {
     }
   };
 
-
-
   filterUsersByPreferences() {
     for (let i = 0; i < this.users.length; i++) {
       let distance = this.locationService.countDistance(
@@ -196,7 +191,6 @@ export class DashboardComponent {
       ) {
         this.filteredUsers.push(this.users[i]);
       }
-
     }
   }
 
