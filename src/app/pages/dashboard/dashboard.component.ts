@@ -44,7 +44,7 @@ export class DashboardComponent {
     });
 
     setTimeout(this.getUser, 500);
-    setTimeout(this.getGenderedUsers, 600);
+    setTimeout(this.getGenderedUsers, 1000);
   }
 
   getSelectedUser(selectedUser: any) {
@@ -174,6 +174,7 @@ export class DashboardComponent {
       this.users = response.data;
       this.filterUsersByPreferences();
       console.table(this.filteredUsers)
+      console.table(this.matches)
       //this.unmatchedUsers = this.users.filter((user:any) => !this.matches.some((obj:any) => obj._id === user._id));
     } catch (err) {
       console.log(err);
