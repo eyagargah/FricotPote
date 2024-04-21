@@ -44,7 +44,7 @@ export class DashboardComponent {
     });
 
     setTimeout(this.getUser, 500);
-    setTimeout(this.getGenderedUsers, 1000);
+    setTimeout(this.getGenderedUsers, 600);
   }
 
   getSelectedUser(selectedUser: any) {
