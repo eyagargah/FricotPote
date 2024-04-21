@@ -48,13 +48,11 @@ export class DashboardComponent {
   }
 
   getSelectedUser(selectedUser: any) {
-    if (this.direction == 'right' && this.index < this.users.length) {
+    if (this.direction == 'right') {
       this.swipedUserId = selectedUser.user_id;
       this.updateLikes(selectedUser);
       this.checkLikes();
-    } else {
-      alert('no more users');
-    }
+    } 
   }
 
   filterMatches(matches: any) {
@@ -159,6 +157,7 @@ export class DashboardComponent {
       this.matches = this.currentUser.matches;
       this.likes = this.currentUser.likes;
       this.matches = this.filterMatches(this.matches);
+      console.table(this.matches)
     } catch (err) {
       console.log(err);
     }
