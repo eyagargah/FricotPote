@@ -111,8 +111,8 @@ export class DashboardComponent {
     try {
       let  likeChecker = false
       for (let i = 0; i < this.filteredUsers.length; i++) {
-        if (this.filteredUsers[i].likes.includes(this.currentUser)) {
-          likeChecker = true
+        for(let j=0 ; j<this.filteredUsers[i].likes.length ; j++){
+          console.log(this.filteredUsers[i].likes[j]._id)
         }
       }
       console.log(likeChecker)
