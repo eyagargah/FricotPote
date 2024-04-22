@@ -12,8 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 export class MatchesComponent {
   constructor(
     private cookiesService: CookieService,
-    private userService: UserService,
-    private messageService: MessageService
+    private userService: UserService
   ) {}
   userId = this.cookiesService.get('userId');
   @Input() matches: any;
@@ -25,6 +24,7 @@ export class MatchesComponent {
   displayChat: any;
   messages:any=[]
   getMatches = async (userId: any) => {
+    console.log("clicked")
     try {
       const response = await axios.get('https://fricotpote-backend-1.onrender.com/users', {
         params: { userIds: this.matchedUserIds },
