@@ -45,6 +45,7 @@ export class DashboardComponent {
 
     setTimeout(this.getUser, 500);
     setTimeout(this.getGenderedUsers, 1000);
+    //setTimeout(this.updateMatchedUsers,1100)
   }
 
   getSelectedUser(selectedUser: any) {
@@ -109,14 +110,9 @@ export class DashboardComponent {
 
   //update matches if two users liked each other (swiped right)
   updateMatchedUsers = async () => {
-    for (let i = 0; i < this.filteredUsers.length; i++) {
-
-      for(let j=0 ; j<this.filteredUsers[i].likes.length ; j++){
-        let user = this.filteredUsers[i].likes[j]
-        console.log(user)
-        }
-
-    }
+    console.log("updateMatchedUsers")
+    console.log(this.filteredUsers.length)
+    console.log(this.currentUser.likes.length)
   }
 
   //check if current card (user) swiped right on me
@@ -172,7 +168,7 @@ export class DashboardComponent {
       this.matches = this.currentUser.matches;
       this.likes = this.currentUser.likes;
       this.matches = this.filterMatches(this.matches);
-      this.updateMatchedUsers()
+
     } catch (err) {
       console.log(err);
     }
@@ -188,6 +184,8 @@ export class DashboardComponent {
       );
       this.users = response.data;
       this.filterUsersByPreferences();
+      
+      this.updateMatchedUsers()
       //this.unmatchedUsers = this.users.filter((user:any) => !this.matches.some((obj:any) => obj._id === user._id));
     } catch (err) {
       console.log(err);
