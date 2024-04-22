@@ -107,6 +107,19 @@ export class DashboardComponent {
     }
   };
 
+  //update matches if two users liked each other (swiped right)
+  updateMatchedUsers = async () => {
+    for (let i = 0; i < this.filteredUsers.length; i++) {
+
+      for(let j=0 ; j<this.filteredUsers[i].likes.length ; j++){
+        let user = this.filteredUsers[i].likes[j]
+        console.log(user)
+        }
+
+    }
+  }
+
+  //check if current card (user) swiped right on me
   checkLikes = async (selectedUser : any) => {
     try {
       for (let i = 0; i < this.filteredUsers.length; i++) {
@@ -159,8 +172,7 @@ export class DashboardComponent {
       this.matches = this.currentUser.matches;
       this.likes = this.currentUser.likes;
       this.matches = this.filterMatches(this.matches);
-      
-      console.table(this.matches)
+      this.updateMatchedUsers()
     } catch (err) {
       console.log(err);
     }
