@@ -111,7 +111,7 @@ export class DashboardComponent {
 
   //update matches if two users liked each other (swiped right)
   updateMatchedUsers = async () => {
-    console.log(this.likes[0].user)
+    console.log(this.likes)
   }
 
   //check if current card (user) swiped right on me
