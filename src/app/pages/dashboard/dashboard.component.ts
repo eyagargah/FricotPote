@@ -159,6 +159,7 @@ export class DashboardComponent {
       this.matches = this.currentUser.matches;
       this.likes = this.currentUser.likes;
       this.matches = this.filterMatches(this.matches);
+      
       console.table(this.matches)
     } catch (err) {
       console.log(err);
