@@ -113,6 +113,7 @@ export class DashboardComponent {
         for(let j=0 ; j<this.filteredUsers[i].likes.length ; j++){
           if(selectedUser.likes[j].user.user_id == this.currentUser.user_id){
             this.updateMatches(selectedUser)
+            console.log(selectedUser)
           }
         }
       }
@@ -174,8 +175,6 @@ export class DashboardComponent {
       );
       this.users = response.data;
       this.filterUsersByPreferences();
-      console.table(this.filteredUsers)
-      console.table(this.likes)
       //this.unmatchedUsers = this.users.filter((user:any) => !this.matches.some((obj:any) => obj._id === user._id));
     } catch (err) {
       console.log(err);
