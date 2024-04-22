@@ -53,8 +53,7 @@ export class DashboardComponent {
       this.swipedUserId = selectedUser.user_id;
       this.updateLikes(selectedUser);
       this.checkLikes(selectedUser);
-      
-    } 
+    }
   }
 
   filterMatches(matches: any) {
@@ -81,7 +80,7 @@ export class DashboardComponent {
     return newArray;
   }
 
-  updateMatches = async (selectedUser: any) => {
+  updateMatches = async (selectedUser: any , user_id : any) => {
     try {
       let isMatched = false;
       for (var match in this.matches) {
@@ -96,7 +95,7 @@ export class DashboardComponent {
         const response = await axios.put(
           'https://fricotpote-backend-1.onrender.com/addmatch',
           {
-            userId: this.userId,
+            userId: user_id,
             matchedUser: selectedUser,
           }
         );
@@ -111,17 +110,22 @@ export class DashboardComponent {
 
   //update matches if two users liked each other (swiped right)
   updateMatchedUsers = async () => {
-    console.log(this.likes)
-  }
-
+    for (let i = 0; i < this.likes.length; i++) {
+      for (let j = 0; j < this.likes[i].user.likes.length; j++) {
+        if (this.likes[i].user.likes[j].user_id == this.currentUser.user_id) {
+          this.updateMatches(this.likes[i].user.likes[j].user_id , this.currentUser);
+        }
+      }
+    }
+  };
   //check if current card (user) swiped right on me
-  checkLikes = async (selectedUser : any) => {
+  checkLikes = async (selectedUser: any) => {
     try {
       for (let i = 0; i < this.filteredUsers.length; i++) {
-        for(let j=0 ; j<this.filteredUsers[i].likes.length ; j++){
-          if(selectedUser.likes[j].user.user_id == this.currentUser.user_id){
-            this.updateMatches(selectedUser)
-            console.log(selectedUser)
+        for (let j = 0; j < this.filteredUsers[i].likes.length; j++) {
+          if (selectedUser.likes[j].user.user_id == this.currentUser.user_id) {
+            this.updateMatches(selectedUser , this.userId);
+            console.log(selectedUser);
           }
         }
       }
@@ -167,7 +171,6 @@ export class DashboardComponent {
       this.matches = this.currentUser.matches;
       this.likes = this.currentUser.likes;
       this.matches = this.filterMatches(this.matches);
-
     } catch (err) {
       console.log(err);
     }
@@ -183,8 +186,8 @@ export class DashboardComponent {
       );
       this.users = response.data;
       this.filterUsersByPreferences();
-      
-      this.updateMatchedUsers()
+
+      this.updateMatchedUsers();
       //this.unmatchedUsers = this.users.filter((user:any) => !this.matches.some((obj:any) => obj._id === user._id));
     } catch (err) {
       console.log(err);
