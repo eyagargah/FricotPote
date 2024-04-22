@@ -53,6 +53,7 @@ export class DashboardComponent {
       this.swipedUserId = selectedUser.user_id;
       this.updateLikes(selectedUser);
       this.checkLikes(selectedUser);
+      
     } 
   }
 
@@ -110,9 +111,9 @@ export class DashboardComponent {
 
   //update matches if two users liked each other (swiped right)
   updateMatchedUsers = async () => {
-    console.log("updateMatchedUsers")
-    console.log(this.filteredUsers.length)
-    console.log(this.currentUser.likes.length)
+    for(let i=0 ; i<this.likes.length ; i++){
+     console.log(this.likes[i].user)
+    }
   }
 
   //check if current card (user) swiped right on me
