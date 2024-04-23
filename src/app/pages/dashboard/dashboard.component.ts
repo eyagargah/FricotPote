@@ -53,6 +53,7 @@ export class DashboardComponent {
       this.swipedUserId = selectedUser.user_id;
       this.updateLikes(selectedUser);
       this.checkLikes(selectedUser);
+      this.updateMatchedUsers()
     }
   }
 
