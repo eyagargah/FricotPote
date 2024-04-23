@@ -126,7 +126,6 @@ export class DashboardComponent {
         for (let j = 0; j < this.filteredUsers[i].likes.length; j++) {
           if (selectedUser.likes[j].user.user_id == this.currentUser.user_id) {
             this.updateMatches(selectedUser , this.userId);
-            console.log(selectedUser);
           }
         }
       }
