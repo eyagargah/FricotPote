@@ -115,7 +115,9 @@ export class DashboardComponent {
         console.log(this.likes[i].user.likes[j].user.user_id)
         console.log(this.currentUser.user_id)
         if (this.likes[i].user.likes[j].user.user_id == this.currentUser.user_id) {
-          this.updateMatches(this.likes[i].user.user_id , this.currentUser);
+          this.updateMatches(this.currentUser , this.likes[i].user.likes[j].user.user_id);
+          console.log('match updated')
+          console.log(this.likes[i].user.likes[j].user.matches)
         }
       }
     }
