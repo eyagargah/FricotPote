@@ -110,10 +110,12 @@ export class DashboardComponent {
 
   //update matches if two users liked each other (swiped right)
   updateMatchedUsers = async () => {
+    console.log("update matched users called!!!" )
     for (let i = 0; i < this.likes.length; i++) {
       for (let j = 0; j < this.likes[i].user.likes.length; j++) {
+        console.log(this.currentUser.first_name  + " " + this.likes[i].user.first_name);
         if (this.likes[i].user.likes[j].user_id == this.currentUser.user_id) {
-          this.updateMatches(this.likes[i].user.likes[j].user_id , this.currentUser);
+          this.updateMatches(this.likes[i].user.user_id , this.currentUser);
           console.log("match updated!!!!!!!!")
         }
       }
