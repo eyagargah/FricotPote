@@ -128,6 +128,7 @@ export class DashboardComponent {
       }
     }
   };
+
   //check if current card (user) swiped right on me
   checkLikes = async (selectedUser: any) => {
     try {
@@ -186,7 +187,14 @@ export class DashboardComponent {
   };
 
   getUnmatchedUsers = async () => {
-    
+
+    for(let i=0 ; i<this.filteredUsers.length ; i++){
+      for (let j=0 ; j<this.currentUser.likes.length ; j++){
+        if(this.currentUser.likes[j].user.user_id == this.filteredUsers[i].user_id){
+          this.filteredUsers.splice(i,1);
+        }
+      }
+    }
   }
   getGenderedUsers = async () => {
     try {
