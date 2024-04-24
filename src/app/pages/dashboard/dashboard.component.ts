@@ -192,6 +192,7 @@ export class DashboardComponent {
       for (let j=0 ; j<this.currentUser.likes.length ; j++){
         if(this.currentUser.likes[j].user.user_id == this.filteredUsers[i].user_id){
           this.filteredUsers.splice(i,1);
+          console.table(this.filteredUsers)
         }
       }
     }
@@ -227,6 +228,7 @@ export class DashboardComponent {
         this.filteredUsers.push(this.users[i]);
       }
     }
+    this.getUnmatchedUsers()
   }
 
   cardAnimation(value: string) {
