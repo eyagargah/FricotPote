@@ -120,7 +120,6 @@ export class DashboardComponent {
             this.likes[i].user.likes[j].user.user_id,
             this.currentUser
           );
-          console.log(this.likes[i].user.likes[j].user.matches);
         }
       }
     }
