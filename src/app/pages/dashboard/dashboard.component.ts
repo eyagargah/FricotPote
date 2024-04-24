@@ -183,16 +183,18 @@ export class DashboardComponent {
   };
 
   getUnmatchedUsers = async () => {
-
-    for(let i=0 ; i<this.filteredUsers.length ; i++){
-      for (let j=0 ; j<this.currentUser.likes.length ; j++){
-        if(this.currentUser.likes[j].user.user_id == this.filteredUsers[i].user_id){
-          this.filteredUsers.splice(i,1);
-          console.table(this.filteredUsers)
+    for (let i = 0; i < this.filteredUsers.length; i++) {
+      for (let j = 0; j < this.currentUser.likes.length; j++) {
+        if (
+          this.currentUser.likes[j].user.user_id ==
+          this.filteredUsers[i].user_id
+        ) {
+          this.filteredUsers.splice(i, 1);
+          console.table(this.filteredUsers);
         }
       }
     }
-  }
+  };
   getGenderedUsers = async () => {
     try {
       const response = await axios.get(
@@ -224,7 +226,7 @@ export class DashboardComponent {
         this.filteredUsers.push(this.users[i]);
       }
     }
-    this.getUnmatchedUsers()
+    this.getUnmatchedUsers();
   }
 
   cardAnimation(value: string) {
@@ -267,9 +269,7 @@ export class DashboardComponent {
   resetAnimationState(state: any) {
     this.animationState = '';
   }
-  sendMsg() {
-    console.log('send msg is working');
-  }
+ 
   reload() {
     this.index--;
     this.undo = true;
