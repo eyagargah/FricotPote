@@ -53,7 +53,7 @@ export class DashboardComponent {
       this.swipedUserId = selectedUser.user_id;
       this.updateLikes(selectedUser);
       this.checkLikes(selectedUser);
-      this.updateMatchedUsers()
+      this.updateMatchedUsers();
     }
   }
 
@@ -81,7 +81,7 @@ export class DashboardComponent {
     return newArray;
   }
 
-  updateMatches = async (selectedUser: any , user_id : any) => {
+  updateMatches = async (selectedUser: any, user_id: any) => {
     try {
       let isMatched = false;
       for (var match in this.matches) {
@@ -113,12 +113,17 @@ export class DashboardComponent {
   updateMatchedUsers = async () => {
     for (let i = 0; i < this.likes.length; i++) {
       for (let j = 0; j < this.likes[i].user.likes.length; j++) {
-        console.log(this.likes[i].user.likes[j].user.user_id)
-        console.log(this.currentUser.user_id)
-        if (this.likes[i].user.likes[j].user.user_id == this.currentUser.user_id) {
-          this.updateMatches(this.likes[i].user.likes[j].user.user_id, this.currentUser);
-          console.log('match updated')
-          console.log(this.likes[i].user.likes[j].user.matches)
+        console.log(this.likes[i].user.likes[j].user.user_id);
+        console.log(this.currentUser.user_id);
+        if (
+          this.likes[i].user.likes[j].user.user_id == this.currentUser.user_id
+        ) {
+          this.updateMatches(
+            this.likes[i].user.likes[j].user.user_id,
+            this.currentUser
+          );
+          console.log('match updated');
+          console.log(this.likes[i].user.likes[j].user.matches);
         }
       }
     }
@@ -129,7 +134,7 @@ export class DashboardComponent {
       for (let i = 0; i < this.filteredUsers.length; i++) {
         for (let j = 0; j < this.filteredUsers[i].likes.length; j++) {
           if (selectedUser.likes[j].user.user_id == this.currentUser.user_id) {
-            this.updateMatches(selectedUser , this.userId);
+            this.updateMatches(selectedUser, this.userId);
           }
         }
       }
@@ -180,6 +185,9 @@ export class DashboardComponent {
     }
   };
 
+  getUnmatchedUsers = async () => {
+    
+  }
   getGenderedUsers = async () => {
     try {
       const response = await axios.get(
@@ -190,7 +198,6 @@ export class DashboardComponent {
       );
       this.users = response.data;
       this.filterUsersByPreferences();
-      console.log(this.filteredUsers);
       this.updateMatchedUsers();
       //this.unmatchedUsers = this.users.filter((user:any) => !this.matches.some((obj:any) => obj._id === user._id));
     } catch (err) {
