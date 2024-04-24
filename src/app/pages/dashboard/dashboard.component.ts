@@ -190,7 +190,6 @@ export class DashboardComponent {
           this.filteredUsers[i].user_id
         ) {
           this.filteredUsers.splice(i, 1);
-          console.table(this.filteredUsers);
         }
       }
     }
