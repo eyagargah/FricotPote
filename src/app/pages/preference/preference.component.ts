@@ -66,7 +66,7 @@ export class PreferenceComponent {
       });
       const succes = response.status === 200;
 
-      if (succes) this.router.navigateByUrl('dashboard');
+      if (succes) this.router.navigateByUrl('offer');
     } catch (err) {
       console.log(err);
     }
