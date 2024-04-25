@@ -22,6 +22,7 @@ import {CookieService} from 'ngx-cookie-service';
 import { PreferenceComponent } from './pages/preference/preference.component';
 import { ChatsComponent } from './pages/chats/chats.component';
 import { OfferComponent } from './pages/offer/offer.component';
+import { OfferModalComponent } from './pages/offer-modal/offer-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { OfferComponent } from './pages/offer/offer.component';
     ChatInputComponent,
     PreferenceComponent,
     ChatsComponent,
-    OfferComponent
+    OfferComponent,
+    OfferModalComponent
   ],
   imports: [BrowserModule, AppRoutingModule, MatIconModule, MatDialogModule,BrowserAnimationsModule,HammerModule],
   entryComponents: [AuthModalComponent],
