@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-offer-modal',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./offer-modal.component.scss']
 })
 export class OfferModalComponent {
-
+  constructor(private router:Router){}
+submit(){
+  this.router.navigateByUrl('offer');
+}
 }
