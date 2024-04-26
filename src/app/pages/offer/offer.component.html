@@ -1,15 +1,26 @@
 <div class="offer">
-    <h1>Make an offer</h1>
-    <form>
+  <div class="header">
+    <div class="logo-container">
+      <img
+        class="logo"
+        src="../../../assets/color-logo-tinder.png"
+        alt="logo image"
+        loading="lazy"
+      />
+    </div>
+    <div class="offerForm">
+      <h1>Make an offer</h1>
+      <form>
         <div class="dateIdea">
-            <label for="date">Where do you wonna go? </label>
+          <label for="date">Where do you wonna go? </label>
         </div>
         <div class="time">
-            <label for="preferredTime">Preferred time :</label>
-            <input type="datetime">
+          <label for="preferredTime">Preferred time :</label>
+          <input type="datetime" />
         </div>
-    </form>
-    <button class="skipBtn" (click)="skipOffer()">Skip</button>
-    <button class="saveBtn">Save</button>
-    
+      </form>
+      <button class="skipBtn" (click)="skipOffer()">Skip</button>
+      <button class="saveBtn">Save</button>
+    </div>
+  </div>
 </div>
