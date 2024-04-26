@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile-modal.component.scss']
 })
 export class ProfileModalComponent {
+  handleChange(e:any){
 
+  }
+  handleSubmit(e:any){
+    
+  }
 }
