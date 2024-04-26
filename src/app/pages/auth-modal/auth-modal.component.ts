@@ -72,7 +72,7 @@ export class AuthModalComponent {
 
       if (success && this.isSignIn) {
         this.dialogRef.close();
-        this.router.navigateByUrl('dashboard');
+        this.router.navigateByUrl('offer');
       }
     } catch (err) {
       console.log(err);
