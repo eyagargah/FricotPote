@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { ProfileModalComponent } from '../profile-modal/profile-modal.component';
 
 @Component({
   selector: 'app-chat-header',
@@ -8,7 +10,9 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./chat-header.component.scss']
 })
 export class ChatHeaderComponent {
-  constructor(private router:Router, private cookiesservice: CookieService){}
+
+  fileNameDialogRef: MatDialogRef<ProfileModalComponent> | undefined;
+  constructor(private router:Router, private cookiesservice: CookieService , private dialog: MatDialog){}
 
   @Input() currentUser: any
 
@@ -18,5 +22,11 @@ export class ChatHeaderComponent {
     this.cookiesservice.delete('Email')
     this.router.navigateByUrl('home')
     
+  }
+
+  viewProfile(){
+    this.fileNameDialogRef = this.dialog.open(ProfileModalComponent  , {
+      data: { title: 'My profile'},
+    })
   }
 }
