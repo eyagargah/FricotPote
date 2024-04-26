@@ -1,7 +1,7 @@
 <div class="container">
   <div class="profile">
     <div class="img-container" *ngIf="currentUser">
-      <img src={{currentUser.url}} alt="user profile picture" loading="lazy"/>
+      <img src={{currentUser.url}} (click)="viewProfile()" alt="user profile picture" loading="lazy"/>
     </div>
     <h3 *ngIf="currentUser">{{currentUser.first_name}}</h3>
   </div>
