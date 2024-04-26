@@ -23,6 +23,7 @@ import { PreferenceComponent } from './pages/preference/preference.component';
 import { ChatsComponent } from './pages/chats/chats.component';
 import { OfferComponent } from './pages/offer/offer.component';
 import { OfferModalComponent } from './pages/offer-modal/offer-modal.component';
+import { ProfileModalComponent } from './pages/profile-modal/profile-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { OfferModalComponent } from './pages/offer-modal/offer-modal.component';
     PreferenceComponent,
     ChatsComponent,
     OfferComponent,
-    OfferModalComponent
+    OfferModalComponent,
+    ProfileModalComponent
   ],
   imports: [BrowserModule, AppRoutingModule, MatIconModule, MatDialogModule,BrowserAnimationsModule,HammerModule],
   entryComponents: [AuthModalComponent],
