@@ -1,1 +1,154 @@
-<p>profile-modal works!</p>
+<div class="authModal">
+  <div class="header">
+    <h3>My profile</h3>
+    <h3>settings</h3>
+  </div>
+  <div class="content">
+    <h2>Create Account</h2>
+    <form>
+      <section>
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          id="firstName"
+          name="first_name"
+          placeholder="First Name"
+          required="true"
+          (change)="handleChange($event)"
+        />
+        <label for="age">Age</label>
+        <input
+          type="number"
+          id="age"
+          name="age"
+          placeholder="Age"
+          required="true"
+          (change)="handleChange($event)"
+        />
+        <label for="birthday">Birthday</label>
+        <div class="multiple-input">
+          <input
+            type="number"
+            id="dob_day"
+            name="dob_day"
+            placeholder="DD"
+            required
+            (keyup)="handleChange($event)"
+          />
+          <input
+            type="number"
+            id="dob_month"
+            name="dob_month"
+            placeholder="MM"
+            required
+            (keyup)="handleChange($event)"
+          />
+          <input
+            type="number"
+            id="dob_year"
+            name="dob_year"
+            placeholder="YYYY"
+            required
+            (keyup)="handleChange($event)"
+          />
+        </div>
+
+        <label>Gender</label>
+        <div class="multiple-input">
+          <input
+            type="radio"
+            id="man_gender_identity"
+            name="gender_identity"
+            required
+            value="man"
+            (click)="handleChange($event)"
+          />
+          <label for="man_gender_identity">Man</label>
+
+          <input
+            type="radio"
+            id="woman_gender_identity"
+            name="gender_identity"
+            required
+            value="woman"
+            (click)="handleChange($event)"
+          />
+          <label for="woman_gender_identity">Woman</label>
+
+          <input
+            type="radio"
+            id="more_gender_identity"
+            name="gender_identity"
+            required
+            value="everyone"
+            (click)="handleChange($event)"
+          />
+          <label for="more_gender_identity">More</label>
+        </div>
+        <label for="show-gender">Show gender on my profile</label>
+        <input
+          type="checkbox"
+          id="show-gender"
+          name="show_gender"
+          required
+          (click)="handleChange($event)"
+        />
+
+        <label>Show Me</label>
+        <div class="multiple-input">
+          <input
+            type="radio"
+            id="man_gender_interest"
+            name="gender_interest"
+            required
+            value="man"
+            (click)="handleChange($event)"
+          />
+          <label for="man_gender_interest">Man</label>
+
+          <input
+            type="radio"
+            id="woman_gender_interest"
+            name="gender_interest"
+            required
+            value="woman"
+            (click)="handleChange($event)"
+          />
+          <label for="woman_gender_interest">Woman</label>
+
+          <input
+            type="radio"
+            id="more_gender_interest"
+            name="gender_interest"
+            required
+            value="everyone"
+            (click)="handleChange($event)"
+          />
+          <label for="more_gender_interest">More</label>
+        </div>
+
+        <label for="about">About me</label>
+        <input
+          type="text"
+          id="about"
+          name="about"
+          required
+          placeholder="I like chinese food..."
+          (keyup)="handleChange($event)"
+        />
+        <input type="submit" value="submit" (click)="handleSubmit($event)" />
+      </section>
+
+      <section>
+        <label for="url">Profile</label>
+        <input
+          type="url"
+          name="url"
+          id="url"
+          required
+          (keyup)="handleChange($event)"
+        />
+      </section>
+    </form>
+  </div>
+</div>
