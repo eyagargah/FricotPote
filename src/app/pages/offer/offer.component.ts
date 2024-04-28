@@ -11,4 +11,10 @@ export class OfferComponent {
   skipOffer(){
     this.router.navigateByUrl('dashboard')
   }
+  handleChange(e:any){
+
+  }
+  saveOffer(){
+    
+  }
 }
