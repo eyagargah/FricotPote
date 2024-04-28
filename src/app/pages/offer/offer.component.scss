@@ -1,0 +1,20 @@
+.offer {
+    .header {
+        .logo-container {
+          width: 10rem;
+          margin: 1rem;
+      
+          .logo {
+            width: 100%;
+          }
+        }
+      }
+
+      .offerForm{
+        border-top: solid 2px rgb(154,154,154) ;
+
+        form {
+            margin: 2rem 0;
+        }
+      }
+}
