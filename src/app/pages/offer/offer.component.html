@@ -12,16 +12,68 @@
       <h1>Make an offer</h1>
       <form>
         <div class="dateIdea">
-          <label for="date">Where do you want to go? </label>
-          
+          <label for="date">What do you want to do? </label>
+          <div class="date-multiple-input">
+            <input
+              type="radio"
+              id="dinner_date"
+              name="date"
+              required
+              value="dinner"
+              (click)="handleChange($event)"
+            />
+            <mat-icon> fastfood</mat-icon>
+            <label for="dinner_date">Dinner</label>
+
+            <input
+              type="radio"
+              id="coffee_date"
+              name="date"
+              required
+              value="coffee"
+              (click)="handleChange($event)"
+            />
+            <mat-icon> local_cafe</mat-icon>
+            <label for="coffee_date">Coffee</label>
+          </div>
         </div>
         <div class="time">
           <label for="preferredTime">Preferred time :</label>
-          <input type="datetime" />
+          <div class="time-multiple-input">
+            <input
+              type="radio"
+              id="morning_date_time"
+              name="dateTime"
+              required
+              value="morning"
+              (click)="handleChange($event)"
+            />
+            <label for="morning_date_time">Morning</label>
+  
+            <input
+              type="radio"
+              id="evening_date_time"
+              name="dateTime"
+              required
+              value="evening"
+              (click)="handleChange($event)"
+            />
+            <label for="evening_date_time">Evening</label>
+  
+            <input
+              type="radio"
+              id="night_date_time"
+              name="dateTime"
+              required
+              value="Night"
+              (click)="handleChange($event)"
+            />
+            <label for="night_date_time">Night</label>
+          </div>
         </div>
       </form>
       <button class="skipBtn" (click)="skipOffer()">Skip</button>
-      <button class="saveBtn">Save</button>
+      <button class="saveBtn" (click)="saveOffer()">Save</button>
     </div>
   </div>
 </div>
