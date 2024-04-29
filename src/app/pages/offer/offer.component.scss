@@ -19,6 +19,18 @@
             .dateIdea{
               label {
                 color: gray;
+                font-size: 1.5rem;
+              }
+              .date-multiple-input {
+                input[type="radio"] {
+                  -webkit-appearance: none;
+                  -moz-appearance: none;
+                  appearance: none;
+                  border-radius: 50%;
+                  border: 2px solid #333;
+                  width: 16px;
+                  height: 16px;
+                }
               }
             }
         }
