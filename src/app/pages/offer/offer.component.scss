@@ -16,7 +16,7 @@
     form {
       margin: 2rem 0;
 
-      .dateIdea{
+      .dateIdea {
         label {
           color: gray;
           font-size: 1.5rem;
@@ -26,14 +26,14 @@
           align-items: center;
           justify-content: space-evenly;
 
-          .coffee , .dinner {
+          .coffee,
+          .dinner {
             border: solid 2px rgb(144, 144, 144);
             border-radius: 10px;
             transition: all 0.3s;
             padding: 1rem 0;
             margin: 1rem 0;
             width: 10rem;
-
           }
 
           input {
@@ -43,7 +43,29 @@
         }
       }
 
-      
+      .time {
+        label {
+          color: gray;
+          font-size: 1.5rem;
+        }
+        .time-multiple-input {
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+
+          border: solid 2px rgb(144, 144, 144);
+          border-radius: 10px;
+          transition: all 0.3s;
+          padding: 1rem 0;
+          margin: 1rem 0;
+          width: 10rem;
+
+          input {
+            visibility: hidden;
+            margin: 10px 0;
+          }
+        }
+      }
     }
   }
 }
