@@ -25,7 +25,7 @@
           display: flex;
           align-items: center;
           justify-content: space-evenly;
-          gap: 8rem;
+          gap: 6rem;
 
           .coffee,
           .dinner {
@@ -34,7 +34,7 @@
             transition: all 0.3s;
             padding: 1rem 0;
             margin: 1rem 0;
-            width: 10rem;
+            width: 9rem;
           }
 
           input {
@@ -62,7 +62,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 2.5rem;
+          gap: 3rem;
           input {
             visibility: hidden;
             margin: 10px 0;
