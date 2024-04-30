@@ -14,27 +14,31 @@
         <div class="dateIdea">
           <label for="date">What do you want to do? </label>
           <div class="date-multiple-input">
-            <input
-              type="radio"
-              id="dinner_date"
-              name="date"
-              required
-              value="dinner"
-              (click)="handleChange($event)"
-            />
-            <mat-icon> fastfood</mat-icon>
-            <label for="dinner_date">Dinner</label>
+            <div class="dinner">
+              <input
+                type="radio"
+                id="dinner_date"
+                name="date"
+                required
+                value="dinner"
+                (click)="handleChange($event)"
+              />
+              <mat-icon> fastfood</mat-icon>
+              <label for="dinner_date">Dinner</label>
+            </div>
 
-            <input
-              type="radio"
-              id="coffee_date"
-              name="date"
-              required
-              value="coffee"
-              (click)="handleChange($event)"
-            />
-            <mat-icon> local_cafe</mat-icon>
-            <label for="coffee_date">Coffee</label>
+            <div class="coffee">
+              <input
+                type="radio"
+                id="coffee_date"
+                name="date"
+                required
+                value="coffee"
+                (click)="handleChange($event)"
+              />
+              <mat-icon> local_cafe</mat-icon>
+              <label for="coffee_date">Coffee</label>
+            </div>
           </div>
         </div>
         <div class="time">
@@ -49,7 +53,7 @@
               (click)="handleChange($event)"
             />
             <label for="morning_date_time">Morning</label>
-  
+
             <input
               type="radio"
               id="evening_date_time"
@@ -59,7 +63,7 @@
               (click)="handleChange($event)"
             />
             <label for="evening_date_time">Evening</label>
-  
+
             <input
               type="radio"
               id="night_date_time"
