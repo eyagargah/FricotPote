@@ -12,7 +12,9 @@ export class OfferComponent {
   constructor(private router:Router , private cookiesservice:CookieService){}
   formData = {
     user_id: this.cookiesservice.get('UserId'),
-    dateTime :''
+    date:'',
+    dateTime :'',
+
   }
   skipOffer(){
     this.router.navigateByUrl('dashboard')
@@ -24,6 +26,7 @@ export class OfferComponent {
     switch(name){
       case 'dateTime': 
       this.formData.dateTime = value;
+      break
     }
   }
   
