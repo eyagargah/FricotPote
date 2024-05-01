@@ -25,9 +25,14 @@ export class OfferComponent {
 
     switch(name){
       case 'dateTime': 
-      this.formData.dateTime = value;
-      break
+        this.formData.dateTime = value;
+        break
+      case 'date':
+        this.formData.date = value
+        break
+
     }
+    console.log(this.formData)
   }
   
 
