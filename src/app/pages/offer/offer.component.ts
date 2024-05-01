@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import axios from 'axios';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-offer',
@@ -8,7 +9,10 @@ import axios from 'axios';
   styleUrls: ['./offer.component.scss']
 })
 export class OfferComponent {
-  constructor(private router:Router){}
+  constructor(private router:Router , private cookiesservice:CookieService){}
+  formData = {
+    user_id: this.cookiesservice.get('UserId'),
+  }
   skipOffer(){
     this.router.navigateByUrl('dashboard')
   }
