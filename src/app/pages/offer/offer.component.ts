@@ -16,25 +16,13 @@ export class OfferComponent {
   skipOffer(){
     this.router.navigateByUrl('dashboard')
   }
-  handleChange(e:any){
-
+  handleChange(event:any){
+    console.log(event.target.value)
   }
   
 
   handleSubmit = async (e: any) => {
     e.preventDefault();
-    try {
-      const response = await axios.put(
-        `https://fricotpote-backend-1.onrender.com/user`,
-        {
-          formData: this.formData,
-        }
-      );
-      const succes = response.status === 200;
-
-      if (succes) this.router.navigateByUrl('preference');
-    } catch (err) {
-      console.log(err);
-    }
+    console.log(e.target)
   };
 }
