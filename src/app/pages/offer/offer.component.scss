@@ -14,19 +14,19 @@
     border-top: solid 2px rgb(154, 154, 154);
 
     form {
-      margin: 2rem 0;
+      margin: 3rem 0;
 
       .dateIdea {
         label {
           color: gray;
-          font-size: 1.5rem;
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
         }
         .date-multiple-input {
           display: flex;
           align-items: center;
           justify-content: space-between;
           margin: 0 35%;
-          border: solid black 1px;
 
           .coffee,
           .dinner {
@@ -51,7 +51,7 @@
         }
         label {
           color: gray;
-          font-size: 1.5rem;
+          font-size: 1.2rem;
           border: solid 2px rgb(144, 144, 144);
           border-radius: 10px;
           transition: all 0.3s;
@@ -60,19 +60,47 @@
           width: 9rem;
         }
         .time-multiple-input {
-          padding:0;
+          padding: 0;
           display: flex;
-          align-items: center;
-          justify-content: space-evenly;
-          gap: 3%;
-          margin: 0 20%;
-          border: solid black 1px;
-          margin: 0 35%;
+          align-items: start;
+          justify-content: start;
+          margin: 0 34%;
           input {
             visibility: hidden;
             margin: 10px 0;
           }
         }
+      }
+    }
+    .actions {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      margin: 0 30%;
+      input[type="submit"]:hover {
+        background-color: rgb(235, 235, 235);
+        cursor: pointer;
+      }
+      input[type="submit"]:active {
+        background-color: rgb(235, 115, 115);
+      }
+
+      input[type="button"]:hover {
+        background-color: rgb(235, 235, 235);
+        cursor: pointer;
+      }
+      input[type="button"]:active {
+        background-color: rgb(235, 115, 115);
+      }
+
+      input {
+        padding: 1rem 2rem;
+        margin: 10px 0;
+        font-size: 1rem;
+        border: solid 2px rgb(219, 219, 219);
+        border-radius: 10px;
+        margin-left: 1rem;
       }
     }
   }
