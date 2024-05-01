@@ -42,7 +42,9 @@
           </div>
         </div>
         <div class="time">
-          <label for="preferredTime" class="preferredTime">Preferred time</label>
+          <label for="preferredTime" class="preferredTime"
+            >Preferred time</label
+          >
           <div class="time-multiple-input">
             <input
               type="radio"
@@ -76,8 +78,10 @@
           </div>
         </div>
       </form>
-      <button class="skipBtn" (click)="skipOffer()">Skip</button>
-      <button class="saveBtn" (click)="saveOffer()">Save</button>
+      <div class="actions">
+        <input type="submit" value="submit" (click)="saveOffer()" />
+        <input type="button" value="skip" (click)="skipOffer()" />
+      </div>
     </div>
   </div>
 </div>
