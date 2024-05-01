@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import axios from 'axios';
 
 @Component({
   selector: 'app-offer',
@@ -14,7 +15,22 @@ export class OfferComponent {
   handleChange(e:any){
 
   }
-  saveOffer(){
-    
-  }
+  
+
+  handleSubmit = async (e: any) => {
+    e.preventDefault();
+    try {
+      const response = await axios.put(
+        `https://fricotpote-backend-1.onrender.com/user`,
+        {
+          formData: this.formData,
+        }
+      );
+      const succes = response.status === 200;
+
+      if (succes) this.router.navigateByUrl('preference');
+    } catch (err) {
+      console.log(err);
+    }
+  };
 }
