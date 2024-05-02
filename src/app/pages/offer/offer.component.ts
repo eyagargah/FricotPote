@@ -32,7 +32,7 @@ export class OfferComponent {
         break
 
     }
-    console.log(this.formData)
+   
   }
   
 
