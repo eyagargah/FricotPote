@@ -15,7 +15,10 @@
 
     form {
       margin: 3rem 0;
-
+      
+      input[type="radio"]:checked + label {
+        border: solid 2px rgb(221, 39, 22);
+      }
       .dateIdea {
         label {
           color: gray;
@@ -30,6 +33,10 @@
 
           .coffee,
           .dinner {
+            input[type="radio"]:checked + label {
+              border: solid 2px rgb(221, 39, 22);
+            }
+            align-items: center;
             border: solid 2px rgb(144, 144, 144);
             border-radius: 10px;
             transition: all 0.3s;
