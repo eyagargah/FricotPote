@@ -30,7 +30,9 @@
           align-items: center;
           justify-content: space-between;
           margin: 0 35%;
-         
+          input {
+            display: none;
+          }
           .coffee,
           .dinner {
             input[type="radio"]:checked + label {
@@ -44,13 +46,11 @@
             margin: 1rem 0;
             width: 9rem;
           }
-
-          input {
-            display: none;
-            margin: 10px 0;
+          label {
             border: solid 2px rgb(144, 144, 144);
-
+            margin: 10px 0;
           }
+         
         }
       }
 
