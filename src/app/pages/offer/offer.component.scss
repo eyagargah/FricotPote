@@ -12,7 +12,9 @@
 
   .offerForm {
     border-top: solid 2px rgb(154, 154, 154);
-
+    label {
+      cursor: pointer;
+    }
     form {
       margin: 3rem 0;
 
