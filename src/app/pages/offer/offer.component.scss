@@ -48,9 +48,12 @@
           }
           label {
             border: solid 2px rgb(144, 144, 144);
-            padding: 1rem 0;
-            margin: 1rem 0;
-            width: 9rem;
+            align-items: center;
+       
+            border-radius: 10px;
+            transition: all 0.3s;
+            padding: 1.2rem ;
+            width: 10rem;
           }
          
         }
