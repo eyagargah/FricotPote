@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-auth-modal',
@@ -21,7 +22,7 @@ export class AuthModalComponent {
     public dialogRef: MatDialogRef<any>,
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: { title: string },
-    private cookieService: CookieService
+    private cookieService: CookieService , private userService : UserService
   ) {}
 
   ngOnInit() {
@@ -72,6 +73,7 @@ export class AuthModalComponent {
 
       if (success && this.isSignIn) {
         this.dialogRef.close();
+        if( this.userService.getCurrentUserId())
         this.router.navigateByUrl('offer');
       }
     } catch (err) {
