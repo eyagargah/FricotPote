@@ -34,6 +34,18 @@ export class OfferComponent {
 
   handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log(e.target);
+    try {
+      const response = await axios.put(
+        `https://fricotpote-backend-1.onrender.com/addoffer`,
+        {
+          formData: this.formData,
+        }
+      );
+      const succes = response.status === 200;
+
+      if (succes) this.router.navigateByUrl('dashboard');
+    } catch (err) {
+      console.log(err);
+    }
   };
 }
