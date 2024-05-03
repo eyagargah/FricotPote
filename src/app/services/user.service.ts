@@ -14,6 +14,7 @@ export class UserService {
     return this.cookiesServices.get('user_id')
   }
 
+
   setSelectedUser(user:any){
     this.selectedUser = user
   }
