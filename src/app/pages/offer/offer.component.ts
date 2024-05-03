@@ -6,38 +6,34 @@ import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-offer',
   templateUrl: './offer.component.html',
-  styleUrls: ['./offer.component.scss']
+  styleUrls: ['./offer.component.scss'],
 })
 export class OfferComponent {
-  constructor(private router:Router , private cookiesservice:CookieService){}
+  constructor(private router: Router, private cookiesservice: CookieService) {}
   formData = {
     user_id: this.cookiesservice.get('UserId'),
-    date:'',
-    dateTime :'',
-
+    date: '',
+    dateTime: '',
+  };
+  skipOffer() {
+    this.router.navigateByUrl('dashboard');
   }
-  skipOffer(){
-    this.router.navigateByUrl('dashboard')
-  }
-  handleChange(event:any){
-    const value = event.target.value
+  handleChange(event: any) {
+    const value = event.target.value;
     const name = event.target.name;
-    console.log(event.target)
-    switch(name){
-      case 'dateTime': 
+    switch (name) {
+      case 'dateTime':
         this.formData.dateTime = value;
-        break
+        break;
       case 'date':
-        this.formData.date = value
-        break
-
+        this.formData.date = value;
+        break;
     }
-   
+    console.log(this.formData)
   }
-  
 
   handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log(e.target)
+    console.log(e.target);
   };
 }
