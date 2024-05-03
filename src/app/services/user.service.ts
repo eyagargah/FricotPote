@@ -10,7 +10,7 @@ export class UserService {
   selectedUser: any
   matches :  any;
   constructor(private cookiesServices: CookieService) { }
-  getCurrentUser(){
+  getCurrentUserId(){
     return this.cookiesServices.get('user_id')
   }
 
