@@ -70,14 +70,14 @@ export class OnboardingComponent {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `https://fricotpote-backend-1.onrender.com/user`,
+        `https://fricotpote-backend-1.onrender.com/addoffer`,
         {
           formData: this.formData,
         }
       );
       const succes = response.status === 200;
 
-      if (succes) this.router.navigateByUrl('preference');
+      if (succes) this.router.navigateByUrl('dashboard');
     } catch (err) {
       console.log(err);
     }
