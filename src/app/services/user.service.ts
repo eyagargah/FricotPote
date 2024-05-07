@@ -8,16 +8,19 @@ import { CookieService } from 'ngx-cookie-service';
 export class UserService {
  
   selectedUser: any
+  currentUserId : any
   matches :  any;
   constructor(private cookiesServices: CookieService) { }
   getCurrentUserId(){
+    this.currentUserId = this.cookiesServices.get('user_id')
     return this.cookiesServices.get('user_id')
   }
+
  getCurrentUser = async () => {
   try {
     const response = await axios.get('https://fricotpote-backend-1.onrender.com/user',{
       params: {
-        userId : this.selectedUser
+        userId : this.currentUserId
       }
     })
     let currentUser = response.data
