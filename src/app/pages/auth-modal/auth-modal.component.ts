@@ -22,7 +22,8 @@ export class AuthModalComponent {
     public dialogRef: MatDialogRef<any>,
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: { title: string },
-    private cookieService: CookieService , private userService : UserService
+    private cookieService: CookieService,
+    private userService: UserService
   ) {}
 
   ngOnInit() {
@@ -59,7 +60,7 @@ export class AuthModalComponent {
         }`,
         { email: this.email, password: this.currentPwd }
       );
-        // Store email and user id in cookies for later use
+      // Store email and user id in cookies for later use
       this.cookieService.set('Email', JSON.stringify(this.email));
       this.cookieService.set('UserId', response.data.userId);
       this.cookieService.set('AuthToken', response.data.token);
@@ -75,9 +76,10 @@ export class AuthModalComponent {
         this.dialogRef.close();
         //if( this.userService.getCurrentUserId())
 
-          //if current user already has an offer then navigate to dashboard 
-
-          //else navigate to offer form
+        //if current user already has an offer then navigate to dashboard
+        let currentUser = this.userService.getCurrentUser();
+        console.log(currentUser);
+        //else navigate to offer form
         this.router.navigateByUrl('offer');
       }
     } catch (err) {
