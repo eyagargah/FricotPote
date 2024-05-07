@@ -13,7 +13,9 @@ export class UserService {
   getCurrentUserId(){
     return this.cookiesServices.get('user_id')
   }
-
+ getCurrentUser(){
+  
+ }
 
   setSelectedUser(user:any){
     this.selectedUser = user
