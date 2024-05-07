@@ -16,11 +16,11 @@ export class UserService {
     return this.cookiesServices.get('user_id')
   }
 
- getCurrentUser = async () => {
+ getCurrentUser = async (userId:any) => {
   try {
     const response = await axios.get('https://fricotpote-backend-1.onrender.com/user',{
       params: {
-        userId : this.currentUserId
+        userId : userId
       }
     })
     let currentUser = response.data
