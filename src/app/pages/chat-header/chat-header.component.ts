@@ -17,9 +17,9 @@ export class ChatHeaderComponent {
   @Input() currentUser: any
 
   logout(){
-    this.cookiesservice.delete('UserId')
-    this.cookiesservice.delete('AuthToken')
-    this.cookiesservice.delete('Email')
+    this.cookiesservice.delete('user_id')
+    this.cookiesservice.delete('x-access-token')
+    this.cookiesservice.delete('x-refresh-token')
     this.router.navigateByUrl('home')
     
   }
