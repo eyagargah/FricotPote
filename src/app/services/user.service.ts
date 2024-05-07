@@ -22,9 +22,10 @@ export class UserService {
       params: {
         userId : userId
       }
+    }).then(data => {
+      let currentUser = data
+      return currentUser
     })
-    let currentUser = response.data
-    return currentUser
   } catch(err){
     console.log(err)
   }
