@@ -73,7 +73,11 @@ export class AuthModalComponent {
 
       if (success && this.isSignIn) {
         this.dialogRef.close();
-        if( this.userService.getCurrentUserId())
+        //if( this.userService.getCurrentUserId())
+
+          //if current user already has an offer then navigate to dashboard 
+
+          //else navigate to offer form
         this.router.navigateByUrl('offer');
       }
     } catch (err) {
