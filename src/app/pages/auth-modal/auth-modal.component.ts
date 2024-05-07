@@ -77,7 +77,7 @@ export class AuthModalComponent {
         //if( this.userService.getCurrentUserId())
 
         //if current user already has an offer then navigate to dashboard
-        console.log(this.userService.getCurrentUser());
+        console.log(this.userService.getCurrentUser(this.userService.getCurrentUserId));
         //else navigate to offer form
         this.router.navigateByUrl('offer');
       }
