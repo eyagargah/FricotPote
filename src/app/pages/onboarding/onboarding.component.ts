@@ -56,7 +56,6 @@ export class OnboardingComponent {
       case 'gender_interest':
         this.formData.gender_interest = value;
         break;
-
       case 'url':
         this.src = value;
         this.formData.url = value;
