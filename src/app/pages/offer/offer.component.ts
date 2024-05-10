@@ -29,7 +29,6 @@ export class OfferComponent {
         this.formData.date = value;
         break;
     }
-    console.log(this.formData)
   }
 
   handleSubmit = async (e: any) => {
