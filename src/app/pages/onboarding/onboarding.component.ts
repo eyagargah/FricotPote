@@ -25,6 +25,7 @@ export class OnboardingComponent {
     about: '',
     matches: [],
     likes: [],
+    offer:[]
   };
 
   handleChange(event: any) {
