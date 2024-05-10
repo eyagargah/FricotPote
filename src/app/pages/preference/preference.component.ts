@@ -16,16 +16,16 @@ export class PreferenceComponent {
     private router: Router
   ) {}
 
-  ngOnInit(){
-    this.getCurrentLocation()
-    this.distance=  document.querySelectorAll('input')[0].value
-    this.maxAge=  document.querySelectorAll('input')[1].value
+  ngOnInit() {
+    this.getCurrentLocation();
+    this.distance = document.querySelectorAll('input')[0].value;
+    this.maxAge = document.querySelectorAll('input')[1].value;
   }
 
   cities: any;
-  currentLocation : any;
-  distance : any
-  maxAge : any
+  currentLocation: any;
+  distance: any;
+  maxAge: any;
   formData = {
     user_id: this.cookiesservice.get('UserId'),
     location: '',
@@ -53,17 +53,19 @@ export class PreferenceComponent {
     }
   }
 
-  refreshLocation(){
-    this.getCurrentLocation()
-    console.log(this.currentLocation)
+  refreshLocation() {
+    this.getCurrentLocation();
+    console.log(this.currentLocation);
   }
   async handleSubmit(e: any) {
     e.preventDefault();
-    console.log(this.formData)
     try {
-      const response = await axios.put(`https://fricotpote-backend-1.onrender.com/user-preferences`, {
-        formData: this.formData,
-      });
+      const response = await axios.put(
+        `https://fricotpote-backend-1.onrender.com/user-preferences`,
+        {
+          formData: this.formData,
+        }
+      );
       const succes = response.status === 200;
 
       if (succes) this.router.navigateByUrl('offer');
@@ -80,8 +82,9 @@ export class PreferenceComponent {
     this.locationservice.setLatitude(latitude);
     this.locationservice.getNearestCities(longitude, latitude).then((data) => {
       this.cities = data;
-      this.currentLocation = this.cities[0].City + " ," + this.cities[0].Country
-      this.formData.location = this.cities[0]
+      this.currentLocation =
+        this.cities[0].City + ' ,' + this.cities[0].Country;
+      this.formData.location = this.cities[0];
     });
   }
 
@@ -103,7 +106,6 @@ export class PreferenceComponent {
 
     try {
       const response = await axios.request(options);
-      console.log(response.data);
     } catch (error) {
       console.error(error);
     }
