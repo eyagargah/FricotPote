@@ -74,6 +74,11 @@ export class AuthModalComponent {
 
       if (success && this.isSignIn) {
         this.dialogRef.close();
+        let currentUser;
+        this.userService.getCurrentUser(this.cookieService.get("UserId")).then((data)=> {
+          currentUser = data
+        })
+        console.log(currentUser)
         this.router.navigateByUrl('offer');
       }
     } catch (err) {
