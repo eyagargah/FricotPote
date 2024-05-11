@@ -23,7 +23,7 @@ export class UserService {
         userId : userId
       }
     })
-    console.log(response)
+    return response.data
   } catch(err){
     console.log(err)
   }
