@@ -13,10 +13,10 @@
     align-items: center;
     height: 100vh;
     .card-container {
-        border: solid 2px black;
+        border: solid 2px red;
         border-radius: 1rem;
         width: 400px;
-        height: 580px;
+        height: 600px;
       .swipe {
         position: absolute;
       }
@@ -45,7 +45,7 @@
         .offerDetails {
           background-color: aqua;
           position: absolute;
-          color: white;
+          color: black;
           bottom: 0;
         }
       }
