@@ -82,9 +82,7 @@ export class AuthModalComponent {
           //offer = currentUser.offer[0]
         })
         console.log(offer)  
-        if(offer!=undefined){
-          this.router.navigate(['dashboard'])
-        }
+        
         this.router.navigateByUrl('offer');
       }
     } catch (err) {
