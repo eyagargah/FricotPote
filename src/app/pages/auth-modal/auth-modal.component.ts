@@ -79,7 +79,7 @@ export class AuthModalComponent {
         this.userService.getCurrentUser(this.cookieService.get("UserId")).then((data)=> {
           currentUser = data
           console.log(data.offer)
-          //offer = currentUser.offer[0]
+          offer = data.offer
         })
         console.log(offer)  
         
