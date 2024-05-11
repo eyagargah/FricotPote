@@ -17,7 +17,8 @@ export class AuthModalComponent {
   email: string | undefined;
   currentPwd: string | undefined;
   pwdToCheck: string | undefined;
-
+  currentUser: any;
+  offer: any;
   constructor(
     public dialogRef: MatDialogRef<any>,
     private router: Router,
@@ -74,16 +75,20 @@ export class AuthModalComponent {
 
       if (success && this.isSignIn) {
         this.dialogRef.close();
-        let currentUser;
-        let offer
-        this.userService.getCurrentUser(this.cookieService.get("UserId")).then((data)=> {
-          currentUser = data
-          console.log(data.offer)
-          offer = data.offer
-        })
-        console.log(offer)  
-        
-        this.router.navigateByUrl('offer');
+
+        this.userService
+          .getCurrentUser(this.cookieService.get('UserId'))
+          .then((data) => {
+            this.currentUser = data;
+            console.log(data.offer);
+            this.offer = data.offer;
+
+            if (this.offer != undefined) {
+              this.router.navigateByUrl('dashboard');
+            } else {
+              this.router.navigateByUrl('offer');
+            }
+          });
       }
     } catch (err) {
       console.log(err);
