@@ -29,6 +29,7 @@
         }
 
         .details {
+          z-index: 1;
           .userDetails {
             position: absolute;
             color: black;
@@ -37,12 +38,9 @@
             left: 1rem;
           }
           .offerDetails {
-            display: flex;
-            z-index: 1;
             position: absolute;
             color: black;
             background-color: white;
-            bottom: 0;
           }
         }
       }
