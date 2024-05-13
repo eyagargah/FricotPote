@@ -29,30 +29,21 @@
         }
 
         .details {
-          
-        }
-        h3 {
-          position: absolute;
-          color: white;
-          bottom: 0;
-          font-weight: 700;
-          font-size: 2rem;
-          left: 1rem;
-        }
-        .age {
-          left: 10rem;
-          position: absolute;
-          color: white;
-          bottom: 0;
-          font-weight: 700;
-          font-size: 2rem;
-        }
-        .offerDetails {
-          display: flex;
-          z-index: 1;
-          position: absolute;
-          color: white;
-          bottom: 0;
+          .userDetails {
+            position: absolute;
+            color: white;
+            bottom: 0;
+            font-weight: 700;
+            font-size: 2rem;
+            left: 1rem;
+          }
+          .offerDetails {
+            display: flex;
+            z-index: 1;
+            position: absolute;
+            color: white;
+            bottom: 0;
+          }
         }
       }
     }
