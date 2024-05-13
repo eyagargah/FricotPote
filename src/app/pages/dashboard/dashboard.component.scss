@@ -31,8 +31,7 @@
         .details {
           .userDetails {
             position: absolute;
-            color: white;
-            bottom: 0;
+            color: black;
             font-weight: 700;
             font-size: 2rem;
             left: 1rem;
@@ -41,7 +40,8 @@
             display: flex;
             z-index: 1;
             position: absolute;
-            color: white;
+            color: black;
+            background-color: white;
             bottom: 0;
           }
         }
