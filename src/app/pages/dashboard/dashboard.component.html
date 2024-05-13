@@ -17,10 +17,12 @@
         <div class="card">
           <div class="userImg" style="background-image: url({{filteredUsers[index].url}} ); "></div>
           <div class="details">
-            
-              {{ filteredUsers[index].first_name }} ,
-              {{ filteredUsers[index].age }} &nbsp;
-              <mat-icon>check_circle_outline</mat-icon>
+              <div class="userDetails">
+                {{ filteredUsers[index].first_name }} ,
+                {{ filteredUsers[index].age }} &nbsp;
+                <mat-icon>check_circle_outline</mat-icon>
+              </div>
+             
             
             <div class="offerDetails">
               <h2>
