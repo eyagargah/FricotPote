@@ -28,10 +28,19 @@
           border-radius: 1rem;
         }
 
+        .location {
+          background-color: blue;
+          border-radius: 5px;
+        }
         .details {
+          border-radius: 1rem;
+          background-color: white;
+          position: absolute;
           z-index: 1;
+          width: 400px;
+          height: 150px;
+          bottom: 0;
           .userDetails {
-            position: absolute;
             color: black;
             font-weight: 700;
             font-size: 2rem;
@@ -40,7 +49,6 @@
           .offerDetails {
             position: absolute;
             color: black;
-            background-color: white;
           }
         }
       }
