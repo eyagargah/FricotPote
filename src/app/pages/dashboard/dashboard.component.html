@@ -1,8 +1,11 @@
 <div class="dashboard">
-  <app-chat-container [matches]="matches" [currentUser]="currentUser"></app-chat-container>
-  <div class="swipe-container" *ngIf="filteredUsers.length>0">
+  <app-chat-container
+    [matches]="matches"
+    [currentUser]="currentUser"
+  ></app-chat-container>
+  <div class="swipe-container" *ngIf="filteredUsers.length > 0">
     <h3 *ngIf="direction && !undo">You swiped {{ direction }}</h3>
-    <div class="card-container" >
+    <div class="card-container">
       <div
         class="swipe"
         [@cardAnimator]="animationState"
@@ -11,13 +14,18 @@
         (swiperight)="startAnimation('swiperight')"
         (swipe)="getSelectedUser(filteredUsers[index])"
       >
-        <div
-          class="card"
-        >
+        <div class="card">
           <div class="userImg" style="background-image: url({{filteredUsers[index].url}} ); "></div>
-          <h3 class="name">{{ filteredUsers[index].first_name }} , {{filteredUsers[index].age}} &nbsp; <mat-icon>check_circle_outline</mat-icon></h3>
+          <h3 class="name">
+            {{ filteredUsers[index].first_name }} ,
+            {{ filteredUsers[index].age }} &nbsp;
+            <mat-icon>check_circle_outline</mat-icon>
+          </h3>
           <div class="offerDetails">
-            <h2>{{filteredUsers[index].offer[0].date}}  {{filteredUsers[index].offer[0].dateTime}}</h2>
+            <h2>
+              {{ filteredUsers[index].offer[0].date }}
+              {{ filteredUsers[index].offer[0].dateTime }}
+            </h2>
           </div>
         </div>
       </div>
@@ -26,7 +34,11 @@
     <div class="card-control">
       <div class="replay" (click)="reload()"><mat-icon>replay</mat-icon></div>
       <div (click)="cardAnimation('swipeleft')" class="reject">X</div>
-      <div (click)="cardAnimation('swiperight')"  (click)="getSelectedUser(filteredUsers[index])" class="accept">
+      <div
+        (click)="cardAnimation('swiperight')"
+        (click)="getSelectedUser(filteredUsers[index])"
+        class="accept"
+      >
         <mat-icon>favorite_border</mat-icon>
       </div>
     </div>
