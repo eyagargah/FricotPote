@@ -52,6 +52,8 @@
             left: 1rem;
           }
           .offerDetails {
+            display: flex;
+            flex-direction: row;
             position: absolute;
             color: black;
           }
