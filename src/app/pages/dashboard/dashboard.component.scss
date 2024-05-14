@@ -52,8 +52,10 @@
             left: 1rem;
           }
           .offerDetails {
+            font-size: 1.5rem;
             display: flex;
-            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
             position: absolute;
             color: black;
           }
