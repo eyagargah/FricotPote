@@ -23,7 +23,6 @@ import { ChatsComponent } from './pages/chats/chats.component';
 import { OfferComponent } from './pages/offer/offer.component';
 import { OfferModalComponent } from './pages/offer-modal/offer-modal.component';
 import { ProfileModalComponent } from './pages/profile-modal/profile-modal.component';
-import { PageLoaderComponent } from './page-loader/page-loader.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
   declarations: [
@@ -45,7 +44,6 @@ import { NgxSpinnerModule } from "ngx-spinner";
     OfferComponent,
     OfferModalComponent,
     ProfileModalComponent,
-    PageLoaderComponent
   ],
   imports: [BrowserModule, AppRoutingModule, MatIconModule, MatDialogModule,BrowserAnimationsModule,HammerModule, NgxSpinnerModule],
   entryComponents: [AuthModalComponent],
