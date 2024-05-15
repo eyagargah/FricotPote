@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -24,7 +25,8 @@ export class AuthModalComponent {
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: { title: string },
     private cookieService: CookieService,
-    private userService: UserService
+    private userService: UserService,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit() {
@@ -35,6 +37,13 @@ export class AuthModalComponent {
     }
   }
 
+ openSpinner(){
+  this.spinner.show();
+  setTimeout(()=> {
+    this.spinner.hide()
+
+  },1000)
+ }
   setEmail(e: any) {
     this.email = e.target.value;
   }
@@ -48,7 +57,7 @@ export class AuthModalComponent {
 
   submitForm = async (e: any) => {
     e.preventDefault();
-
+    this.openSpinner()
     try {
       if (!this.isSignIn && this.pwdToCheck != this.currentPwd) {
         this.error = 'Passwords need to match!';
