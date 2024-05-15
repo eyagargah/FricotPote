@@ -24,7 +24,7 @@ import { OfferComponent } from './pages/offer/offer.component';
 import { OfferModalComponent } from './pages/offer-modal/offer-modal.component';
 import { ProfileModalComponent } from './pages/profile-modal/profile-modal.component';
 import { PageLoaderComponent } from './page-loader/page-loader.component';
-import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
+import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
   declarations: [
     AppComponent,
