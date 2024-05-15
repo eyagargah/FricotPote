@@ -39,10 +39,10 @@ export class AuthModalComponent {
 
  openSpinner(){
   this.spinner.show();
-  setTimeout(()=> {
-    this.spinner.hide()
 
-  },1000)
+    setTimeout(() => {
+         this.spinner.hide();
+    }, 2000);
  }
   setEmail(e: any) {
     this.email = e.target.value;
