@@ -17,7 +17,6 @@ import { ChatHeaderComponent } from './pages/chat-header/chat-header.component';
 import { MatchesComponent } from './pages/matches/matches.component';
 import { ChatDisplayComponent } from './pages/chat-display/chat-display.component';
 import { ChatInputComponent } from './pages/chat-input/chat-input.component';
-import axios from 'axios';
 import {CookieService} from 'ngx-cookie-service';
 import { PreferenceComponent } from './pages/preference/preference.component';
 import { ChatsComponent } from './pages/chats/chats.component';
@@ -25,6 +24,7 @@ import { OfferComponent } from './pages/offer/offer.component';
 import { OfferModalComponent } from './pages/offer-modal/offer-modal.component';
 import { ProfileModalComponent } from './pages/profile-modal/profile-modal.component';
 import { PageLoaderComponent } from './page-loader/page-loader.component';
+import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +47,7 @@ import { PageLoaderComponent } from './page-loader/page-loader.component';
     ProfileModalComponent,
     PageLoaderComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, MatIconModule, MatDialogModule,BrowserAnimationsModule,HammerModule],
+  imports: [BrowserModule, AppRoutingModule, MatIconModule, MatDialogModule,BrowserAnimationsModule,HammerModule, NgxSpinnerModule],
   entryComponents: [AuthModalComponent],
   providers: [ {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}} , CookieService],
   bootstrap: [AppComponent],
