@@ -24,6 +24,7 @@ import { ChatsComponent } from './pages/chats/chats.component';
 import { OfferComponent } from './pages/offer/offer.component';
 import { OfferModalComponent } from './pages/offer-modal/offer-modal.component';
 import { ProfileModalComponent } from './pages/profile-modal/profile-modal.component';
+import { PageLoaderComponent } from './page-loader/page-loader.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { ProfileModalComponent } from './pages/profile-modal/profile-modal.compo
     ChatsComponent,
     OfferComponent,
     OfferModalComponent,
-    ProfileModalComponent
+    ProfileModalComponent,
+    PageLoaderComponent
   ],
   imports: [BrowserModule, AppRoutingModule, MatIconModule, MatDialogModule,BrowserAnimationsModule,HammerModule],
   entryComponents: [AuthModalComponent],
