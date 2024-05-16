@@ -60,6 +60,9 @@ export class AuthModalComponent {
         this.error = 'Passwords need to match!';
         return;
       }
+      if(this.isSignIn && this.email==""){
+        this.error = 'Please fill in all fields!';
+      }
 
       const response = await axios.post(
         `https://fricotpote-backend-1.onrender.com/${
@@ -83,7 +86,6 @@ export class AuthModalComponent {
       if (success && this.isSignIn) {
         this.openSpinner();
         this.dialogRef.close();
-
         this.userService
           .getCurrentUser(this.cookieService.get('UserId'))
           .then((data) => {
