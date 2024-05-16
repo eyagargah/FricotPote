@@ -25,8 +25,7 @@ export class AuthModalComponent {
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: { title: string },
     private cookieService: CookieService,
-    private userService: UserService,
-    private spinner: NgxSpinnerService
+    private userService: UserService
   ) {}
 
   ngOnInit() {
@@ -37,13 +36,7 @@ export class AuthModalComponent {
     }
   }
 
- openSpinner(){
-  this.spinner.show();
 
-    setTimeout(() => {
-         this.spinner.hide();
-    }, 2000);
- }
   setEmail(e: any) {
     this.email = e.target.value;
   }
