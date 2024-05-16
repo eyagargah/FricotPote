@@ -60,8 +60,10 @@ export class AuthModalComponent {
         this.error = 'Passwords need to match!';
         return;
       }
-      if(this.isSignIn && this.email==""){
+      if(this.isSignIn  && (!this.email || !this.currentPwd)){
+        console.log('hello')
         this.error = 'Please fill in all fields!';
+        return
       }
 
       const response = await axios.post(
