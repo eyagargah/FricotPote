@@ -13,7 +13,6 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AuthModalComponent {
   error = ' ';
-
   isSignIn = false;
   email: string | undefined;
   currentPwd: string | undefined;
@@ -37,7 +36,6 @@ export class AuthModalComponent {
     }
   }
 
-
   setEmail(e: any) {
     this.email = e.target.value;
   }
@@ -49,15 +47,14 @@ export class AuthModalComponent {
     this.pwdToCheck = e.target.value;
   }
 
-  openSpinner(){
+  openSpinner() {
     this.spinner.show();
-      setTimeout(() => {
-           this.spinner.hide();
-      }, 2000);
-   }
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
+  }
   submitForm = async (e: any) => {
     e.preventDefault();
-    this.openSpinner()
     try {
       if (!this.isSignIn && this.pwdToCheck != this.currentPwd) {
         this.error = 'Passwords need to match!';
@@ -78,11 +75,13 @@ export class AuthModalComponent {
       const success = response.status === 201;
 
       if (success && !this.isSignIn) {
+        this.openSpinner();
         this.dialogRef.close();
         this.router.navigateByUrl('onboarding');
       }
 
       if (success && this.isSignIn) {
+        this.openSpinner();
         this.dialogRef.close();
 
         this.userService
