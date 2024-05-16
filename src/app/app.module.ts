@@ -24,6 +24,7 @@ import { OfferComponent } from './pages/offer/offer.component';
 import { OfferModalComponent } from './pages/offer-modal/offer-modal.component';
 import { ProfileModalComponent } from './pages/profile-modal/profile-modal.component';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { PageLoaderComponent } from './pages/page-loader/page-loader.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     OfferComponent,
     OfferModalComponent,
     ProfileModalComponent,
+    PageLoaderComponent
   ],
   imports: [BrowserModule, AppRoutingModule, MatIconModule, MatDialogModule,BrowserAnimationsModule,HammerModule, NgxSpinnerModule],
   entryComponents: [AuthModalComponent],
