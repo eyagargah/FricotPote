@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-page-loader',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./page-loader.component.scss']
 })
 export class PageLoaderComponent {
-
+constructor( private spinner: NgxSpinnerService){}
 }
