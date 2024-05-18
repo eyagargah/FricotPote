@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class OfferComponent {
   constructor(private router: Router, private cookiesservice: CookieService , private locationService: LocationService , private userService: UserService ) {}
-  currentUser : any
+  currentUser  = this.userService.getCurrentUser(this.cookiesservice.get('UserId'))
   formData = {
     user_id: this.cookiesservice.get('UserId'),
     date: '',
