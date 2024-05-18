@@ -92,7 +92,6 @@ export class AuthModalComponent {
           .getCurrentUser(this.cookieService.get('UserId'))
           .then((data) => {
             this.currentUser = data;
-            console.log(data.offer);
             this.offer = data.offer;
 
             if (this.offer != undefined) {
