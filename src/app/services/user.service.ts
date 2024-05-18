@@ -10,9 +10,7 @@ export class UserService {
   selectedUser: any
   currentUserId : any
   matches :  any;
-  constructor(private cookiesServices: CookieService) { }
-
-
+  
  getCurrentUser = async (userId:any) => {
   try {
     const response = await axios.get('https://fricotpote-backend-1.onrender.com/user',{
