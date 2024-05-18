@@ -11,10 +11,7 @@ export class UserService {
   currentUserId : any
   matches :  any;
   constructor(private cookiesServices: CookieService) { }
-  getCurrentUserId(){
-    this.currentUserId = this.cookiesServices.get('user_id')
-    return this.cookiesServices.get('user_id')
-  }
+
 
  getCurrentUser = async (userId:any) => {
   try {
