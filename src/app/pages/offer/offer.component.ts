@@ -14,7 +14,9 @@ export class OfferComponent {
   constructor(private router: Router, private cookiesservice: CookieService , private locationService: LocationService , private userService: UserService ) {}
   currentUser : any
   ngOnInit(){
-    this.currentUser  = this.userService.getCurrentUser(this.cookiesservice.get('UserId'))
+    this.userService.getCurrentUser(this.cookiesservice.get('UserId')).then((x)=> {
+      this.currentUser = x
+    })
     console.log(this.currentUser)
   }
   formData = {
