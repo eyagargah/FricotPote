@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
 import { LocationService } from 'src/app/services/location.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-offer',
@@ -10,7 +11,8 @@ import { LocationService } from 'src/app/services/location.service';
   styleUrls: ['./offer.component.scss'],
 })
 export class OfferComponent {
-  constructor(private router: Router, private cookiesservice: CookieService , private locationService: LocationService) {}
+  constructor(private router: Router, private cookiesservice: CookieService , private locationService: LocationService , private userService: UserService ) {}
+  currentUser : any
   formData = {
     user_id: this.cookiesservice.get('UserId'),
     date: '',
