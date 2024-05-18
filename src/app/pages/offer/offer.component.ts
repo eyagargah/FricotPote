@@ -13,6 +13,9 @@ import { UserService } from 'src/app/services/user.service';
 export class OfferComponent {
   constructor(private router: Router, private cookiesservice: CookieService , private locationService: LocationService , private userService: UserService ) {}
   currentUser  = this.userService.getCurrentUser(this.cookiesservice.get('UserId'))
+  ngOnInit(){
+    console.log(this.currentUser)
+  }
   formData = {
     user_id: this.cookiesservice.get('UserId'),
     date: '',
@@ -30,6 +33,7 @@ export class OfferComponent {
         break;
       case 'date':
         this.formData.date = value;
+        
         break;
     }
   }
