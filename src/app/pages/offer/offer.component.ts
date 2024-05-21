@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import axios from 'axios';
 import { CookieService } from 'ngx-cookie-service';
-import { LocationService } from 'src/app/services/location.service';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-offer',
@@ -11,24 +9,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./offer.component.scss'],
 })
 export class OfferComponent {
-  constructor(
-    private router: Router,
-    private cookiesservice: CookieService,
-    private userService: UserService
-  ) {}
-  currentUser: any;
-  ngOnInit() {
-    setTimeout(this.getCurrentUser, 500)
-  }
-
-  getCurrentUser() {
-    this.userService
-      .getCurrentUser(this.cookiesservice.get('UserId'))
-      .then((x) => {
-        this.currentUser = x;
-      });
-      console.log(this.currentUser);
-  }
+  constructor(private router: Router, private cookiesservice: CookieService) {}
 
   formData = {
     user_id: this.cookiesservice.get('UserId'),
