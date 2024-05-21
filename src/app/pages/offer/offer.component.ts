@@ -11,14 +11,25 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./offer.component.scss'],
 })
 export class OfferComponent {
-  constructor(private router: Router, private cookiesservice: CookieService , private locationService: LocationService , private userService: UserService ) {}
-  currentUser : any
-  ngOnInit(){
-    this.userService.getCurrentUser(this.cookiesservice.get('UserId')).then((x)=> {
-      this.currentUser = x
-    })
-    console.log(this.currentUser)
+  constructor(
+    private router: Router,
+    private cookiesservice: CookieService,
+    private locationService: LocationService,
+    private userService: UserService
+  ) {}
+  currentUser: any;
+  ngOnInit() {
+    console.log(this.currentUser);
   }
+
+  getCurrentUser() {
+    this.userService
+      .getCurrentUser(this.cookiesservice.get('UserId'))
+      .then((x) => {
+        this.currentUser = x;
+      });
+  }
+
   formData = {
     user_id: this.cookiesservice.get('UserId'),
     date: '',
@@ -36,7 +47,7 @@ export class OfferComponent {
         break;
       case 'date':
         this.formData.date = value;
-        
+
         break;
     }
   }
