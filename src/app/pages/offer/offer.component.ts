@@ -14,12 +14,11 @@ export class OfferComponent {
   constructor(
     private router: Router,
     private cookiesservice: CookieService,
-    private locationService: LocationService,
     private userService: UserService
   ) {}
   currentUser: any;
   ngOnInit() {
-    console.log(this.currentUser);
+    setTimeout(this.getCurrentUser, 500)
   }
 
   getCurrentUser() {
@@ -28,6 +27,7 @@ export class OfferComponent {
       .then((x) => {
         this.currentUser = x;
       });
+      console.log(this.currentUser);
   }
 
   formData = {
