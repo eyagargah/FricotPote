@@ -52,6 +52,8 @@
             left: 1rem;
           }
           .offerDetails {
+            align-self: center;
+            width: 50%;
             font-size: 1.5rem;
             display: flex;
             justify-content: space-between;
@@ -68,6 +70,7 @@
             .time {
               background-color: lightgray;
               border-radius: 15px;
+              padding: 0.5rem;
             }
           }
         }
