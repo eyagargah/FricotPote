@@ -25,7 +25,6 @@
                 {{ filteredUsers[index].age }} &nbsp;
                 <mat-icon>check_circle_outline</mat-icon>
               </div>
-
             <div class="offerDetails">
                 <div class="date">
                   {{ filteredUsers[index].offer[0].date }}
@@ -38,7 +37,6 @@
         </div>
       </div>
     </div>
-
     <div class="card-control">
       <div class="replay" (click)="reload()"><mat-icon>replay</mat-icon></div>
       <div (click)="cardAnimation('swipeleft')" class="reject">X</div>
