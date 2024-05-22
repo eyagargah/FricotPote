@@ -29,7 +29,7 @@ export class AuthModalComponent {
   ) {}
 
   ngOnInit() {
-    this.dialogRef.updateSize('30%', '80%');
+    this.dialogRef.updateSize('30%', '60%');
 
     if (this.data.title == 'Log in!') {
       this.isSignIn = true;
