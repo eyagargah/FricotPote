@@ -46,12 +46,14 @@
           height: 150px;
           bottom: 0;
           .userDetails {
+            align-items: center;
             color: black;
             font-weight: 700;
             font-size: 2rem;
             left: 1rem;
           }
           .offerDetails {
+            border:solid black 2px;
             align-self: center;
             width: 50%;
             font-size: 1.5rem;
@@ -59,7 +61,7 @@
             justify-content: space-between;
             align-items: center;
             position: absolute;
-            left:2rem;
+            left:25%;
             color: black;
             .date {
               background-color: lightgray;
