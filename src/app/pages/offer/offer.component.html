@@ -81,7 +81,8 @@
           </div>
         </div>
         <div class="payment">
-          <label for="payment" class="payment">who's paying</label>
+          <div class="me">
+            <label for="payment" class="payment">who's paying</label>
             <input
               type="radio"
               id="me"
@@ -90,9 +91,8 @@
               value="on me"
               (click)="handleChange($event)"
             />
-            <label for="coffee_date">
-              Coffee</label
-            >
+            <label for="coffee_date"> On me</label>
+          </div>
         </div>
       </form>
       <div class="actions">
