@@ -81,17 +81,36 @@
           </div>
         </div>
         <div class="payment">
-          <div class="me">
-            <label for="payment" class="payment">who's paying</label>
-            <input
-              type="radio"
-              id="me"
-              name="payment"
-              required
-              value="on me"
-              (click)="handleChange($event)"
-            />
-            <label for="coffee_date"> On me</label>
+          <label for="payment" class="payment">who's paying</label>
+          <div class="payment">
+            <div class="dinner">
+              <input
+                type="radio"
+                id="dinner_date"
+                name="date"
+                required
+                value="dinner"
+                (click)="handleChange($event)"
+              />
+
+              <label for="dinner_date">
+                <mat-icon> fastfood</mat-icon> Dinner</label
+              >
+            </div>
+
+            <div class="coffee">
+              <input
+                type="radio"
+                id="coffee_date"
+                name="date"
+                required
+                value="coffee"
+                (click)="handleChange($event)"
+              />
+              <label for="coffee_date">
+                <mat-icon> local_cafe</mat-icon> Coffee</label
+              >
+            </div>
           </div>
         </div>
       </form>
