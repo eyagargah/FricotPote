@@ -81,9 +81,9 @@
           </div>
         </div>
         <div class="payment">
-          <label for="payment" class="payment">who's paying</label>
+          <label for="payment" class="payment">who's offering?</label>
           <div class="payment">
-            <div class="dinner">
+            <div class="onMe">
               <input
                 type="radio"
                 id="dinner_date"
@@ -94,17 +94,30 @@
               />
 
               <label for="dinner_date">
-                <mat-icon> fastfood</mat-icon> Dinner</label
+                Dinner</label
               >
             </div>
 
-            <div class="coffee">
+            <div class="onYou">
               <input
                 type="radio"
                 id="coffee_date"
                 name="date"
                 required
                 value="coffee"
+                (click)="handleChange($event)"
+              />
+              <label for="coffee_date">
+                <mat-icon> local_cafe</mat-icon> Coffee</label
+              >
+            </div>
+            <div class="split">
+              <input
+                type="radio"
+                id="split"
+                name="payment"
+                required
+                value="split"
                 (click)="handleChange($event)"
               />
               <label for="coffee_date">
