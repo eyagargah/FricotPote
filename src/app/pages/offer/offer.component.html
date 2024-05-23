@@ -82,6 +82,17 @@
         </div>
         <div class="payment">
           <label for="payment" class="payment">who's paying</label>
+            <input
+              type="radio"
+              id="me"
+              name="payment"
+              required
+              value="on me"
+              (click)="handleChange($event)"
+            />
+            <label for="coffee_date">
+              Coffee</label
+            >
         </div>
       </form>
       <div class="actions">
