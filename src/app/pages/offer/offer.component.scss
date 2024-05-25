@@ -101,6 +101,11 @@
           align-items: start;
           justify-content: start;
           margin: 0 34%;
+
+          input {
+            visibility: hidden;
+            margin: 10px 0;
+          }
         }
       }
     }
