@@ -91,29 +91,26 @@
         label {
           color: gray;
           font-size: 1.2rem;
-          padding: 1rem 0;
-          margin: 1rem 0;
-          width: 9rem;
         }
         .payment-multiple-input {
-          padding: 0;
           display: flex;
           align-items: start;
           justify-content: start;
           margin: 0 34%;
-
-          input {
-            visibility: hidden;
-            margin: 10px 0;
-
-          }
-          label {
-            border: solid 2px rgb(144, 144, 144);
-            border-radius: 10px;
-            transition: all 0.3s;
-            padding: 1rem 0;
-            margin: 1rem 0;
-            width: 9rem;
+          div {
+            margin-top: 2rem;
+            input {
+              visibility: hidden;
+              margin: 10px 0;
+            }
+            label {
+              border: solid 2px rgb(144, 144, 144);
+              border-radius: 10px;
+              transition: all 0.3s;
+              padding: 1rem 0.5rem;
+              margin: 2rem;
+              width: 9rem;
+            }
           }
         }
       }
