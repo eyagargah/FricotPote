@@ -105,6 +105,12 @@
           input {
             visibility: hidden;
             margin: 10px 0;
+
+          }
+          label {
+            border: solid 2px rgb(144, 144, 144);
+            border-radius: 10px;
+            transition: all 0.3s;
           }
         }
       }
