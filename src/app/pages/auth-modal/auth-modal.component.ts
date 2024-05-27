@@ -60,8 +60,7 @@ export class AuthModalComponent {
         this.error = 'Passwords need to match!';
         return;
       }
-      if(this.isSignIn  && (!this.email || !this.currentPwd)){
-        console.log('hello')
+      if(!this.email || !this.currentPwd){
         this.error = 'Please fill in all fields!';
         return
       }
