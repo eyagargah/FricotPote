@@ -93,6 +93,9 @@
       }
 
       .payment {
+        input[type="radio"]:checked + label {
+          border: solid 2px rgb(235, 115, 115);
+        }
         label {
           color: gray;
           font-size: 1.2rem;
