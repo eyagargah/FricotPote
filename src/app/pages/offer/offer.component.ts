@@ -15,6 +15,7 @@ export class OfferComponent {
     user_id: this.cookiesservice.get('UserId'),
     date: '',
     dateTime: '',
+    payement : ''
   };
   skipOffer() {
     this.router.navigateByUrl('dashboard');
@@ -22,15 +23,16 @@ export class OfferComponent {
   handleChange(event: any) {
     const value = event.target.value;
     const name = event.target.name;
-    console.log(event.target)
     switch (name) {
       case 'dateTime':
         this.formData.dateTime = value;
         break;
       case 'date':
         this.formData.date = value;
-
         break;
+      case 'payement':
+        this.formData.payement = value;
+        break
     }
   }
 
