@@ -87,30 +87,30 @@
           <div class="payment-multiple-input">
             <input
               type="radio"
-              id="morning_date_time"
-              name="dateTime"
+              id="me-payement"
+              name="payment"
               required
-              value="Me"
+              value="me"
               (click)="handleChange($event)"
             />
             <label for="morning_date_time">On me</label>
 
             <input
               type="radio"
-              id="evening_date_time"
-              name="dateTime"
+              id="you-payement"
+              name="payment"
               required
-              value="Evening"
+              value="you"
               (click)="handleChange($event)"
             />
             <label for="evening_date_time">On you</label>
 
             <input
               type="radio"
-              id="night_date_time"
-              name="dateTime"
+              id="split-payement"
+              name="payment"
               required
-              value="Night"
+              value="split"
               (click)="handleChange($event)"
             />
             <label for="night_date_time">Split</label>
