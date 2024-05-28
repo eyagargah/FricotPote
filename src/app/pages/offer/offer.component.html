@@ -80,20 +80,20 @@
             <label for="night_date_time">Night</label>
           </div>
         </div>
-        <div class="time">
+        <div class="payment">
           <label for="preferredTime" class="preferredTime"
-            >Preferred time</label
+            >Who's offering?</label
           >
-          <div class="time-multiple-input">
+          <div class="payment-multiple-input">
             <input
               type="radio"
               id="morning_date_time"
               name="dateTime"
               required
-              value="Morning"
+              value="Me"
               (click)="handleChange($event)"
             />
-            <label for="morning_date_time">Morning</label>
+            <label for="morning_date_time">On me</label>
 
             <input
               type="radio"
@@ -103,7 +103,7 @@
               value="Evening"
               (click)="handleChange($event)"
             />
-            <label for="evening_date_time">Evening</label>
+            <label for="evening_date_time">On you</label>
 
             <input
               type="radio"
@@ -113,7 +113,7 @@
               value="Night"
               (click)="handleChange($event)"
             />
-            <label for="night_date_time">Night</label>
+            <label for="night_date_time">Split</label>
           </div>
         </div>
       </form>
