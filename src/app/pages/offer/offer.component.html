@@ -80,50 +80,40 @@
             <label for="night_date_time">Night</label>
           </div>
         </div>
-        <div class="payment">
-          <label for="payment" class="payment">who's offering?</label>
-          <div class="payment-multiple-input">
-            <div class="onMe">
-              <input
-                type="radio"
-                id="onMe"
-                name="payment"
-                required
-                value="onMe"
-                (click)="handleChange($event)"
-              />
+        <div class="time">
+          <label for="preferredTime" class="preferredTime"
+            >Preferred time</label
+          >
+          <div class="time-multiple-input">
+            <input
+              type="radio"
+              id="morning_date_time"
+              name="dateTime"
+              required
+              value="Morning"
+              (click)="handleChange($event)"
+            />
+            <label for="morning_date_time">Morning</label>
 
-              <label for="onMe">
-                On Me</label
-              >
-            </div>
+            <input
+              type="radio"
+              id="evening_date_time"
+              name="dateTime"
+              required
+              value="Evening"
+              (click)="handleChange($event)"
+            />
+            <label for="evening_date_time">Evening</label>
 
-            <div class="onYou">
-              <input
-                type="radio"
-                id="onyou"
-                name="payment"
-                required
-                value="onyou"
-                (click)="handleChange($event)"
-              />
-              <label for="onyou">
-                On You</label
-              >
-            </div>
-            <div class="split">
-              <input
-                type="radio"
-                id="split"
-                name="payment"
-                required
-                value="split"
-                (click)="handleChange($event)"
-              />
-              <label for="split">
-                Split</label
-              >
-            </div>
+            <input
+              type="radio"
+              id="night_date_time"
+              name="dateTime"
+              required
+              value="Night"
+              (click)="handleChange($event)"
+            />
+            <label for="night_date_time">Night</label>
           </div>
         </div>
       </form>
