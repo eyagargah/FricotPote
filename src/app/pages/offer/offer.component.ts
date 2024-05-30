@@ -30,7 +30,7 @@ export class OfferComponent {
       case 'date':
         this.formData.date = value;
         break;
-      case 'payement':
+      case 'payment':
         this.formData.payment = value;
         break
     }
