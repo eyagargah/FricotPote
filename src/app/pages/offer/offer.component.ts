@@ -15,7 +15,7 @@ export class OfferComponent {
     user_id: this.cookiesservice.get('UserId'),
     date: '',
     dateTime: '',
-    payement : ''
+    payment : ''
   };
   skipOffer() {
     this.router.navigateByUrl('dashboard');
@@ -31,7 +31,7 @@ export class OfferComponent {
         this.formData.date = value;
         break;
       case 'payement':
-        this.formData.payement = value;
+        this.formData.payment = value;
         break
     }
   }
