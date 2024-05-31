@@ -45,7 +45,8 @@ export class DashboardComponent {
 
     setTimeout(this.getUser, 500);
     setTimeout(this.getGenderedUsers, 1000);
-    //setTimeout(this.updateMatchedUsers,1100)
+    setTimeout(this.updateMatchedUsers,1100)
+    
   }
 
   getSelectedUser(selectedUser: any) {
@@ -113,9 +114,11 @@ export class DashboardComponent {
   updateMatchedUsers = async () => {
     for (let i = 0; i < this.likes.length; i++) {
       for (let j = 0; j < this.likes[i].user.likes.length; j++) {
+        console.table(this.likes[i].user.likes[j])
         if (
           this.likes[i].user.likes[j].user.user_id == this.currentUser.user_id
         ) {
+          
           this.updateMatches(
             this.likes[i].user.likes[j].user.user_id,
             this.currentUser
@@ -123,6 +126,7 @@ export class DashboardComponent {
         }
       }
     }
+   
   };
 
   //check if current card (user) swiped right on me
