@@ -1,17 +1,18 @@
 .chat-input {
-    position: absolute;
-    padding: 20px 5px;
-    width: 15rem;
-    max-width: 15rem;
-    display: flex;
-    flex-direction: column;
-    bottom: 0;
-    textarea {
-        resize: none;
-        
-    }
-    button {
-        align-self: center;
-        width: 90%;
-    }
+  position: absolute;
+  padding: 20px 5px;
+  width: 19rem;
+  max-width: 19rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 0;
+  textarea {
+    resize: none;
+    width: 100%;
+  }
+  button {
+    align-self: center;
+    width: 100%;
+  }
 }
