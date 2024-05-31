@@ -1,4 +1,10 @@
 .chat-container {
+    .options {
+        display: flex;
+        .option {
+            width: 50%;
+        }
+    }
     button {
         cursor: pointer;
     }
