@@ -1,10 +1,13 @@
 .chat-input {
     position: absolute;
     padding: 20px 5px;
+    width: 15rem;
+    max-width: 15rem;
     display: flex;
     flex-direction: column;
     bottom: 0;
     textarea {
         resize: none;
+        width: 90%;
     }
 }
