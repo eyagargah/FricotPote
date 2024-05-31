@@ -27,6 +27,7 @@ import { OfferComponent } from './pages/offer/offer.component';
 import { ProfileModalComponent } from './pages/profile-modal/profile-modal.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { PageLoaderComponent } from './pages/page-loader/page-loader.component';
+import { MatchedModalComponent } from './pages/matched-modal/matched-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,7 @@ import { PageLoaderComponent } from './pages/page-loader/page-loader.component';
     OfferComponent,
     ProfileModalComponent,
     PageLoaderComponent,
+    MatchedModalComponent,
   ],
   imports: [
     BrowserModule,
