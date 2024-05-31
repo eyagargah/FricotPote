@@ -48,7 +48,10 @@ export class OfferComponent {
       );
       const succes = response.status === 200;
 
-      if (succes) this.router.navigateByUrl('dashboard');
+      if (succes) {
+        console.log("offer added!")
+        this.router.navigateByUrl('dashboard');
+      }
     } catch (err) {
       console.log(err);
     }
