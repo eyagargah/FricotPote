@@ -47,6 +47,10 @@ export class AuthModalComponent {
     this.pwdToCheck = e.target.value;
   }
 
+  async sleep(seconds:any){
+    return new Promise((resolve)=> setTimeout(resolve , seconds*1000))
+  }
+
   openSpinner() {
     this.spinner.show();
     setTimeout(() => {
@@ -80,12 +84,14 @@ export class AuthModalComponent {
 
       if (success && !this.isSignIn) {
         this.openSpinner();
+        await this.sleep(2)
         this.dialogRef.close();
         this.router.navigateByUrl('onboarding');
       }
 
       if (success && this.isSignIn) {
         this.openSpinner();
+        await this.sleep(2)
         this.dialogRef.close();
         this.userService
           .getCurrentUser(this.cookieService.get('UserId'))
