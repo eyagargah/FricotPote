@@ -29,10 +29,11 @@
         }
 
         .location {
+          padding: 0.5em;
           background-color: blue;
-          border-radius: 5px;
+          border-radius: 15px;
           position: absolute;
-          bottom: 10rem;
+          bottom: 8rem;
           left:10rem;
           z-index: 2;
           color: white;
