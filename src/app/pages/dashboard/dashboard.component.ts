@@ -35,7 +35,6 @@ export class DashboardComponent {
   unmatchedUsers: any;
   filteredUsers: any = [];
   likes: any;
-  found: boolean = false;
   filteredGenderedUsers: any;
 
   ngOnInit() {
