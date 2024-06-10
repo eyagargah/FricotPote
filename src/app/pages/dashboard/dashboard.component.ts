@@ -103,8 +103,6 @@ export class DashboardComponent {
         );
       }
       this.getUser();
-      
-      this.found = false;
     } catch (err) {
       console.log(err);
     }
