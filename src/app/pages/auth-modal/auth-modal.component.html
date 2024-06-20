@@ -23,18 +23,19 @@
           required
           (change)="setEmail($any($event))"
         />
-        <div class="currentPwd">
-          <input
-            type="password"
-            id="password-current"
-            name="password-current"
-            placeholder="password"
-            autocomplete="on"
-            required
-            (change)="setPwd($any($event))"
-          />
-          <img src="../../../assets/icons8-visible-24.png" alt="show pwd icon" (click)="showPwd()">
-        </div>
+
+        <input
+          type="password"
+          id="password-current"
+          name="password-current"
+          placeholder="password"
+          autocomplete="on"
+          required
+          (change)="setPwd($any($event))"
+        />
+        <button (click)="showPwd()">
+          <i class="fa fa-eye" aria-hidden="true"></i>
+        </button>
         <input
           type="password"
           autocomplete="on"
