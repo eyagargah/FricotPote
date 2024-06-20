@@ -21,6 +21,20 @@
             font-size: 1rem;
             cursor: pointer;
         }
+        .currentPwd {
+            border: solid 2px black;
+            border-radius: 3rem;
+            font-size: 1rem;
+            align-items: baseline;
+            img {
+                border: solid 1px black;
+                align-self: center;
+                cursor: pointer;
+            }
+            input {
+                border: none;
+            }
+        }
         .errorMsg {
             color:#FE5248 ;
         }
