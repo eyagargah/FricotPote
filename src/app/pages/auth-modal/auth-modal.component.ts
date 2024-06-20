@@ -36,6 +36,17 @@ export class AuthModalComponent {
     }
   }
 
+   showPwd() {
+    console.log('clicked')
+    var x = document.getElementById("password-current") as HTMLInputElement;
+   
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+  
+  }
   setEmail(e: any) {
     this.email = e.target.value;
   }
