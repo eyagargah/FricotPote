@@ -26,6 +26,7 @@ export class HomeComponent {
     else {
       this.fileNameDialogRef = this.dialog.open(AuthModalComponent, {
         data: { title: 'Create Account' },
+        panelClass:'auth-modal'
       });
     }
    
