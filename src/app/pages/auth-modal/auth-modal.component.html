@@ -32,6 +32,9 @@
           required
           (change)="setPwd($any($event))"
         />
+        <div class="showPwd" [hidden]="isSignIn">
+          <input type="checkbox" onclick="myFunction()" />Show Password
+        </div>
         <input
           type="password"
           autocomplete="on"
@@ -52,5 +55,6 @@
         />
         <p class="errorMsg">{{ error }}</p>
       </form>
+    </div>
   </div>
 </div>
