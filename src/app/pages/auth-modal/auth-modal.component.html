@@ -32,7 +32,7 @@
           required
           (change)="setPwd($any($event))"
         />
-        <div class="showPwd" [hidden]="isSignIn">
+        <div class="showPwd" [hidden]="!isSignIn">
           <input type="checkbox" onclick="myFunction()" />Show Password
         </div>
         <input
