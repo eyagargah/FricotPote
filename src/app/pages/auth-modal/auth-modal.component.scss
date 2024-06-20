@@ -1,48 +1,34 @@
-.authModal{
-    border-radius: 20px !important;
+.authModal {
+  border-radius: 20px !important;
+  margin: 1rem;
+  .header {
+    float: right;
+  }
+  .content {
     margin: 1rem;
-    .header {
-        float: right;
 
+    .logo img {
+      width: 4rem;
     }
-    .content {
-    margin: 1rem;
+    form {
+      display: flex;
+      flex-direction: column;
+      input {
+        border-radius: 3rem;
+        padding: 8px;
+        margin: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
 
-       .logo img{
-        width: 4rem;
-       }
-       form{
-        display: flex;
-        flex-direction: column;
-        input {
-            border-radius: 3rem;
-            padding: 8px;
-            margin: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-        .currentPwd {
-            border: solid 2px black;
-            border-radius: 3rem;
-            font-size: 1rem;
-            align-items: baseline;
-            img {
-                border: solid 1px black;
-                align-self: center;
-                cursor: pointer;
-            }
-            input {
-                border: none;
-            }
-        }
-        .errorMsg {
-            color:#FE5248 ;
-        }
-       }
+      .errorMsg {
+        color: #fe5248;
+      }
     }
-   .footer {
+  }
+  .footer {
     h2 {
-        font-style: italic;
+      font-style: italic;
     }
-   } 
+  }
 }
