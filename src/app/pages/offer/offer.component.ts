@@ -23,7 +23,6 @@ export class OfferComponent {
   handleChange(event: any) {
     const value = event.target.value;
     const name = event.target.name;
-    console.log(name)
     switch (name) {
       case 'dateTime':
         this.formData.dateTime = value;
