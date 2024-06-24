@@ -121,7 +121,7 @@ export class DashboardComponent {
             this.likes[i].user.likes[j].user.user_id,
             this.currentUser
           );
-          //update the swiped user match list
+          //update the swiped user match 
           this.updateMatches(
             this.userId,
             this.likes[i].user.likes[j].user
