@@ -115,6 +115,7 @@ export class DashboardComponent {
         if (
           this.likes[i].user.likes[j].user.user_id == this.currentUser.user_id
         ) {
+          //update current user matches
           
           this.updateMatches(
             this.likes[i].user.likes[j].user.user_id,
