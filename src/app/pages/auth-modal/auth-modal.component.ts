@@ -68,6 +68,7 @@ export class AuthModalComponent {
       this.spinner.hide();
     }, 2000);
   }
+  
   submitForm = async (e: any) => {
     e.preventDefault();
     try {
