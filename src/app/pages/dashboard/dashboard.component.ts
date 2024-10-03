@@ -111,7 +111,6 @@ export class DashboardComponent {
   updateMatchedUsers = async () => {
     for (let i = 0; i < this.likes.length; i++) {
       for (let j = 0; j < this.likes[i].user.likes.length; j++) {
-        console.table(this.likes[i].user.likes[j])
         if (
           this.likes[i].user.likes[j].user.user_id == this.currentUser.user_id
         ) {
