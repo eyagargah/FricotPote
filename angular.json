@@ -31,7 +31,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/ngx-spinner/animations/ball-clip-rotate-multiple.css"
+              "node_modules/ngx-spinner/animations/ball-clip-rotate-multiple.css",
+              "node_modules/material-design-icons/iconfont/material-icons.css"
             ],
             "scripts": []
           },
